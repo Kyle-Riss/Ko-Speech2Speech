@@ -357,3 +357,4 @@ class StreamSpeechWithPunctuationAgent(StreamSpeechS2STAgent):
             finished=self.states.target_finished,
         )
 
+

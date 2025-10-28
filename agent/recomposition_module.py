@@ -443,3 +443,4 @@ if __name__ == "__main__":
     print(f"\n3. Final stats:")
     print(f"   {recomposer.get_stats()}")
 
+

@@ -304,3 +304,4 @@ if __name__ == "__main__":
     # Print stats
     print(f"\nStats: {detector.get_stats()}")
 
+

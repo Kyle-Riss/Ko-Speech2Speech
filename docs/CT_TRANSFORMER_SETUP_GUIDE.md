@@ -530,3 +530,4 @@ class CustomRecomposition(RecompositionModule):
 2. 로그 파일 첨부
 3. 실행 환경 정보 포함
 
+
