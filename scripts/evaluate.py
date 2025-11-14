@@ -12,11 +12,15 @@ from pathlib import Path
 import json
 import sys
 import os
+from typing import Optional
+import yaml
 
-# Add models directory to path
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'models'))
+ROOT_DIR = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(ROOT_DIR))
+sys.path.insert(0, str(ROOT_DIR / 'models'))
 
 from echostream_model import build_echostream_model, EchoStreamConfig
+from datasets import S2STManifestDataset
 
 logging.basicConfig(
     level=logging.INFO,
@@ -100,6 +104,12 @@ def evaluate_model(args):
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     logger.info(f"Device: {device}")
     
+    # Load config
+    config_dict = {}
+    if args.config:
+        with open(args.config) as f:
+            config_dict = yaml.safe_load(f)
+    
     # Model config
     config = EchoStreamConfig()
     
@@ -123,26 +133,79 @@ def evaluate_model(args):
     model = model.to(device)
     model.eval()
     
+    # Dataset
+    data_cfg = config_dict.get('data', {})
+    config_dir = Path(args.config).resolve().parent if args.config else ROOT_DIR
+
+    def resolve_optional_path(value: Optional[str]) -> Optional[str]:
+        if value is None:
+            return None
+        path = Path(value)
+        if not path.is_absolute():
+            path = (config_dir / path).resolve()
+        return str(path)
+
+    test_manifest = args.test_manifest or data_cfg.get('test_manifest')
+    test_manifest_path = resolve_optional_path(test_manifest)
+    if test_manifest_path is None:
+        raise ValueError("Test manifest must be provided via --test-manifest or config[data.test_manifest].")
+
+    data_root = resolve_optional_path(data_cfg.get('data_root'))
+    global_cmvn = resolve_optional_path(data_cfg.get('global_cmvn_stats_npz'))
+    units_root = resolve_optional_path(data_cfg.get('units_root'))
+    src_vocab_path = resolve_optional_path(data_cfg.get('src_dict'))
+    tgt_vocab_path = resolve_optional_path(data_cfg.get('tgt_dict'))
+
+    streaming_cfg = config_dict.get('streaming', {})
+    streaming_chunk_ms = streaming_cfg.get('chunk_size_ms', streaming_cfg.get('chunk_size'))
+    streaming_hop_ms = streaming_cfg.get('chunk_hop_ms', streaming_cfg.get('chunk_hop'))
+
+    test_dataset = S2STManifestDataset(
+        manifest_path=test_manifest_path,
+        data_root=data_root,
+        units_root=units_root,
+        sample_rate=data_cfg.get('sample_rate', 16000),
+        num_mel_bins=data_cfg.get('num_mel_bins', 80),
+        src_vocab_path=src_vocab_path,
+        tgt_vocab_path=tgt_vocab_path,
+        text_level=data_cfg.get('tokenize_level', 'word'),
+        global_cmvn_stats=global_cmvn,
+        load_waveform=data_cfg.get('load_waveform', False),
+        load_tgt_audio=data_cfg.get('load_tgt_audio', False),
+        load_tgt_units=data_cfg.get('load_tgt_units', False),
+        streaming_chunk_ms=streaming_chunk_ms,
+        streaming_hop_ms=streaming_hop_ms,
+        min_duration=data_cfg.get('min_duration'),
+        max_duration=data_cfg.get('max_duration'),
+        pad_value=data_cfg.get('pad_value', 0.0),
+    )
+
+    logger.info(f"Loaded test manifest: {test_manifest_path}")
+    logger.info(f"Total samples: {len(test_dataset)}")
+
     # Evaluator
     evaluator = EchoStreamEvaluator(model, device)
     
     # Evaluate on test set
     logger.info("\nEvaluating...")
     
-    # Dummy test data (replace with actual test set)
-    num_test_samples = 10
-    
-    for i in range(num_test_samples):
-        # Generate dummy audio
-        audio = torch.randn(100, 80)  # [T, F]
+    for idx, sample in enumerate(test_dataset, start=1):
+        audio = sample['speech']
+        reference_text = sample.get('tgt_text')
         
-        # Evaluate
-        output = evaluator.evaluate_sample(audio)
+        output = evaluator.evaluate_sample(audio, reference_text)
         
         evaluator.total_samples += 1
-        evaluator.outputs.append(output)
+        evaluator.outputs.append(
+            {
+                'id': sample['id'],
+                'reference_text': reference_text,
+                'predictions': output,
+            }
+        )
         
-        logger.info(f"Sample {i+1}/{num_test_samples} processed")
+        if idx % 10 == 0 or idx == len(test_dataset):
+            logger.info(f"Processed {idx}/{len(test_dataset)} samples")
     
     # Compute metrics
     metrics = evaluator.compute_metrics()
@@ -157,10 +220,15 @@ def evaluate_model(args):
     if args.output:
         output_path = Path(args.output)
         output_path.parent.mkdir(parents=True, exist_ok=True)
-        
-        with open(output_path, 'w') as f:
-            json.dump(metrics, f, indent=2)
-        
+
+        results_payload = {
+            "metrics": metrics,
+            "samples": evaluator.outputs,
+        }
+
+        with open(output_path, 'w', encoding='utf-8') as f:
+            json.dump(results_payload, f, indent=2, ensure_ascii=False)
+
         logger.info(f"\nResults saved to: {output_path}")
     
     return metrics
@@ -215,12 +283,16 @@ def evaluate_with_simuleval(args):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="EchoStream Evaluation")
     
+    # Configuration
+    parser.add_argument("--config", type=str, default=None, help="Path to YAML configuration file.")
+    
     # Model
     parser.add_argument("--checkpoint", type=str, required=True, help="Model checkpoint")
     
     # Data
-    parser.add_argument("--source", type=str, default=None, help="Source audio list")
-    parser.add_argument("--target", type=str, default=None, help="Target text")
+    parser.add_argument("--test-manifest", type=str, default=None, help="Test manifest TSV path")
+    parser.add_argument("--source", type=str, default=None, help="Source audio list (SimulEval)")
+    parser.add_argument("--target", type=str, default=None, help="Target text (SimulEval)")
     
     # Output
     parser.add_argument("--output", type=str, default="results/metrics.json")

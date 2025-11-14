@@ -6,98 +6,28 @@ Train EchoStream model for simultaneous speech-to-speech translation.
 
 import torch
 import torch.nn as nn
-from torch.utils.data import DataLoader, Dataset
+from torch.utils.data import DataLoader
 import argparse
 import logging
 from pathlib import Path
 import yaml
 import sys
 import os
+from typing import Optional
 
-# Add models directory to path
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'models'))
+# Add project directories to path
+ROOT_DIR = os.path.join(os.path.dirname(__file__), '..')
+sys.path.insert(0, os.path.abspath(ROOT_DIR))
+sys.path.insert(0, os.path.join(os.path.abspath(ROOT_DIR), 'models'))
 
 from echostream_model import build_echostream_model, EchoStreamConfig
+from datasets import S2STManifestDataset, collate_s2st_batches
 
 logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s | %(levelname)s | %(message)s'
 )
 logger = logging.getLogger(__name__)
-
-
-class S2STDataset(Dataset):
-    """
-    Speech-to-Speech Translation Dataset.
-    
-    In production, replace with actual data loading from TSV files.
-    """
-    
-    def __init__(self, manifest_path: str, config: dict):
-        self.manifest_path = manifest_path
-        self.config = config
-        
-        # Dummy data for demonstration
-        self.data = self._load_data()
-    
-    def _load_data(self):
-        """Load data from manifest (TSV format in production)."""
-        # Dummy data
-        return [
-            {
-                'speech': torch.randn(100, 80),  # [T, F]
-                'speech_length': 100,
-                'target_text': torch.randint(0, 6000, (20,)),  # [T_text]
-                'target_length': 20,
-            }
-            for _ in range(100)  # 100 samples
-        ]
-    
-    def __len__(self):
-        return len(self.data)
-    
-    def __getitem__(self, idx):
-        return self.data[idx]
-
-
-def collate_fn(batch):
-    """Collate batch for training."""
-    # Sort by length
-    batch = sorted(batch, key=lambda x: x['speech_length'], reverse=True)
-    
-    # Get max lengths
-    max_speech_len = max(x['speech_length'] for x in batch)
-    max_text_len = max(x['target_length'] for x in batch)
-    
-    # Pad sequences
-    speech_batch = []
-    speech_lengths = []
-    text_batch = []
-    text_lengths = []
-    
-    for item in batch:
-        # Pad speech
-        speech = item['speech']
-        pad_len = max_speech_len - speech.size(0)
-        if pad_len > 0:
-            speech = torch.cat([speech, torch.zeros(pad_len, 80)], dim=0)
-        speech_batch.append(speech)
-        speech_lengths.append(item['speech_length'])
-        
-        # Pad text
-        text = item['target_text']
-        pad_len = max_text_len - text.size(0)
-        if pad_len > 0:
-            text = torch.cat([text, torch.zeros(pad_len, dtype=torch.long)], dim=0)
-        text_batch.append(text)
-        text_lengths.append(item['target_length'])
-    
-    return {
-        'speech': torch.stack(speech_batch),  # [B, T, F]
-        'speech_lengths': torch.tensor(speech_lengths),
-        'target_text': torch.stack(text_batch),  # [B, T_text]
-        'target_lengths': torch.tensor(text_lengths),
-    }
 
 
 class MultiTaskLoss(nn.Module):
@@ -130,6 +60,20 @@ class MultiTaskLoss(nn.Module):
         # Loss functions
         self.ctc_loss = nn.CTCLoss(blank=0, reduction='mean', zero_infinity=True)
         self.ce_loss = nn.CrossEntropyLoss(ignore_index=0, reduction='mean')
+
+    @staticmethod
+    def _flatten_tokens(tokens: torch.Tensor, lengths: torch.Tensor, *, exclude_last: bool = False) -> Optional[torch.Tensor]:
+        sequences = []
+        for seq, length in zip(tokens, lengths):
+            length_int = int(length.item())
+            if exclude_last and length_int > 0:
+                length_int -= 1
+            if length_int <= 0:
+                continue
+            sequences.append(seq[:length_int])
+        if not sequences:
+            return None
+        return torch.cat(sequences, dim=0)
     
     def forward(self, model_output, target):
         """
@@ -148,31 +92,45 @@ class MultiTaskLoss(nn.Module):
         # ASR CTC Loss (if available)
         if 'asr_log_probs' in model_output and model_output['asr_log_probs'] is not None:
             asr_log_probs = model_output['asr_log_probs']  # [T, B, V]
-            # Dummy target for demonstration
-            asr_target = torch.randint(1, 6000, (asr_log_probs.size(1), 10))
-            asr_target_lengths = torch.full((asr_log_probs.size(1),), 10)
-            input_lengths = torch.full((asr_log_probs.size(1),), asr_log_probs.size(0))
-            
-            losses['asr'] = self.ctc_loss(
-                asr_log_probs,
-                asr_target,
-                input_lengths,
-                asr_target_lengths
-            ) * self.asr_weight
+            asr_target = target.get('src_tokens')
+            asr_target_lengths = target.get('src_lengths')
+            if asr_target is not None and asr_target_lengths is not None:
+                flat_targets = self._flatten_tokens(asr_target, asr_target_lengths, exclude_last=False)
+                if flat_targets is not None and flat_targets.numel() > 0:
+                    input_lengths = torch.full(
+                        (asr_log_probs.size(1),),
+                        asr_log_probs.size(0),
+                        dtype=torch.long,
+                        device=asr_log_probs.device,
+                    )
+                    losses['asr'] = self.ctc_loss(
+                        asr_log_probs,
+                        flat_targets,
+                        input_lengths,
+                        asr_target_lengths.to(asr_log_probs.device),
+                    ) * self.asr_weight
         
         # ST CTC Loss
         if 'st_log_probs' in model_output and model_output['st_log_probs'] is not None:
             st_log_probs = model_output['st_log_probs']  # [T, B, V]
-            st_target = torch.randint(1, 6000, (st_log_probs.size(1), 10))
-            st_target_lengths = torch.full((st_log_probs.size(1),), 10)
-            input_lengths = torch.full((st_log_probs.size(1),), st_log_probs.size(0))
-            
-            losses['st'] = self.ctc_loss(
-                st_log_probs,
-                st_target,
-                input_lengths,
-                st_target_lengths
-            ) * self.st_weight
+            tgt_tokens = target.get('target_text')
+            tgt_lengths = target.get('target_lengths')
+            if tgt_tokens is not None and tgt_lengths is not None:
+                st_lengths = torch.clamp(tgt_lengths - 1, min=0)
+                flat_targets = self._flatten_tokens(tgt_tokens, tgt_lengths, exclude_last=True)
+                if flat_targets is not None and flat_targets.numel() > 0:
+                    input_lengths = torch.full(
+                        (st_log_probs.size(1),),
+                        st_log_probs.size(0),
+                        dtype=torch.long,
+                        device=st_log_probs.device,
+                    )
+                    losses['st'] = self.ctc_loss(
+                        st_log_probs,
+                        flat_targets,
+                        input_lengths,
+                        st_lengths.to(st_log_probs.device),
+                    ) * self.st_weight
         
         # MT Loss (if MT decoder was used)
         if 'mt_logits' in model_output and model_output['mt_logits'] is not None:
@@ -185,21 +143,27 @@ class MultiTaskLoss(nn.Module):
             ) * self.mt_weight
         
         # Unit Loss
-        if 'unit_log_probs' in model_output:
+        if 'unit_log_probs' in model_output and model_output['unit_log_probs'] is not None:
             unit_log_probs = model_output['unit_log_probs']  # [B, T_unit, V_unit]
-            # Transpose for CTC: [T_unit, B, V_unit]
-            unit_log_probs = unit_log_probs.transpose(0, 1)
-            
-            unit_target = torch.randint(1, 1000, (unit_log_probs.size(1), 50))
-            unit_target_lengths = torch.full((unit_log_probs.size(1),), 50)
-            input_lengths = torch.full((unit_log_probs.size(1),), unit_log_probs.size(0))
-            
-            losses['unit'] = self.ctc_loss(
-                unit_log_probs,
-                unit_target,
-                input_lengths,
-                unit_target_lengths
-            ) * self.unit_weight
+            tgt_units = target.get('tgt_units')
+            tgt_unit_lengths = target.get('tgt_unit_lengths')
+            if tgt_units is not None and tgt_unit_lengths is not None:
+                # Transpose for CTC: [T_unit, B, V_unit]
+                unit_log_probs = unit_log_probs.transpose(0, 1)
+                flat_units = self._flatten_tokens(tgt_units, tgt_unit_lengths, exclude_last=False)
+                if flat_units is not None and flat_units.numel() > 0:
+                    input_lengths = torch.full(
+                        (unit_log_probs.size(1),),
+                        unit_log_probs.size(0),
+                        dtype=torch.long,
+                        device=unit_log_probs.device,
+                    )
+                    losses['unit'] = self.ctc_loss(
+                        unit_log_probs,
+                        flat_units.to(unit_log_probs.device),
+                        input_lengths,
+                        tgt_unit_lengths.to(unit_log_probs.device),
+                    ) * self.unit_weight
         
         # Total loss
         total_loss = sum(losses.values())
@@ -218,17 +182,34 @@ def train_epoch(model, dataloader, optimizer, criterion, device, epoch):
         # Move to device
         speech = batch['speech'].to(device)
         speech_lengths = batch['speech_lengths'].to(device)
+        prev_output_tokens = batch['prev_output_tokens'].to(device)
         target_text = batch['target_text'].to(device)
+        target_lengths = batch['target_lengths'].to(device)
+        src_tokens = batch['src_tokens'].to(device)
+        src_lengths = batch['src_lengths'].to(device)
+        tgt_units = batch.get('tgt_units')
+        tgt_unit_lengths = batch.get('tgt_unit_lengths')
         
         # Forward
         output = model(
             src_tokens=speech,
             src_lengths=speech_lengths,
-            prev_output_tokens=target_text[:, :-1],  # Teacher forcing
+            prev_output_tokens=prev_output_tokens,
+            target_lengths=target_lengths,
         )
         
         # Compute loss
-        loss, loss_dict = criterion(output, batch)
+        target_dict = {
+            'src_tokens': src_tokens,
+            'src_lengths': src_lengths,
+            'target_text': target_text,
+            'target_lengths': target_lengths,
+        }
+        if tgt_units is not None and tgt_unit_lengths is not None:
+            target_dict['tgt_units'] = tgt_units.to(device)
+            target_dict['tgt_unit_lengths'] = tgt_unit_lengths.to(device)
+
+        loss, loss_dict = criterion(output, target_dict)
         
         # Backward
         optimizer.zero_grad()
@@ -288,14 +269,58 @@ def main(args):
     trainable_params = sum(p.numel() for p in model.parameters() if p.requires_grad)
     logger.info(f"Parameters: {total_params:,} total, {trainable_params:,} trainable")
     
-    # Dataset
-    train_dataset = S2STDataset(args.train_manifest, config_dict)
+    data_cfg = config_dict.get('data', {})
+    config_dir = Path(args.config).resolve().parent if args.config else ROOT_DIR
+
+    def resolve_optional_path(value: Optional[str]) -> Optional[str]:
+        if value is None:
+            return None
+        path = Path(value)
+        if not path.is_absolute():
+            path = (config_dir / path).resolve()
+        return str(path)
+
+    train_manifest = args.train_manifest or data_cfg.get('train_manifest')
+    train_manifest_path = resolve_optional_path(train_manifest)
+    if train_manifest_path is None:
+        raise ValueError("Training manifest must be specified via --train-manifest or config[data.train_manifest].")
+
+    data_root = resolve_optional_path(data_cfg.get('data_root'))
+    global_cmvn = resolve_optional_path(data_cfg.get('global_cmvn_stats_npz'))
+    units_root = resolve_optional_path(data_cfg.get('units_root'))
+    src_vocab_path = resolve_optional_path(data_cfg.get('src_dict'))
+    tgt_vocab_path = resolve_optional_path(data_cfg.get('tgt_dict'))
+
+    streaming_cfg = config_dict.get('streaming', {})
+    streaming_chunk_ms = streaming_cfg.get('chunk_size_ms', streaming_cfg.get('chunk_size'))
+    streaming_hop_ms = streaming_cfg.get('chunk_hop_ms', streaming_cfg.get('chunk_hop'))
+
+    train_dataset = S2STManifestDataset(
+        manifest_path=train_manifest_path,
+        data_root=data_root,
+        units_root=units_root,
+        sample_rate=data_cfg.get('sample_rate', 16000),
+        num_mel_bins=data_cfg.get('num_mel_bins', 80),
+        src_vocab_path=src_vocab_path,
+        tgt_vocab_path=tgt_vocab_path,
+        text_level=data_cfg.get('tokenize_level', 'word'),
+        global_cmvn_stats=global_cmvn,
+        load_waveform=data_cfg.get('load_waveform', False),
+        load_tgt_audio=data_cfg.get('load_tgt_audio', False),
+        load_tgt_units=data_cfg.get('load_tgt_units', False),
+        streaming_chunk_ms=streaming_chunk_ms,
+        streaming_hop_ms=streaming_hop_ms,
+        min_duration=data_cfg.get('min_duration'),
+        max_duration=data_cfg.get('max_duration'),
+        pad_value=data_cfg.get('pad_value', 0.0),
+    )
     train_loader = DataLoader(
         train_dataset,
         batch_size=args.batch_size,
         shuffle=True,
-        collate_fn=collate_fn,
+        collate_fn=collate_s2st_batches,
         num_workers=args.num_workers,
+        pin_memory=torch.cuda.is_available(),
     )
     
     logger.info(f"Training samples: {len(train_dataset)}")
