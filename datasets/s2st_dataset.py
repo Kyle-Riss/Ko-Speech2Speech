@@ -210,8 +210,13 @@ def _load_global_cmvn(stats_path: Optional[Path]) -> Optional[Tuple[torch.Tensor
 
     stats = np.load(stats_path)
     mean = torch.tensor(stats["mean"], dtype=torch.float32)
-    var = torch.tensor(stats["var"], dtype=torch.float32)
-    return mean, var.sqrt()
+    if "var" in stats:
+        std = torch.tensor(stats["var"], dtype=torch.float32).sqrt()
+    elif "std" in stats:
+        std = torch.tensor(stats["std"], dtype=torch.float32)
+    else:
+        raise KeyError(f"Global CMVN stats must contain 'var' or 'std': {stats_path}")
+    return mean, std
 
 
 class S2STManifestDataset(Dataset):

@@ -65,8 +65,8 @@ unit_decoder:
 # Vocoder (CodeHiFiGAN)
 vocoder:
   type: codehifigan
-  checkpoint_path: pretrain_models/vocoder_checkpoint.pt
-  config_path: pretrain_models/vocoder_config.json
+  checkpoint_path: /home/billy/25-1kp/EchoStream/pretrain_models/unit-based_HiFi-GAN_vocoder/mHuBERT.layer11.km1000.en/g_00500000
+  config_path: /home/billy/25-1kp/EchoStream/pretrain_models/unit-based_HiFi-GAN_vocoder/mHuBERT.layer11.km1000.en/config.json
 
 # ============================================
 # Training
@@ -79,14 +79,14 @@ training:
   
   # Optimizer
   optimizer: adam
-  lr: 0.0005
+  lr: 0.0002
   adam_betas: [0.9, 0.98]
   adam_eps: 1.0e-08
   weight_decay: 0.0001
   
   # Learning rate schedule
   lr_scheduler: inverse_sqrt
-  warmup_updates: 10000
+  warmup_updates: 20000
   warmup_init_lr: 1.0e-07
   
   # Regularization
@@ -103,10 +103,10 @@ training:
 # ============================================
 multitask:
   # Task weights
-  asr_weight: 0.3
-  st_weight: 0.3
+  asr_weight: 0.2
+  st_weight: 0.2
   mt_weight: 0.2
-  unit_weight: 0.2
+  unit_weight: 0.1
   
   # CTC weights
   ctc_weight: 0.5
@@ -132,9 +132,10 @@ streaming:
 # Data
 # ============================================
 data:
-  train_manifest: data/train.tsv
-  valid_manifest: data/valid.tsv
-  test_manifest: data/test.tsv
+  data_root: /home/billy/25-1kp/EchoStream/data
+  train_manifest: /home/billy/25-1kp/EchoStream/data/train.tsv
+  valid_manifest: /home/billy/25-1kp/EchoStream/data/valid.tsv
+  test_manifest: /home/billy/25-1kp/EchoStream/data/test.tsv
   
   # Preprocessing
   use_audio_input: true
@@ -142,14 +143,14 @@ data:
   sample_rate: 16000
   
   # Global CMVN
-  global_cmvn_stats_npz: data/gcmvn.npz
+  global_cmvn_stats_npz: /home/billy/25-1kp/EchoStream/data/gcmvn.npz
   
   # Dictionaries
-  src_dict: data/src_unigram6000.txt
-  tgt_dict: data/tgt_unigram6000.txt
+  src_dict: /home/billy/25-1kp/EchoStream/data/src_unigram6000/spm_unigram_ko.txt
+  tgt_dict: /home/billy/25-1kp/EchoStream/data/tgt_unigram6000/spm_unigram_en.txt
   
   # HuBERT units
-  hubert_model: pretrain_models/mhubert.km1000.layer11.pt
+  hubert_model: /home/billy/25-1kp/EchoStream/pretrain_models/mHuBERT/mhubert_base_vp_en_es_fr_it3_L11_km1000.bin
   hubert_layer: 11
   num_clusters: 1000
 
