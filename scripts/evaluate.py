@@ -14,6 +14,7 @@ import sys
 import os
 from typing import Optional
 import yaml
+import soundfile as sf
 
 ROOT_DIR = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT_DIR))
@@ -34,21 +35,57 @@ class EchoStreamEvaluator:
     Evaluator for EchoStream model.
     """
     
-    def __init__(self, model, device):
+    def __init__(
+        self,
+        model,
+        device,
+        *,
+        src_tokenizer=None,
+        tgt_tokenizer=None,
+        sample_rate: int = 16000,
+        waveform_dir: Optional[Path] = None,
+    ):
         self.model = model
         self.device = device
+        self.src_tokenizer = src_tokenizer
+        self.tgt_tokenizer = tgt_tokenizer
+        self.sample_rate = sample_rate
+        self.waveform_dir = waveform_dir
+        if self.waveform_dir is not None:
+            self.waveform_dir.mkdir(parents=True, exist_ok=True)
         
         # Metrics
         self.total_samples = 0
         self.total_latency = 0
         self.outputs = []
     
+    def _decode_ctc(self, ids, tokenizer):
+        if tokenizer is None:
+            return ""
+        tokens = []
+        prev = None
+        for idx in ids:
+            if idx == prev:
+                continue
+            prev = idx
+            if idx == tokenizer.pad_id:
+                continue
+            if idx < len(tokenizer.id_to_token):
+                token = tokenizer.id_to_token[idx]
+            else:
+                token = tokenizer.UNK
+            if token in {tokenizer.PAD, tokenizer.UNK, tokenizer.BOS, tokenizer.EOS}:
+                continue
+            tokens.append(token)
+        return " ".join(tokens)
+
     @torch.no_grad()
-    def evaluate_sample(self, audio, reference_text=None):
+    def evaluate_sample(self, sample_id, audio, reference_text=None):
         """
         Evaluate single sample.
         
         Args:
+            sample_id: Sample identifier
             audio: [T, F] audio features
             reference_text: Reference text (optional)
         
@@ -78,12 +115,19 @@ class EchoStreamEvaluator:
         waveform = output['waveform']  # [1, T_wav]
         
         waveform_length = int(waveform.size(-1)) if waveform is not None else 0
+        waveform_path = None
+        if waveform is not None and waveform_length > 0 and self.waveform_dir is not None:
+            wav = waveform.squeeze(0).cpu().numpy()
+            waveform_path = self.waveform_dir / f"{sample_id}.wav"
+            sf.write(waveform_path, wav, self.sample_rate)
 
         return {
             'asr': asr_pred.squeeze().cpu().tolist(),
+            'asr_text': self._decode_ctc(asr_pred.squeeze().cpu().tolist(), self.src_tokenizer),
             'st': st_pred.squeeze().cpu().tolist(),
+            'st_text': self._decode_ctc(st_pred.squeeze().cpu().tolist(), self.tgt_tokenizer),
             'units': unit_pred.squeeze().cpu().tolist(),
-            'waveform': None,
+            'waveform': str(waveform_path) if waveform_path else None,
             'waveform_length': waveform_length,
         }
     
@@ -238,7 +282,17 @@ def evaluate_model(args):
     logger.info(f"Total samples: {len(test_dataset)}")
 
     # Evaluator
-    evaluator = EchoStreamEvaluator(model, device)
+    output_path = Path(args.output)
+    waveform_dir = output_path.with_suffix("") / "audio"
+    
+    evaluator = EchoStreamEvaluator(
+        model,
+        device,
+        src_tokenizer=test_dataset.src_tokenizer,
+        tgt_tokenizer=test_dataset.tgt_tokenizer,
+        sample_rate=data_cfg.get('sample_rate', 16000),
+        waveform_dir=waveform_dir,
+    )
     
     # Evaluate on test set
     logger.info("\nEvaluating...")
@@ -247,7 +301,8 @@ def evaluate_model(args):
         audio = sample['speech']
         reference_text = sample.get('tgt_text')
         
-        output = evaluator.evaluate_sample(audio, reference_text)
+        sample_id = sample['id']
+        output = evaluator.evaluate_sample(sample_id, audio, reference_text)
         
         evaluator.total_samples += 1
         evaluator.outputs.append(

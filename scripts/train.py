@@ -62,7 +62,7 @@ class MultiTaskLoss(nn.Module):
         # Loss functions
         self.ctc_loss = nn.CTCLoss(blank=0, reduction='mean', zero_infinity=True)
         self.ce_loss = nn.CrossEntropyLoss(ignore_index=0, reduction='mean')
-    
+
     def _ctc_forward(
         self,
         log_probs: Optional[torch.Tensor],

@@ -1,0 +1,36 @@
+target_unigram:
+   decoder_type: transformer
+   dict: /home/billy/25-1kp/EchoStream/data/tgt_unigram6000/spm_unigram_en.txt
+   data: /home/billy/25-1kp/EchoStream/data/tgt_unigram6000
+   loss_weight: 8.0
+   rdrop_alpha: 0.0
+   decoder_args:
+      decoder_layers: 4
+      decoder_embed_dim: 512
+      decoder_ffn_embed_dim: 2048
+      decoder_attention_heads: 8
+   label_smoothing: 0.1
+source_unigram:
+   decoder_type: ctc
+   dict: /home/billy/25-1kp/EchoStream/data/src_unigram6000/spm_unigram_ko.txt
+   data: /home/billy/25-1kp/EchoStream/data/src_unigram6000
+   loss_weight: 4.0
+   rdrop_alpha: 0.0
+   decoder_args:
+      decoder_layers: 0
+      decoder_embed_dim: 512
+      decoder_ffn_embed_dim: 2048
+      decoder_attention_heads: 8
+   label_smoothing: 0.1
+ctc_target_unigram:
+   decoder_type: ctc
+   dict: /home/billy/25-1kp/EchoStream/data/tgt_unigram6000/spm_unigram_en.txt
+   data: /home/billy/25-1kp/EchoStream/data/tgt_unigram6000
+   loss_weight: 4.0
+   rdrop_alpha: 0.0
+   decoder_args:
+      decoder_layers: 0
+      decoder_embed_dim: 512
+      decoder_ffn_embed_dim: 2048
+      decoder_attention_heads: 8
+   label_smoothing: 0.1

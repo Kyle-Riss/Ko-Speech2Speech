@@ -106,7 +106,7 @@ multitask:
   asr_weight: 0.1
   st_weight: 0.1
   mt_weight: 0.5
-  unit_weight: 0.5
+  unit_weight: 0.0
   
   # CTC weights
   ctc_weight: 0.5
