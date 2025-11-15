@@ -77,11 +77,14 @@ class EchoStreamEvaluator:
         # Waveform
         waveform = output['waveform']  # [1, T_wav]
         
+        waveform_length = int(waveform.size(-1)) if waveform is not None else 0
+
         return {
             'asr': asr_pred.squeeze().cpu().tolist(),
             'st': st_pred.squeeze().cpu().tolist(),
             'units': unit_pred.squeeze().cpu().tolist(),
-            'waveform': waveform.squeeze().cpu().numpy() if waveform is not None else None,
+            'waveform': None,
+            'waveform_length': waveform_length,
         }
     
     def compute_metrics(self):
@@ -110,8 +113,59 @@ def evaluate_model(args):
         with open(args.config) as f:
             config_dict = yaml.safe_load(f)
     
-    # Model config
-    config = EchoStreamConfig()
+    # Model config overrides (match training script logic)
+    config_overrides = {}
+    model_cfg = config_dict.get('model', {})
+    config_overrides.update(model_cfg)
+
+    encoder_cfg = config_dict.get('encoder', {})
+    if encoder_cfg:
+        if 'embed_dim' in encoder_cfg:
+            config_overrides['encoder_embed_dim'] = encoder_cfg['embed_dim']
+        if 'layers' in encoder_cfg:
+            config_overrides['encoder_layers'] = encoder_cfg['layers']
+        if 'attention_heads' in encoder_cfg:
+            config_overrides['encoder_attention_heads'] = encoder_cfg['attention_heads']
+        if 'ffn_embed_dim' in encoder_cfg:
+            config_overrides['encoder_ffn_embed_dim'] = encoder_cfg['ffn_embed_dim']
+        if 'segment_length' in encoder_cfg:
+            config_overrides['segment_length'] = encoder_cfg['segment_length']
+        if 'left_context_length' in encoder_cfg:
+            config_overrides['left_context_length'] = encoder_cfg['left_context_length']
+        if 'right_context_length' in encoder_cfg:
+            config_overrides['right_context_length'] = encoder_cfg['right_context_length']
+        if 'memory_size' in encoder_cfg:
+            config_overrides['memory_size'] = encoder_cfg['memory_size']
+
+    mt_decoder_cfg = config_dict.get('mt_decoder', {})
+    if mt_decoder_cfg:
+        if 'embed_dim' in mt_decoder_cfg:
+            config_overrides['decoder_embed_dim'] = mt_decoder_cfg['embed_dim']
+        if 'layers' in mt_decoder_cfg:
+            config_overrides['mt_decoder_layers'] = mt_decoder_cfg['layers']
+
+    unit_decoder_cfg = config_dict.get('unit_decoder', {})
+    if unit_decoder_cfg:
+        if 'embed_dim' in unit_decoder_cfg and 'decoder_embed_dim' not in config_overrides:
+            config_overrides['decoder_embed_dim'] = unit_decoder_cfg['embed_dim']
+        if 'layers' in unit_decoder_cfg:
+            config_overrides['unit_decoder_layers'] = unit_decoder_cfg['layers']
+
+    st_decoder_cfg = config_dict.get('st_decoder', {})
+    if st_decoder_cfg and 'layers' in st_decoder_cfg:
+        config_overrides['st_decoder_layers'] = st_decoder_cfg['layers']
+
+    training_cfg = config_dict.get('training', {})
+    if training_cfg:
+        if 'dropout' in training_cfg:
+            config_overrides['dropout'] = training_cfg['dropout']
+        if 'attention_dropout' in training_cfg:
+            config_overrides['attention_dropout'] = training_cfg['attention_dropout']
+        if 'activation_dropout' in training_cfg:
+            config_overrides['activation_dropout'] = training_cfg['activation_dropout']
+
+    config = EchoStreamConfig.from_dict(config_overrides)
+    logger.info(f"Model: {config.encoder_layers}L Emformer + Decoders")
     
     # Build model
     model = build_echostream_model(config)

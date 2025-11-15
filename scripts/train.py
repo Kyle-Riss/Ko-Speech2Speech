@@ -62,6 +62,52 @@ class MultiTaskLoss(nn.Module):
         # Loss functions
         self.ctc_loss = nn.CTCLoss(blank=0, reduction='mean', zero_infinity=True)
         self.ce_loss = nn.CrossEntropyLoss(ignore_index=0, reduction='mean')
+    
+    def _ctc_forward(
+        self,
+        log_probs: Optional[torch.Tensor],
+        targets: Optional[torch.Tensor],
+        input_lengths: Optional[torch.Tensor],
+        target_lengths: Optional[torch.Tensor],
+        *,
+        weight: float,
+    ) -> Optional[torch.Tensor]:
+        if (
+            log_probs is None
+            or targets is None
+            or input_lengths is None
+            or target_lengths is None
+        ):
+            return None
+        
+        flat_targets = targets
+        if isinstance(targets, torch.Tensor):
+            if targets.numel() == 0:
+                return None
+        else:
+            return None
+        
+        log_probs = log_probs.float()
+        input_lengths = input_lengths.to(log_probs.device)
+        target_lengths = target_lengths.to(log_probs.device)
+        flat_targets = flat_targets.to(log_probs.device)
+        
+        if log_probs.device.type == "cuda":
+            with autocast(enabled=False):
+                loss = self.ctc_loss(
+                    log_probs,
+                    flat_targets,
+                    input_lengths,
+                    target_lengths,
+                )
+        else:
+            loss = self.ctc_loss(
+                log_probs,
+                flat_targets,
+                input_lengths,
+                target_lengths,
+            )
+        return loss * weight
 
     @staticmethod
     def _flatten_tokens(tokens: torch.Tensor, lengths: torch.Tensor, *, exclude_last: bool = False) -> Optional[torch.Tensor]:
@@ -105,12 +151,15 @@ class MultiTaskLoss(nn.Module):
                         dtype=torch.long,
                         device=asr_log_probs.device,
                     )
-                    losses['asr'] = self.ctc_loss(
+                    loss_val = self._ctc_forward(
                         asr_log_probs,
                         flat_targets,
                         input_lengths,
-                        asr_target_lengths.to(asr_log_probs.device),
-                    ) * self.asr_weight
+                        asr_target_lengths,
+                        weight=self.asr_weight,
+                    )
+                    if loss_val is not None:
+                        losses['asr'] = loss_val
         
         # ST CTC Loss
         if 'st_log_probs' in model_output and model_output['st_log_probs'] is not None:
@@ -127,12 +176,15 @@ class MultiTaskLoss(nn.Module):
                         dtype=torch.long,
                         device=st_log_probs.device,
                     )
-                    losses['st'] = self.ctc_loss(
+                    loss_val = self._ctc_forward(
                         st_log_probs,
                         flat_targets,
                         input_lengths,
-                        st_lengths.to(st_log_probs.device),
-                    ) * self.st_weight
+                        st_lengths,
+                        weight=self.st_weight,
+                    )
+                    if loss_val is not None:
+                        losses['st'] = loss_val
         
         # MT Loss (if MT decoder was used)
         if 'mt_logits' in model_output and model_output['mt_logits'] is not None:
@@ -160,12 +212,15 @@ class MultiTaskLoss(nn.Module):
                         dtype=torch.long,
                         device=unit_log_probs.device,
                     )
-                    losses['unit'] = self.ctc_loss(
+                    loss_val = self._ctc_forward(
                         unit_log_probs,
                         flat_units.to(unit_log_probs.device),
                         input_lengths,
-                        tgt_unit_lengths.to(unit_log_probs.device),
-                    ) * self.unit_weight
+                        tgt_unit_lengths,
+                        weight=self.unit_weight,
+                    )
+                    if loss_val is not None:
+                        losses['unit'] = loss_val
         
         # Total loss
         total_loss = sum(losses.values())
@@ -183,6 +238,7 @@ def train_epoch(
     *,
     scaler: Optional[GradScaler] = None,
     use_amp: bool = False,
+    clip_norm: float = 10.0,
     retain_graph: bool = False,
 ):
     """Train for one epoch."""
@@ -229,15 +285,19 @@ def train_epoch(
             
             loss, loss_dict = criterion(output, target_dict)
         
+        if torch.isnan(loss):
+            logger.error(f"NaN loss detected at epoch {epoch}, batch {batch_idx+1}. Aborting epoch.")
+            raise ValueError("NaN loss encountered")
+        
         if use_amp and scaler is not None:
             scaler.scale(loss).backward(retain_graph=retain_graph)
             scaler.unscale_(optimizer)
-            torch.nn.utils.clip_grad_norm_(model.parameters(), max_norm=10.0)
+            torch.nn.utils.clip_grad_norm_(model.parameters(), max_norm=clip_norm)
             scaler.step(optimizer)
             scaler.update()
         else:
             loss.backward(retain_graph=retain_graph)
-            torch.nn.utils.clip_grad_norm_(model.parameters(), max_norm=10.0)
+            torch.nn.utils.clip_grad_norm_(model.parameters(), max_norm=clip_norm)
             optimizer.step()
         
         # Accumulate
@@ -333,8 +393,56 @@ def main(args):
     else:
         config_dict = {}
     
-    # Model config
-    config = EchoStreamConfig()
+    # Model config overrides from YAML
+    config_overrides = {}
+
+    encoder_cfg = config_dict.get('encoder', {})
+    if encoder_cfg:
+        if 'embed_dim' in encoder_cfg:
+            config_overrides['encoder_embed_dim'] = encoder_cfg['embed_dim']
+        if 'layers' in encoder_cfg:
+            config_overrides['encoder_layers'] = encoder_cfg['layers']
+        if 'attention_heads' in encoder_cfg:
+            config_overrides['encoder_attention_heads'] = encoder_cfg['attention_heads']
+        if 'ffn_embed_dim' in encoder_cfg:
+            config_overrides['encoder_ffn_embed_dim'] = encoder_cfg['ffn_embed_dim']
+        if 'segment_length' in encoder_cfg:
+            config_overrides['segment_length'] = encoder_cfg['segment_length']
+        if 'left_context_length' in encoder_cfg:
+            config_overrides['left_context_length'] = encoder_cfg['left_context_length']
+        if 'right_context_length' in encoder_cfg:
+            config_overrides['right_context_length'] = encoder_cfg['right_context_length']
+        if 'memory_size' in encoder_cfg:
+            config_overrides['memory_size'] = encoder_cfg['memory_size']
+
+    mt_decoder_cfg = config_dict.get('mt_decoder', {})
+    if mt_decoder_cfg:
+        if 'embed_dim' in mt_decoder_cfg:
+            config_overrides['decoder_embed_dim'] = mt_decoder_cfg['embed_dim']
+        if 'layers' in mt_decoder_cfg:
+            config_overrides['mt_decoder_layers'] = mt_decoder_cfg['layers']
+
+    unit_decoder_cfg = config_dict.get('unit_decoder', {})
+    if unit_decoder_cfg:
+        if 'embed_dim' in unit_decoder_cfg and 'decoder_embed_dim' not in config_overrides:
+            config_overrides['decoder_embed_dim'] = unit_decoder_cfg['embed_dim']
+        if 'layers' in unit_decoder_cfg:
+            config_overrides['unit_decoder_layers'] = unit_decoder_cfg['layers']
+
+    st_decoder_cfg = config_dict.get('st_decoder', {})
+    if st_decoder_cfg and 'layers' in st_decoder_cfg:
+        config_overrides['st_decoder_layers'] = st_decoder_cfg['layers']
+
+    training_cfg = config_dict.get('training', {})
+    if training_cfg:
+        if 'dropout' in training_cfg:
+            config_overrides['dropout'] = training_cfg['dropout']
+        if 'attention_dropout' in training_cfg:
+            config_overrides['attention_dropout'] = training_cfg['attention_dropout']
+        if 'activation_dropout' in training_cfg:
+            config_overrides['activation_dropout'] = training_cfg['activation_dropout']
+
+    config = EchoStreamConfig.from_dict(config_overrides)
     logger.info(f"Model: {config.encoder_layers}L Emformer + Decoders")
     
     # Build model
@@ -354,6 +462,8 @@ def main(args):
     scaler = GradScaler(enabled=use_amp)
     
     data_cfg = config_dict.get('data', {})
+    training_cfg = config_dict.get('training', {})
+    multitask_cfg = config_dict.get('multitask', {})
     config_dir = Path(args.config).resolve().parent if args.config else ROOT_DIR
 
     def resolve_optional_path(value: Optional[str]) -> Optional[str]:
@@ -447,20 +557,32 @@ def main(args):
     dev_loader = build_eval_loader(dev_manifest_path)
     test_loader = build_eval_loader(test_manifest_path)
     
-    # Optimizer
+    effective_lr = args.lr if args.lr is not None else training_cfg.get('lr', 5e-4)
+    clip_norm = training_cfg.get('clip_norm', 10.0)
+    
     optimizer = torch.optim.Adam(
         model.parameters(),
-        lr=args.lr,
+        lr=effective_lr,
         betas=(0.9, 0.98),
         eps=1e-8,
     )
     
     # Loss
-    criterion = MultiTaskLoss()
+    criterion = MultiTaskLoss(
+        asr_weight=multitask_cfg.get('asr_weight', 0.3),
+        st_weight=multitask_cfg.get('st_weight', 0.3),
+        mt_weight=multitask_cfg.get('mt_weight', 0.2),
+        unit_weight=multitask_cfg.get('unit_weight', 0.2),
+        ctc_weight=multitask_cfg.get('ctc_weight', 0.5),
+    )
     
     # Training loop
     logger.info("\nStarting training...")
     metrics_history = []
+    best_dev_loss = float("inf")
+    best_dev_metrics = None
+    best_checkpoint_path = Path(args.save_dir) / "checkpoint_best.pt"
+    best_checkpoint_path.parent.mkdir(parents=True, exist_ok=True)
     for epoch in range(1, args.epochs + 1):
         logger.info(f"\nEpoch {epoch}/{args.epochs}")
         
@@ -473,6 +595,7 @@ def main(args):
             epoch,
             scaler=scaler,
             use_amp=use_amp,
+            clip_norm=clip_norm,
             retain_graph=getattr(args, "retain_graph", False),
         )
         
@@ -493,6 +616,7 @@ def main(args):
             },
         }
         
+        is_best = False
         if dev_loader is not None:
             dev_loss, dev_losses = evaluate(
                 model,
@@ -509,6 +633,27 @@ def main(args):
                 f"Unit: {dev_losses.get('unit', 0):.4f}"
             )
             epoch_metrics["dev"] = {"loss": dev_loss, "components": dev_losses}
+            if dev_loss < best_dev_loss:
+                best_dev_loss = dev_loss
+                best_dev_metrics = {
+                    "epoch": epoch,
+                    "loss": dev_loss,
+                    "components": dev_losses,
+                }
+                torch.save(
+                    {
+                        'epoch': epoch,
+                        'model': model.state_dict(),
+                        'optimizer': optimizer.state_dict(),
+                        'loss': dev_loss,
+                    },
+                    best_checkpoint_path,
+                )
+                logger.info(
+                    f"New best dev loss {dev_loss:.4f} at epoch {epoch}. "
+                    f"Checkpoint saved to {best_checkpoint_path}"
+                )
+                is_best = True
         
         # Save checkpoint
         if epoch % args.save_interval == 0:
@@ -525,6 +670,7 @@ def main(args):
             logger.info(f"Checkpoint saved: {save_path}")
             epoch_metrics["checkpoint"] = str(save_path)
         
+        epoch_metrics["is_best"] = is_best
         metrics_history.append(epoch_metrics)
     
     test_metrics = None
@@ -554,6 +700,9 @@ def main(args):
             "metrics": metrics_history,
             "test": test_metrics,
         }
+        if best_dev_metrics is not None:
+            payload["best_dev"] = best_dev_metrics
+            payload["best_checkpoint"] = str(best_checkpoint_path)
         with open(metrics_output_path, "wb") as f:
             pickle.dump(payload, f)
         logger.info(f"Metrics saved to {metrics_output_path}")
@@ -574,7 +723,7 @@ if __name__ == "__main__":
     # Training
     parser.add_argument("--epochs", type=int, default=100)
     parser.add_argument("--batch-size", type=int, default=16)
-    parser.add_argument("--lr", type=float, default=0.0005)
+    parser.add_argument("--lr", type=float, default=None)
     parser.add_argument("--num-workers", type=int, default=4)
     parser.add_argument("--fp16", action="store_true", help="Enable mixed precision training (AMP).")
     parser.add_argument("--detect-anomaly", action="store_true", help="Enable torch autograd anomaly detection.")

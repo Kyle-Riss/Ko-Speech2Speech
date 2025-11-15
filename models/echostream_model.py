@@ -73,6 +73,7 @@ class EchoStreamModel(nn.Module):
         decoder_embed_dim: int = 256,
         mt_decoder_layers: int = 4,
         unit_decoder_layers: int = 6,
+        st_decoder_layers: int = 2,
         
         # Regularization
         dropout: float = 0.1,
@@ -106,7 +107,7 @@ class EchoStreamModel(nn.Module):
         # ST CTC Decoder (for translation)
         self.st_ctc_decoder = CTCDecoderWithTransformerLayer(
             embed_dim=encoder_embed_dim,
-            num_layers=2,
+            num_layers=st_decoder_layers,
             num_heads=encoder_attention_heads,
             vocab_size=6000,  # Target language vocab
             unidirectional=True,  # For streaming
@@ -262,6 +263,7 @@ class EchoStreamConfig:
         self.decoder_embed_dim = 256
         self.mt_decoder_layers = 4
         self.unit_decoder_layers = 6
+        self.st_decoder_layers = 2
         
         # Regularization
         self.dropout = 0.1
@@ -300,6 +302,7 @@ def build_echostream_model(config: EchoStreamConfig) -> EchoStreamModel:
         decoder_embed_dim=config.decoder_embed_dim,
         mt_decoder_layers=config.mt_decoder_layers,
         unit_decoder_layers=config.unit_decoder_layers,
+        st_decoder_layers=config.st_decoder_layers,
         dropout=config.dropout,
     )
     

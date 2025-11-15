@@ -9,10 +9,10 @@ model_type: speech_to_speech
 # ============================================
 encoder:
   type: emformer
-  embed_dim: 256
-  layers: 16
+  embed_dim: 144
+  layers: 5
   attention_heads: 4
-  ffn_embed_dim: 1024
+  ffn_embed_dim: 576
   
   # Emformer-specific parameters
   segment_length: 4           # 40ms @ 100fps (4 frames)
@@ -31,14 +31,14 @@ encoder:
 # ASR CTC Decoder (for punctuation prediction)
 asr_decoder:
   type: ctc
-  embed_dim: 256
+  embed_dim: 144
   vocab_size: 6000  # Source language unigram
 
 # ST CTC Decoder (for translation)
 st_decoder:
   type: ctc_with_transformer
-  embed_dim: 256
-  layers: 2
+  embed_dim: 144
+  layers: 1
   attention_heads: 4
   vocab_size: 6000  # Target language unigram
   unidirectional: true  # For streaming
@@ -46,19 +46,19 @@ st_decoder:
 # MT Decoder (for text refinement)
 mt_decoder:
   type: transformer
-  embed_dim: 256
-  layers: 4
+  embed_dim: 144
+  layers: 1
   attention_heads: 4
-  ffn_embed_dim: 1024
+  ffn_embed_dim: 576
   vocab_size: 6000
 
 # Unit Decoder (for speech unit generation)
 unit_decoder:
   type: ctc_transformer_unit
-  embed_dim: 256
-  layers: 6
+  embed_dim: 144
+  layers: 2
   attention_heads: 4
-  ffn_embed_dim: 1024
+  ffn_embed_dim: 576
   num_units: 1000  # HuBERT units
   ctc_upsample_ratio: 5
 
@@ -86,27 +86,27 @@ training:
   
   # Learning rate schedule
   lr_scheduler: inverse_sqrt
-  warmup_updates: 20000
+  warmup_updates: 500
   warmup_init_lr: 1.0e-07
   
   # Regularization
-  dropout: 0.1
-  attention_dropout: 0.1
-  activation_dropout: 0.1
+  dropout: 0.2
+  attention_dropout: 0.2
+  activation_dropout: 0.2
   label_smoothing: 0.1
   
   # Gradient clipping
-  clip_norm: 10.0
+  clip_norm: 1.0
 
 # ============================================
 # Multi-task Learning
 # ============================================
 multitask:
   # Task weights
-  asr_weight: 0.2
-  st_weight: 0.2
-  mt_weight: 0.2
-  unit_weight: 0.1
+  asr_weight: 0.1
+  st_weight: 0.1
+  mt_weight: 0.5
+  unit_weight: 0.5
   
   # CTC weights
   ctc_weight: 0.5
@@ -132,10 +132,10 @@ streaming:
 # Data
 # ============================================
 data:
-  data_root: /home/billy/25-1kp/EchoStream/data
-  train_manifest: /home/billy/25-1kp/EchoStream/data/train.tsv
-  valid_manifest: /home/billy/25-1kp/EchoStream/data/valid.tsv
-  test_manifest: /home/billy/25-1kp/EchoStream/data/test.tsv
+  data_root: ../data
+  train_manifest: ../data/train_sampled.tsv
+  valid_manifest: ../data/dev_sampled.tsv
+  test_manifest: ../data/test_sampled.tsv
   
   # Preprocessing
   use_audio_input: true

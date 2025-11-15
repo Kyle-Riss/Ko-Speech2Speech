@@ -1,0 +1,10 @@
+.venv/
+__pycache__/
+*.pyc
+*.log
+results/
+data/wavs/
+pretrain_models/
+checkpoints/checkpoint_epoch_*.pt
+
+
