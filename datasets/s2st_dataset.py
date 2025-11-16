@@ -18,11 +18,12 @@ try:
     import torchaudio
     from torchaudio.transforms import MelSpectrogram
     from torchaudio.functional import resample
-except ImportError as exc:  # pragma: no cover - torchaudio should be installed
-    raise ImportError(
-        "torchaudio is required for EchoStream data loading. "
-        "Please install it with `pip install torchaudio`."
-    ) from exc
+except ImportError:
+    torchaudio = None  # type: ignore
+    MelSpectrogram = None  # type: ignore
+    resample = None  # type: ignore
+import soundfile as sf
+import librosa
 
 
 @dataclass
@@ -164,6 +165,8 @@ class SpeechFeatureExtractor:
         win_length_samples = int(sample_rate * win_length)
         hop_length_samples = int(sample_rate * hop_length)
 
+        if MelSpectrogram is None:
+            raise ImportError("MelSpectrogram unavailable. Please install torchaudio.")
         self.melspec = MelSpectrogram(
             sample_rate=sample_rate,
             n_fft=n_fft,
@@ -190,7 +193,13 @@ class SpeechFeatureExtractor:
             waveform = waveform.unsqueeze(0)
 
         if orig_sample_rate != self.sample_rate:
-            waveform = resample(waveform, orig_freq=orig_sample_rate, new_freq=self.sample_rate)
+            if resample is None:
+                # fallback: use librosa for resampling if torchaudio functional is unavailable
+                y = waveform.squeeze(0).cpu().numpy()
+                y = librosa.resample(y, orig_sr=orig_sample_rate, target_sr=self.sample_rate)
+                waveform = torch.from_numpy(y).unsqueeze(0)
+            else:
+                waveform = resample(waveform, orig_freq=orig_sample_rate, new_freq=self.sample_rate)
 
         features = self.melspec(waveform)
         if self.amp_to_db is not None:
@@ -454,6 +463,40 @@ class S2STManifestDataset(Dataset):
 
         return torch.stack(chunks, dim=0), torch.tensor(chunk_lengths, dtype=torch.long)
 
+    @staticmethod
+    def _safe_load_audio(path: Path, target_sr: int) -> Tuple[torch.Tensor, int]:
+        """
+        Load audio robustly:
+        - try torchaudio.load (if available)
+        - on ImportError/RuntimeError (e.g., TorchCodec missing), fall back to soundfile/librosa
+        Returns mono waveform [1, T] and sample rate.
+        """
+        # Try torchaudio first if present
+        if torchaudio is not None:
+            try:
+                wav, sr = torchaudio.load(str(path))
+                if sr != target_sr and resample is not None:
+                    wav = resample(wav, orig_freq=sr, new_freq=target_sr)
+                    sr = target_sr
+                # convert to mono
+                if wav.dim() > 1 and wav.size(0) > 1:
+                    wav = wav.mean(dim=0, keepdim=True)
+                return wav, sr
+            except Exception:
+                pass
+        # Fallback: soundfile (fast) or librosa
+        try:
+            y, sr = sf.read(str(path), always_2d=False)
+            if y.ndim == 2:
+                y = y.mean(axis=1)
+        except Exception:
+            y, sr = librosa.load(str(path), sr=None, mono=True)
+        if sr != target_sr:
+            y = librosa.resample(y, orig_sr=sr, target_sr=target_sr)
+            sr = target_sr
+        wav = torch.from_numpy(np.asarray(y, dtype=np.float32)).unsqueeze(0)
+        return wav, sr
+
     def __getitem__(self, index: int) -> Dict[str, torch.Tensor]:
         entry = self.entries[index]
 
@@ -461,11 +504,10 @@ class S2STManifestDataset(Dataset):
         if not audio_path.is_file():
             raise FileNotFoundError(f"Source audio not found: {audio_path}")
 
-        waveform, sr = torchaudio.load(audio_path)
+        waveform, sr = self._safe_load_audio(audio_path, self.feature_extractor.sample_rate)
         processed_waveform = waveform
         processed_sr = sr
         if sr != self.feature_extractor.sample_rate:
-            processed_waveform = resample(waveform, orig_freq=sr, new_freq=self.feature_extractor.sample_rate)
             processed_sr = self.feature_extractor.sample_rate
 
         if processed_waveform.dim() > 1 and processed_waveform.size(0) > 1:
@@ -516,10 +558,7 @@ class S2STManifestDataset(Dataset):
             tgt_audio_path = self._resolve_path(entry.tgt_audio)
             if not tgt_audio_path.is_file():
                 raise FileNotFoundError(f"Target audio not found: {tgt_audio_path}")
-            tgt_waveform, tgt_sr = torchaudio.load(tgt_audio_path)
-            if tgt_sr != self.feature_extractor.sample_rate:
-                tgt_waveform = resample(tgt_waveform, orig_freq=tgt_sr, new_freq=self.feature_extractor.sample_rate)
-                tgt_sr = self.feature_extractor.sample_rate
+            tgt_waveform, tgt_sr = self._safe_load_audio(tgt_audio_path, self.feature_extractor.sample_rate)
             sample["tgt_waveform"] = tgt_waveform
             sample["tgt_waveform_length"] = torch.tensor(tgt_waveform.size(-1), dtype=torch.long)
             sample["tgt_waveform_sample_rate"] = torch.tensor(tgt_sr, dtype=torch.long)

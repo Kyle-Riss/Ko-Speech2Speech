@@ -158,9 +158,14 @@ class TransformerMTDecoder(nn.Module):
         if attn_weights:
             avg_attn = torch.stack(attn_weights).mean(dim=0)  # [B, T, T']
         
+        # Transpose x back to [T, B, D] for compatibility with Unit Decoder
+        # (Unit decoder expects [T, B, D] format)
+        decoder_out = x.transpose(0, 1)  # [T, B, D]
+        
         return {
-            'logits': logits,
-            'attn': avg_attn,
+            'logits': logits,  # [B, T, V]
+            'attn': avg_attn,  # [B, T, T']
+            'decoder_out': decoder_out,  # [T, B, D] - hidden states for Unit Decoder
         }
     
     def _generate_causal_mask(self, T: int, device: torch.device) -> torch.Tensor:

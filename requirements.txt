@@ -1,5 +1,5 @@
-torch==2.1.2
-torchaudio==2.1.2
+torch>=2.9.0
+torchaudio>=2.9.0
 numpy>=1.24
 scipy>=1.11
 librosa>=0.10
@@ -14,6 +14,8 @@ fastapi>=0.103
 uvicorn[standard]>=0.23
 sounddevice>=0.5
 websockets>=15.0
+python-multipart>=0.0.6
+omegaconf>=2.3.0
 
 
 
