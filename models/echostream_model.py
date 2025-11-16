@@ -80,6 +80,9 @@ class EchoStreamModel(nn.Module):
     ):
         super().__init__()
         
+        # Streaming MT state: accumulated target tokens (batch size = 1 assumed for streaming)
+        self._mt_prev_tokens: Optional[torch.Tensor] = None  # [1, T_prev]
+        
         # Emformer Encoder
         self.encoder = EchoStreamSpeechEncoder(
             encoder_embed_dim=encoder_embed_dim,
@@ -135,6 +138,7 @@ class EchoStreamModel(nn.Module):
         )
         
         # Vocoder (CodeHiFiGAN)
+        # Note: checkpoint_path and config_path will be set after model creation if provided
         self.vocoder = CodeHiFiGANVocoder(
             num_units=1000,
             sample_rate=16000,
@@ -190,23 +194,97 @@ class EchoStreamModel(nn.Module):
         )
         
         # ==================================
-        # 4. MT Decoder (optional, for text refinement)
+        # 4. MT Decoder (for text refinement)
         # ==================================
+        # Decode ST CTC output to get tokens for MT decoder
         mt_out = None
+        st_tokens_for_mt = None
+        mt_input_tokens = None
+        
+        if not self.training:
+            # Greedy decoding from ST CTC log_probs: [T, B, V] -> [T, B]
+            st_log_probs = st_out['log_probs']  # [T, B, V]
+            st_tokens_greedy = st_log_probs.argmax(dim=-1)  # [T, B]
+            
+            # CTC collapse: remove blanks and duplicates
+            # For batch size 1: [T, 1] -> [T]
+            if st_tokens_greedy.size(1) == 1:
+                st_tokens_seq = st_tokens_greedy.squeeze(1)  # [T]
+                
+                # CTC collapse (blank=0, pad=1)
+                collapsed_tokens = []
+                prev_token = None
+                for token in st_tokens_seq:
+                    token_val = token.item()
+                    # Skip blank and pad, and remove duplicates
+                    if token_val != 0 and token_val != 1:
+                        if token_val != prev_token:
+                            collapsed_tokens.append(token_val)
+                        prev_token = token_val
+                
+                if len(collapsed_tokens) > 0:
+                    # Convert to tensor for MT decoder: [T_collapsed] -> [1, T_collapsed]
+                    st_tokens_for_mt = torch.tensor(
+                        collapsed_tokens,
+                        device=st_tokens_greedy.device,
+                        dtype=torch.long
+                    ).unsqueeze(0)  # [1, T_collapsed]
+                    
+                    # Logging for debugging translation quality
+                    if hasattr(self, '_debug_logging') and self._debug_logging:
+                        import logging
+                        logger = logging.getLogger(__name__)
+                        logger.info(f"ST CTC decoded: {len(collapsed_tokens)} tokens (before MT)")
+        
+        # Use provided prev_output_tokens if available, otherwise use ST CTC decoded tokens
+        # Accumulate tokens across calls to emulate incremental MT decoding
         if prev_output_tokens is not None:
+            mt_input_tokens = prev_output_tokens
+        elif st_tokens_for_mt is not None:
+            if self._mt_prev_tokens is None:
+                mt_input_tokens = st_tokens_for_mt  # [1, T_new]
+                self._mt_prev_tokens = st_tokens_for_mt
+            else:
+                # Concatenate new tokens to previous (avoid immediate duplicates at boundary)
+                if self._mt_prev_tokens.size(1) > 0 and st_tokens_for_mt.size(1) > 0:
+                    if self._mt_prev_tokens[0, -1].item() == st_tokens_for_mt[0, 0].item():
+                        st_tokens_for_mt = st_tokens_for_mt[:, 1:]
+                if st_tokens_for_mt.size(1) > 0:
+                    self._mt_prev_tokens = torch.cat([self._mt_prev_tokens, st_tokens_for_mt], dim=1)
+                mt_input_tokens = self._mt_prev_tokens
+        else:
+            mt_input_tokens = None
+        
+        if mt_input_tokens is not None:
             mt_out = self.mt_decoder(
-                prev_output_tokens=prev_output_tokens,
+                prev_output_tokens=mt_input_tokens,
                 encoder_out=encoder_out,
             )
+            
+            # Logging for debugging translation quality
+            if hasattr(self, '_debug_logging') and self._debug_logging:
+                import logging
+                logger = logging.getLogger(__name__)
+                if mt_out is not None and 'logits' in mt_out:
+                    mt_tokens = mt_out['logits'].argmax(dim=-1)  # [B, T]
+                    logger.info(f"MT Decoder output: {mt_tokens.size(1)} tokens (accumulated)")
+        else:
+            # Logging: MT decoder not used
+            if hasattr(self, '_debug_logging') and self._debug_logging:
+                import logging
+                logger = logging.getLogger(__name__)
+                logger.warning("MT Decoder skipped: No input tokens available")
         
         # ==================================
         # 5. Unit Decoder
         # ==================================
-        # Use MT decoder output if available, otherwise use ST CTC output
+        # Use MT decoder output if available, otherwise use encoder output
         if mt_out is not None:
-            # Get MT decoder hidden states (before output projection)
-            # For simplicity, we use encoder output here
-            text_hidden = encoder_hidden
+            # Get MT decoder hidden states (decoder_out from MT decoder)
+            # MT decoder returns dict with 'decoder_out' key
+            text_hidden = mt_out.get('decoder_out', encoder_hidden)  # [T, B, D]
+            if isinstance(text_hidden, list):
+                text_hidden = text_hidden[0]  # Take first element if list
         else:
             text_hidden = encoder_hidden
         
@@ -223,8 +301,8 @@ class EchoStreamModel(nn.Module):
             # Get predicted units (greedy decoding)
             predicted_units = unit_out['logits'].argmax(dim=-1)  # [B, T_unit]
             
-            # Generate waveform
-            waveform = self.vocoder.generate(predicted_units)
+            # Generate waveform (return only wav, not duration)
+            waveform = self.vocoder.generate(predicted_units, return_duration=False)
         
         return {
             'encoder_out': encoder_out,
@@ -235,12 +313,14 @@ class EchoStreamModel(nn.Module):
             'mt_logits': mt_out['logits'] if mt_out is not None else None,
             'unit_logits': unit_out['logits'],
             'unit_log_probs': unit_out['log_probs'],
+            'units': predicted_units if not self.training else None,  # Return units for streaming
             'waveform': waveform,
         }
     
     def reset_cache(self):
         """Reset encoder cache for new utterance."""
         self.encoder.reset_cache()
+        self._mt_prev_tokens = None
 
 
 class EchoStreamConfig:
@@ -269,6 +349,11 @@ class EchoStreamConfig:
         self.dropout = 0.1
         self.attention_dropout = 0.1
         self.activation_dropout = 0.1
+        
+        # Vocoder
+        self.vocoder_checkpoint_path = None
+        self.vocoder_config_path = None
+        self.vocoder_use_vocoder = True  # Set to False to use DummyGenerator
     
     @classmethod
     def from_dict(cls, config_dict: dict):
@@ -305,6 +390,42 @@ def build_echostream_model(config: EchoStreamConfig) -> EchoStreamModel:
         st_decoder_layers=config.st_decoder_layers,
         dropout=config.dropout,
     )
+    
+    # Initialize vocoder with checkpoint and config if provided
+    use_vocoder = getattr(config, 'vocoder_use_vocoder', True)
+    
+    if use_vocoder and hasattr(config, 'vocoder_checkpoint_path') and config.vocoder_checkpoint_path:
+        import os
+        checkpoint_path = config.vocoder_checkpoint_path
+        config_path = getattr(config, 'vocoder_config_path', None)
+        
+        if os.path.exists(checkpoint_path):
+            if config_path and os.path.exists(config_path):
+                # Reinitialize vocoder with actual paths
+                model.vocoder = CodeHiFiGANVocoder(
+                    num_units=1000,
+                    sample_rate=16000,
+                    checkpoint_path=checkpoint_path,
+                    config_path=config_path,
+                )
+                print(f"✅ Initialized CodeHiFiGAN vocoder with checkpoint: {checkpoint_path}")
+            else:
+                # Try to load checkpoint into existing vocoder
+                try:
+                    model.vocoder.load_checkpoint(checkpoint_path)
+                    print(f"✅ Loaded vocoder checkpoint from {checkpoint_path}")
+                except Exception as e:
+                    print(f"⚠️  Warning: Failed to load vocoder checkpoint: {e}")
+                    print("   Using dummy vocoder (voice quality may be poor)")
+        else:
+            print(f"⚠️  Warning: Vocoder checkpoint not found: {checkpoint_path}")
+            print("   Using dummy vocoder (voice quality may be poor)")
+    else:
+        if not use_vocoder:
+            print("ℹ️  Vocoder disabled by config (use_vocoder: false)")
+            print("   Using DummyGenerator (lower quality but more stable)")
+        else:
+            print("ℹ️  No vocoder checkpoint provided, using DummyGenerator")
     
     return model
 

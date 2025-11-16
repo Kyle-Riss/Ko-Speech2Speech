@@ -63,10 +63,12 @@ unit_decoder:
   ctc_upsample_ratio: 5
 
 # Vocoder (CodeHiFiGAN)
+# Duration prediction is now enabled by default (like StreamSpeech) to fix "popopop" sound
 vocoder:
   type: codehifigan
-  checkpoint_path: /home/billy/25-1kp/EchoStream/pretrain_models/unit-based_HiFi-GAN_vocoder/mHuBERT.layer11.km1000.en/g_00500000
-  config_path: /home/billy/25-1kp/EchoStream/pretrain_models/unit-based_HiFi-GAN_vocoder/mHuBERT.layer11.km1000.en/config.json
+  use_vocoder: true  # Use actual CodeHiFiGAN with duration prediction (fixes "popopop" issue)
+  checkpoint_path: /Users/hayubin/EchoStream/pretrain_models/unit-based_HiFi-GAN_vocoder/mHuBERT.layer11.km1000.en/g_00500000
+  config_path: /Users/hayubin/EchoStream/pretrain_models/unit-based_HiFi-GAN_vocoder/mHuBERT.layer11.km1000.en/config.json
 
 # ============================================
 # Training
@@ -143,14 +145,14 @@ data:
   sample_rate: 16000
   
   # Global CMVN
-  global_cmvn_stats_npz: /home/billy/25-1kp/EchoStream/data/gcmvn.npz
+  global_cmvn_stats_npz: /Users/hayubin/EchoStream/data/gcmvn.npz
   
   # Dictionaries
-  src_dict: /home/billy/25-1kp/EchoStream/data/src_unigram6000/spm_unigram_ko.txt
-  tgt_dict: /home/billy/25-1kp/EchoStream/data/tgt_unigram6000/spm_unigram_en.txt
+  src_dict: /Users/hayubin/EchoStream/data/src_unigram6000/spm_unigram_ko.txt
+  tgt_dict: /Users/hayubin/EchoStream/data/tgt_unigram6000/spm_unigram_en.txt
   
   # HuBERT units
-  hubert_model: /home/billy/25-1kp/EchoStream/pretrain_models/mHuBERT/mhubert_base_vp_en_es_fr_it3_L11_km1000.bin
+  hubert_model: /Users/hayubin/EchoStream/pretrain_models/mHuBERT/mhubert_base_vp_en_es_fr_it3_L11_km1000.bin
   hubert_layer: 11
   num_clusters: 1000
 
