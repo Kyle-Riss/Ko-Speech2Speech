@@ -217,14 +217,15 @@ class EchoStreamSpeechEncoder(nn.Module):
         # Emformer encoding
         emformer_out = self.emformer(x, input_lengths)
         
-        # Return in fairseq format
+        # Return in StreamSpeech/Fairseq format (required for decoder compatibility)
+        # All decoders expect this exact format - DO NOT CHANGE!
         return {
-            'encoder_out': emformer_out['encoder_out'],  # [T', B, D]
-            'encoder_padding_mask': emformer_out['encoder_padding_mask'],  # [B, T']
-            'encoder_embedding': [],
-            'encoder_states': [],
-            'src_tokens': [],
-            'src_lengths': [],
+            'encoder_out': emformer_out['encoder_out'],  # List of [T', B, D] - List format required!
+            'encoder_padding_mask': emformer_out['encoder_padding_mask'],  # List of [B, T'] - List format required!
+            'encoder_embedding': [],  # Empty list (required by StreamSpeech)
+            'encoder_states': [],  # Empty list (required by StreamSpeech)
+            'src_tokens': [],  # Empty list (required by StreamSpeech)
+            'src_lengths': [],  # Empty list (required by StreamSpeech)
         }
     
     def reorder_encoder_out(self, encoder_out: Dict[str, list], new_order):

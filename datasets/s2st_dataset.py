@@ -22,8 +22,10 @@ except ImportError:
     torchaudio = None  # type: ignore
     MelSpectrogram = None  # type: ignore
     resample = None  # type: ignore
+import os
 import soundfile as sf
 import librosa
+os.environ.setdefault("LIBROSA_BACKEND", "soundfile")
 
 
 @dataclass
@@ -312,7 +314,23 @@ class S2STManifestDataset(Dataset):
             first_line = first_line.strip()
 
             if "\t" in first_line and first_line.split("\t")[0] == "id":
-                headers = first_line.split("\t")
+                headers = first_line.strip().split("\t")
+                # Check if next line is a continuation of headers (e.g., empty row with tgt_units)
+                pos = f.tell()
+                next_line = f.readline()
+                if next_line and next_line.strip() and not next_line.strip().split("\t")[0]:  # Empty first column
+                    # This might be a continuation header row, merge it
+                    next_headers = next_line.strip().split("\t")
+                    # Merge headers (take non-empty values from next line)
+                    for i, val in enumerate(next_headers):
+                        if val and i < len(headers):
+                            if not headers[i] or headers[i].strip() == "":
+                                headers[i] = val
+                        elif val and i >= len(headers):
+                            headers.append(val)
+                else:
+                    # Not a continuation, rewind
+                    f.seek(pos)
             else:
                 manifest_root = Path(first_line)
                 header_line = f.readline()
@@ -331,14 +349,18 @@ class S2STManifestDataset(Dataset):
                 if not row:
                     continue
                 sample_id = row.get("id")
-                if sample_id is None or sample_id == "id":
+                if sample_id is None or sample_id == "id" or sample_id.strip() == "":
+                    continue
+
+                # Skip empty rows
+                if not row.get("src_audio") or not row.get("src_text"):
                     continue
 
                 src_audio = Path(row["src_audio"])
                 tgt_audio_val = row.get("tgt_audio")
-                tgt_audio = Path(tgt_audio_val) if tgt_audio_val else None
+                tgt_audio = Path(tgt_audio_val) if tgt_audio_val and tgt_audio_val.strip() else None
                 tgt_units_val = row.get("tgt_units")
-                tgt_units = Path(tgt_units_val) if tgt_units_val else None
+                tgt_units = Path(tgt_units_val) if tgt_units_val and tgt_units_val.strip() else None
 
                 duration_val = row.get("duration") or row.get("audio_len") or row.get("n_frames")
                 duration = float(duration_val) if duration_val else None
@@ -484,13 +506,16 @@ class S2STManifestDataset(Dataset):
                 return wav, sr
             except Exception:
                 pass
-        # Fallback: soundfile (fast) or librosa
+        # Fallback: soundfile only (avoid audioread backend issues)
         try:
             y, sr = sf.read(str(path), always_2d=False)
-            if y.ndim == 2:
+            if isinstance(y, tuple):
+                # Some versions can return (data, sr)
+                y, sr = y
+            if hasattr(y, "ndim") and y.ndim == 2:
                 y = y.mean(axis=1)
-        except Exception:
-            y, sr = librosa.load(str(path), sr=None, mono=True)
+        except Exception as e:
+            raise RuntimeError(f"Failed to read audio with soundfile: {path} ({e}). Ensure libsndfile is installed.") from e
         if sr != target_sr:
             y = librosa.resample(y, orig_sr=sr, target_sr=target_sr)
             sr = target_sr
@@ -503,6 +528,10 @@ class S2STManifestDataset(Dataset):
         audio_path = self._resolve_path(entry.src_audio)
         if not audio_path.is_file():
             raise FileNotFoundError(f"Source audio not found: {audio_path}")
+        
+        # Check if path is actually a units file (should not happen, but safety check)
+        if audio_path.suffix in {".npy", ".npz"}:
+            raise ValueError(f"Source audio path points to units file: {audio_path}. Check manifest format.")
 
         waveform, sr = self._safe_load_audio(audio_path, self.feature_extractor.sample_rate)
         processed_waveform = waveform
@@ -563,10 +592,42 @@ class S2STManifestDataset(Dataset):
             sample["tgt_waveform_length"] = torch.tensor(tgt_waveform.size(-1), dtype=torch.long)
             sample["tgt_waveform_sample_rate"] = torch.tensor(tgt_sr, dtype=torch.long)
 
-        if self.load_tgt_units and entry.tgt_units:
-            tgt_unit_tensor = self._load_units(entry.tgt_units)
-            sample["tgt_units"] = tgt_unit_tensor
-            sample["tgt_unit_length"] = torch.tensor(tgt_unit_tensor.size(0), dtype=torch.long)
+        if self.load_tgt_units:
+            # Try explicit tgt_units from manifest first
+            candidates: List[Path] = []
+            if entry.tgt_units:
+                candidates.append(entry.tgt_units)
+            # Prefer tgt_audio basename (most unit pipelines name with _en suffix)
+            if entry.tgt_audio:
+                candidates.append(Path(f"{entry.tgt_audio.stem}.npy"))
+                candidates.append(Path(f"{entry.tgt_audio.stem}.npz"))
+            # Also try src_audio basename variants
+            src_stem = audio_path.stem
+            candidates.append(Path(f"{src_stem}.npy"))
+            candidates.append(Path(f"{src_stem}.npz"))
+            # Case-variation fallbacks (some corpora mix cases like iv_k vs iv_K)
+            if src_stem.lower() != src_stem:
+                ls = src_stem.lower()
+                candidates.append(Path(f"{ls}.npy"))
+                candidates.append(Path(f"{ls}.npz"))
+            if src_stem.upper() != src_stem:
+                us = src_stem.upper()
+                candidates.append(Path(f"{us}.npy"))
+                candidates.append(Path(f"{us}.npz"))
+
+            loaded_units: Optional[torch.Tensor] = None
+            for cand in candidates:
+                try:
+                    tensor = self._load_units(cand)
+                    if isinstance(tensor, torch.Tensor) and tensor.numel() > 0:
+                        loaded_units = tensor
+                        break
+                except Exception:
+                    continue
+
+            if loaded_units is not None:
+                sample["tgt_units"] = loaded_units
+                sample["tgt_unit_length"] = torch.tensor(loaded_units.size(0), dtype=torch.long)
 
         if self.streaming_chunk_frames is not None:
             chunks, chunk_lengths = self._chunk_features(features)
@@ -640,7 +701,8 @@ def collate_s2st_batches(
     chunk_tensors: Optional[torch.Tensor] = None
     chunk_lengths_batch: Optional[torch.Tensor] = None
     has_chunks = "speech_chunks" in batch[0]
-    has_units = "tgt_units" in batch[0]
+    # Detect units presence across the whole batch, not only the first item
+    has_units = any(("tgt_units" in item) for item in batch)
 
     if has_chunks:
         chunk_time = batch[0]["speech_chunks"].size(1)
@@ -654,7 +716,10 @@ def collate_s2st_batches(
         chunk_lengths_batch = torch.zeros((len(batch), max_chunks), dtype=torch.long)
 
     if has_units:
-        max_unit_len = max(int(item["tgt_unit_length"]) for item in batch)
+        max_unit_len = 0
+        for item in batch:
+            if "tgt_unit_length" in item:
+                max_unit_len = max(max_unit_len, int(item["tgt_unit_length"]))
         unit_batch = torch.full((len(batch), max_unit_len), fill_value=-1, dtype=torch.long)
         unit_lengths = torch.zeros(len(batch), dtype=torch.long)
     else:
@@ -702,9 +767,11 @@ def collate_s2st_batches(
             chunk_lengths_batch[idx, :chunk_len] = item["speech_chunk_lengths"]
 
         if has_units and unit_batch is not None and unit_lengths is not None:
-            ulength = int(item["tgt_unit_length"])
-            unit_batch[idx, :ulength] = item["tgt_units"][:ulength]
-            unit_lengths[idx] = ulength
+            if "tgt_units" in item and "tgt_unit_length" in item:
+                ulength = int(item["tgt_unit_length"])
+                if ulength > 0:
+                    unit_batch[idx, :ulength] = item["tgt_units"][:ulength]
+                    unit_lengths[idx] = ulength
 
     batch_dict: Dict[str, Any] = {
         "id": ids,

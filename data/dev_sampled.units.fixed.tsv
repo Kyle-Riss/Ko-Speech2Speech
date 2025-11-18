@@ -1,0 +1,1202 @@
+id	src_audio	src_text	tgt_audio	tgt_text	tgt_units
+	tgt_units				
+14	wavs/dev/iv_K_018_001_042_0155.wav	네. 밤에도 하고, 또 남편에게 가게가 있어요. 그냥 당구만 열심히 해라, 남는 거 내가 다 하니까.	wavs/dev/iv_K_018_001_042_0155_en.wav	"Yes. I do it at night, and my husband has a shop. My husband says, ""Just work hard on billiards. I'll do everything that's left."""	
+	/Users/hayubin/EchoStream/data/units/iv_K_018_001_042_0155_en.npy				
+19	wavs/dev/iv_K_018_001_057_0215.wav	도울 수 있는 마음이 있다면 나도 행복해진다. 이런 뜻이네요.	wavs/dev/iv_K_018_001_057_0215_en.wav	If you have a heart to help, you will be happy too. This is what I mean.	
+	/Users/hayubin/EchoStream/data/units/iv_K_018_001_057_0215_en.npy				
+33	wavs/dev/iv_k_018_002_026_0131.wav	아무래도, 입양을 하시는 분들께서 전반적으로 좀, 신생아이고, 또 여자이고, 건강한 아이를 좀 선호하시는 경향이 있어서,	wavs/dev/iv_k_018_002_026_0131_en.wav	I think people who adopt tend to prefer children who are small, newborn, female, and healthy in general.	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_002_026_0131_en.npy				
+39	wavs/dev/iv_k_018_002_039_0191.wav	저번에 제 같은 반 애가 저한테 엄청 뭐라 했었는데, 제가 언니한테 말하니까, 언니가 저희 반은 찾아와서, 걔한테 엄청 뭐라 해 주고 갔거든요,	wavs/dev/iv_k_018_002_039_0191_en.wav	Last time, my classmate scolded me a lot. When I told my sister, she came to my class and scolded him a lot.	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_002_039_0191_en.npy				
+41	wavs/dev/iv_k_018_002_043_0211.wav	수아 처음에 봤을 때, 낯설지 가 않더라고요,라고 아까 아버님 말씀하셨는데, 저희가 봐도 참 두 분이 속 닮으셨어요!	wavs/dev/iv_k_018_002_043_0211_en.wav	You mentioned earlier that when you first saw Sua, you didn't feel you were unfamiliar with her, but when we look at you, you two look a lot alike.	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_002_043_0211_en.npy				
+47	wavs/dev/iv_k_018_002_056_0271.wav	그러면 아이가 함께 집에서 똑같이 자녀처럼 지내고,	wavs/dev/iv_k_018_002_056_0271_en.wav	Then the child will live together in the house like your own child.	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_002_056_0271_en.npy				
+101	wavs/dev/iv_k_018_004_087_0397.wav	사실 일곱 가지 청규 이외에	wavs/dev/iv_k_018_004_087_0397_en.wav	In addition to the seven kinds of rules,	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_004_087_0397_en.npy				
+107	wavs/dev/iv_k_018_005_005_0020.wav	혼자 잘 놀고 또 거기에 좀 한 이 년 넘게 있다 보니까, 그쪽도 동네 마을 지인들이 또 많이 저를 챙겨 주셔서 그리고 또 거기서 또 딸을 또 하나 입양을 했어요.	wavs/dev/iv_k_018_005_005_0020_en.wav	I play well alone, and I've stayed there for over two years, so my neighborhood also takes care of me a lot, and I adopted another daughter there.	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_005_005_0020_en.npy				
+119	wavs/dev/iv_k_018_005_038_0140.wav	오늘 아침 일찍 나와 주신 덕분에 저희도 행복했고요. 뭔가 좋은 기운을 저희가 받은 것 같은 그런 느낌이에요. 네!	wavs/dev/iv_k_018_005_038_0140_en.wav	We were happy because you came out early this morning. It feels like we received good energy. Yes!	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_005_038_0140_en.npy				
+149	wavs/dev/iv_k_018_008_044_0177.wav	그러니까 이게 뭐냐면 연기보다 우리가 어떤 사람도 사실 이 자리에서 제가 보여 드려야 되는 모습이 있고, 또 집안에서 보여줘야 되는 모습이 있고, 그렇죠?	wavs/dev/iv_k_018_008_044_0177_en.wav	So, rather than acting, there are aspects that I have to show in this place, and there are aspects that I have to show at home, right?	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_008_044_0177_en.npy				
+177	wavs/dev/iv_k_018_009_015_0073.wav	그래도 오전에는 뭘 하고 오후에는 뭘 하고 이런 건 있겠죠?	wavs/dev/iv_k_018_009_015_0073_en.wav	But, what do you do in the morning and what do you do in the afternoon?	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_009_015_0073_en.npy				
+200	wavs/dev/iv_k_018_010_009_0027.wav	어머니가 경제 교육을 시키신 거네요.	wavs/dev/iv_k_018_010_009_0027_en.wav	Your mother gave you early economic education.	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_010_009_0027_en.npy				
+214	wavs/dev/iv_k_018_010_047_0167.wav	그게 계속 말썽이 되고, 싸움이 되고, 혼나고 그 와중에 이제 접한 게 셜록 홈즈 문고판 이었어요.	wavs/dev/iv_k_018_010_047_0167_en.wav	It kept getting into trouble, fighting and scolding, and in the midst of that, what I came across was the Sherlock Holmes paperback.	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_010_047_0167_en.npy				
+218	wavs/dev/iv_k_018_010_061_0217.wav	근데 삼십 년 흘러서 그대, 그때 현장 증거를 보관하고 있던 경찰관들이 이걸 다시 국과수에, 혹시 그때보다 기술이 나아졌으니까	wavs/dev/iv_k_018_010_061_0217_en.wav	But 30 years later, the police officers who were keeping the evidence at the scene were able to get it back to the National Forensic Service because the technology is better now.	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_010_061_0217_en.npy				
+245	wavs/dev/iv_k_018_011_054_0234.wav	저희들은 오래 간 적이 없어요.	wavs/dev/iv_k_018_011_054_0234_en.wav	We haven't fought long.	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_011_054_0234_en.npy				
+251	wavs/dev/iv_k_018_012_007_0024.wav	육포가 이제 심심할 때 이렇게 먹지 않습니까? 그랬듯이 저희를 심심할 때 되면 불러 달라.	wavs/dev/iv_k_018_012_007_0024_en.wav	Don't you eat beef jerky when you're bored? Just like that, you can call us when you're bored.	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_012_007_0024_en.npy				
+303	wavs/dev/iv_k_018_014_003_0017.wav	얼굴도 참 편안해 보이시는데 어디 편찮으신데 없으시죠?	wavs/dev/iv_k_018_014_003_0017_en.wav	Your face look good, do you have somewhere you are not feeling well?	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_014_003_0017_en.npy				
+304	wavs/dev/iv_k_018_014_005_0027.wav	팬들 여러분들이 좋아해 주시고 또 이렇게 김학래씨 같은 정말 저를 칭찬을 많이 해주시는 분들이 주위에 계셔서	wavs/dev/iv_k_018_014_005_0027_en.wav	My fans like me, and there are people around me like Kim Hak-rae who really compliment me a lot.	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_014_005_0027_en.npy				
+321	wavs/dev/iv_k_018_014_041_0217.wav	그게 왕꽃선녀님이라. 요즘에 재방이 나갑니다.	wavs/dev/iv_k_018_014_041_0217_en.wav	That's the Queen Flower Fairy. There is a rerun these days.	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_014_041_0217_en.npy				
+330	wavs/dev/iv_k_018_015_013_0058.wav	근데 이 층에서 최종혁 선생님께서 피아노를 쥐고 계셨고, 저는 삼 층에서 그룹 활동을 하고 있었는데,	wavs/dev/iv_k_018_015_013_0058_en.wav	But on the second floor, Choi Jong-hyuk was playing the piano, and I was doing group activities on the third floor.	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_015_013_0058_en.npy				
+346	wavs/dev/iv_k_018_015_045_0218.wav	원곡자가 들으시기엔 어떻게 들으셨을지도 궁금해요. 곡에 느낌을 잘 살려내셨는지. 가수가?	wavs/dev/iv_k_018_015_045_0218_en.wav	I wonder how the original songwriter would have heard it. Did she capture the feeling in the song well? the singer?	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_015_045_0218_en.npy				
+357	wavs/dev/iv_k_018_016_028_0114.wav	장애인이라 눈을 못 보시는 분이에요. 그 중간 쯤 올라가니까 객석에서 앞을 못 보는 분이구나, 그래 숙연해졌는데, 올라가서 마이크를 잡고 노래하는데,	wavs/dev/iv_k_018_016_028_0114_en.wav	He is disabled and cannot see. About halfway up, the audience noticed that he wasn't able to see, and the atmosphere became really awkward. Then he went up and sang.	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_016_028_0114_en.npy				
+379	wavs/dev/iv_k_018_018_025_0108.wav	그런데 인제 문제는 뭐 액션이 좋아서, 낯 부끄럽습니다만, 대사가 안 되니까, 대사가 안 되니까,	wavs/dev/iv_k_018_018_025_0108_en.wav	But there was nothing wrong with the action, but, I'm embarrassed to say this, I couldn't speak the lines.	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_018_025_0108_en.npy				
+398	wavs/dev/iv_k_018_019_010_0036.wav	내려오면 저는 솔직히 말해서 그때는 제 배짱으로 부른 게 아니에요. 저희 소속사 대표님께서 대충 한 두 곡 하고 내려 오면 되게 제가 혼났어요.	wavs/dev/iv_k_018_019_010_0036_en.wav	When it comes down to it, to be honest, I didn't call it with my guts back then. When I came down with a song or two, I was very scolded from the representative of our agency.	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_019_010_0036_en.npy				
+457	wavs/dev/iv_k_018_021_030_0141.wav	예. 고등학교 때 제가 저는 인제 그때 당시에 이제 재수 라는 말이 별로 없었을 때, 지금은 재수를 많이 하잖아요.	wavs/dev/iv_k_018_021_030_0141_en.wav	Yes, when I was in high school, there weren't many words to retake the exam. Now I retake the exam a lot.	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_021_030_0141_en.npy				
+461	wavs/dev/iv_k_018_021_039_0181.wav	굉장히 중요한 했던 거는 그 작품의 그 주인공이 그게 인제 아일랜드 작품이거든요.	wavs/dev/iv_k_018_021_039_0181_en.wav	What was really important was that the main character of the drama was an Irish drama.	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_021_039_0181_en.npy				
+468	wavs/dev/iv_k_018_021_054_0251.wav	그랬더니 아, 그래도 좀 들었을 거 아니냐. 그래서 아 여기 시험 보러 올라고 며칠 전서부터 몇 번 들어 봤는데	wavs/dev/iv_k_018_021_054_0251_en.wav	"I said, ""Ah, I think you must have heard it."" So, I heard a few days ago that I would come here to take an exam."	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_021_054_0251_en.npy				
+487	wavs/dev/iv_k_018_021_094_0441.wav	말하자면 음. 뭐 꼭 그런 건 아니더래도 그와 유사한 경우가 있으니까. 그래서 음.	wavs/dev/iv_k_018_021_094_0441_en.wav	I mean, well, it's not necessarily like that, but it's like that.	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_021_094_0441_en.npy				
+510	wavs/dev/iv_k_018_023_006_0035.wav	그 젊음과 미모를 어떻게 유지하고 계신지 저희가 그 증거 사진이 하나 있어서 입수를 해봤습니다.	wavs/dev/iv_k_018_023_006_0035_en.wav	We got a picture of how you maintain your youth and beauty.	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_023_006_0035_en.npy				
+518	wavs/dev/iv_k_018_023_022_0135.wav	극장 가보래. 진짜 극장 갔더니 행. 쫙 뜨고 행복 예식장하고 나오는 거예요. 내 얼굴 들면은. 어머. 창피해 죽겠는거야. 어머 저거 뭐야.	wavs/dev/iv_k_018_023_022_0135_en.wav	"They told me to go to the theater. I really went to the theater. When I raised my face in the commercial, the name of the wedding hall, 'Happy Wedding Hall' appeared. Oh, my. I was so embarrassed. I was like, ""What's that?"	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_023_022_0135_en.npy				
+533	wavs/dev/iv_k_018_023_054_0325.wav	그러면 홍콩에서 촬영하셨어요?	wavs/dev/iv_k_018_023_054_0325_en.wav	Did you film in Hong Kong?	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_023_054_0325_en.npy				
+562	wavs/dev/iv_k_018_023_105_0675.wav	최수종 씨 같은 경우는 제일 일찍 나와 앉아 있어. 그러고 이러고 앉아 있어요. 자기 그거 안 돼도. 너무 착한 거 아니에요?	wavs/dev/iv_k_018_023_105_0675_en.wav	Choe Su-jong was the first one to come out and sit down. He was sitting like this. Even if it was not his turn. He's so nice.	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_023_105_0675_en.npy				
+592	wavs/dev/iv_k_018_024_073_0325.wav	네, 지금 한 스물 다섯 곳의, 전국에. 제주도까지 인제 퍼져 있고요.	wavs/dev/iv_k_018_024_073_0325_en.wav	Yes, there are about 25 places in the country. It's spread all the way to Jeju Island.	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_024_073_0325_en.npy				
+624	wavs/dev/iv_k_018_025_018_0109.wav	그래서 제가 그때 공신력이 있으신 분이 그런 얘기를 하니까 보통 김학래씨 같은 분이 그런 얘기했으면 제가 긴가민가 예. 그렇게 생각할 수 있는데	wavs/dev/iv_k_018_025_018_0109_en.wav	Since someone with public confidence said that, I'm not sure if someone like Kim Hak-rae said that. You might think so	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_025_018_0109_en.npy				
+647	wavs/dev/iv_k_018_025_067_0369.wav	그건 누군가한테 피해를 주는 거지만, 주는 거니까.	wavs/dev/iv_k_018_025_067_0369_en.wav	It's hurting someone, but it's giving.	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_025_067_0369_en.npy				
+651	wavs/dev/iv_k_018_025_076_0419.wav	근데 예를 들어서 그 직장 하시는 분이 누구 동료 때문에 힘들다 그랬잖아요.	wavs/dev/iv_k_018_025_076_0419_en.wav	But for example, the person who works said that it's hard because of someone's coworker.	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_025_076_0419_en.npy				
+673	wavs/dev/iv_k_018_026_030_0160.wav	허영만 화백과는 어떤 인연일까요?	wavs/dev/iv_k_018_026_030_0160_en.wav	What kind of relationship do you have with artist Heo Young-man?	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_026_030_0160_en.npy				
+700	wavs/dev/iv_k_018_026_092_0490.wav	제가 옛날 그 노래를 좋아했어요. 불러 보기도 했어요.	wavs/dev/iv_k_018_026_092_0490_en.wav	I liked that old song. I even sang it.	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_026_092_0490_en.npy				
+744	wavs/dev/iv_k_018_028_010_0060.wav	사실은 이제 서른 아홉 피스를 제가 제공했는데 그만큼은 다 사용하지 못하고	wavs/dev/iv_k_018_028_010_0060_en.wav	I actually provided 39 pieces, but I couldn't use them all.	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_028_010_0060_en.npy				
+749	wavs/dev/iv_k_018_028_019_0110.wav	일부러?	wavs/dev/iv_k_018_028_019_0110_en.wav	On purpose?	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_028_019_0110_en.npy				
+839	wavs/dev/iv_k_018_029_086_0392.wav	연락을 주세요.	wavs/dev/iv_k_018_029_086_0392_en.wav	Please contact me.	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_029_086_0392_en.npy				
+856	wavs/dev/iv_k_018_029_127_0562.wav	지역사회 인제 노동운동 하시는 분들이 인제 그걸 아셔 가지고 진실을 밝혀주겠다 라고 해서	wavs/dev/iv_k_018_029_127_0562_en.wav	People who work in the labor movement learned about the accident and said they would reveal the truth.	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_029_127_0562_en.npy				
+862	wavs/dev/iv_k_018_029_143_0622.wav	사 회사가 안전을 아예 예산도 안 짜고 방치해버렸기 때문에	wavs/dev/iv_k_018_029_143_0622_en.wav	The company left safety unattended even without budgeting for safety.	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_029_143_0622_en.npy				
+908	wavs/dev/iv_k_018_030_092_0523.wav	실제로 엔지오 단체의 이사장으로도 활동을 하고 계시잖아요?	wavs/dev/iv_k_018_030_092_0523_en.wav	You're actually working as the chairman of an NGO organization, right?	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_030_092_0523_en.npy				
+927	wavs/dev/iv_k_018_031_027_0124.wav	누구 보다 잘 아시잖아요. 이 아침에 노래 부르기 얼마나 힘든지.	wavs/dev/iv_k_018_031_027_0124_en.wav	You know better than anyone else. How hard it is to sing this morning.	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_031_027_0124_en.npy				
+932	wavs/dev/iv_k_018_031_037_0174.wav	제가 은상 받았을 거고요.	wavs/dev/iv_k_018_031_037_0174_en.wav	I would have received a silver award.	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_031_037_0174_en.npy				
+967	wavs/dev/iv_k_018_032_031_0119.wav	내 인생의 세 가지 배역. 두 번째 확인해 볼게요.	wavs/dev/iv_k_018_032_031_0119_en.wav	Three roles in my life. Let me check the second time.	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_032_031_0119_en.npy				
+1002	wavs/dev/iv_k_018_032_095_0469.wav	저희는 이제 노래가 그 사람의 마음을 대변해 준다고 생각을 했었고 사실 저는 시가 싫었어요.	wavs/dev/iv_k_018_032_095_0469_en.wav	We thought that the song represents the person's heart, and I actually hated poetry.	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_032_095_0469_en.npy				
+1039	wavs/dev/iv_k_018_033_089_0372.wav	어떤 분이 그래요. 사지 멀쩡하고 한데 거기서 그렇게 게으르게 있는데 왜 도와주냐 그래서	wavs/dev/iv_k_018_033_089_0372_en.wav	Someone said that. My limbs are fine, but why are you helping me when I'm so lazy?	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_033_089_0372_en.npy				
+1078	wavs/dev/iv_k_018_034_044_0327.wav	존재하지도 않았다.	wavs/dev/iv_k_018_034_044_0327_en.wav	I didn't even exist.	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_034_044_0327_en.npy				
+1121	wavs/dev/iv_k_018_037_043_0178.wav	제가 그 얘기 듣고 배꼽을 잡고 웃었어요.	wavs/dev/iv_k_018_037_043_0178_en.wav	I laughed my head off when I heard that.	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_037_043_0178_en.npy				
+1157	wavs/dev/iv_k_018_038_014_0071.wav	그래서 이름을 달리한 게 구분을 정확히 짓기 위해서	wavs/dev/iv_k_018_038_014_0071_en.wav	So, to distinguish the difference,	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_038_014_0071_en.npy				
+1166	wavs/dev/iv_k_018_038_036_0161.wav	이게 트로트의 민족이 처음이 아니었군요?	wavs/dev/iv_k_018_038_036_0161_en.wav	So this isn't the first time for a trot song?	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_038_036_0161_en.npy				
+1175	wavs/dev/iv_k_018_038_055_0251.wav	제가 이천 구 년도부터 꿈의 노트라는 걸 쓰기 시작했어요.	wavs/dev/iv_k_018_038_055_0251_en.wav	I started writing dream notes in 2009.	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_038_055_0251_en.npy				
+1178	wavs/dev/iv_k_018_038_061_0281.wav	이천 십 팔 년의 일월 일 일부터 다이어트를 해서 삼 개월 만에 제가 한 이십 팔 키로 이렇게 감량을 하고	wavs/dev/iv_k_018_038_061_0281_en.wav	I started dieting on January 1, 2018 and lost about 28kg in 3 months.	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_038_061_0281_en.npy				
+1208	wavs/dev/iv_k_018_040_021_0109.wav	근데 이거는 가까이 있는 사람들이 알아봐 줘야 되고 먼저 그거를 대응을 좀 해줘야 되고	wavs/dev/iv_k_018_040_021_0109_en.wav	But people close to me need to recognize it and respond to it first.	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_040_021_0109_en.npy				
+1272	wavs/dev/iv_k_018_041_113_0390.wav	저희가 한 번 틀리고 두 번 정도 더 틀려. 한 번 더 틀리셔 가지고.	wavs/dev/iv_k_018_041_113_0390_en.wav	But they got wrong twice while we got wrong once.	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_041_113_0390_en.npy				
+1277	wavs/dev/iv_k_018_041_129_0460.wav	재미나게 지내고 있습니다.	wavs/dev/iv_k_018_041_129_0460_en.wav	I've been having fun.	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_041_129_0460_en.npy				
+1282	wavs/dev/iv_k_018_041_142_0510.wav	이윤호 씨와 함께 얘기 나눠 봤습니다.	wavs/dev/iv_k_018_041_142_0510_en.wav	Mr. Lee Yoon-ho.	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_041_142_0510_en.npy				
+1355	wavs/dev/iv_k_018_043_106_0425.wav	그 시절 박성신 씨 활동하던 모습 영상으로 먼저 보시겠습니다.	wavs/dev/iv_k_018_043_106_0425_en.wav	First, let's watch the video of Ms. Park Sung-shin during her singing period.	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_043_106_0425_en.npy				
+1369	wavs/dev/iv_k_018_043_147_0595.wav	발음이 어쩜 그렇게 정확하세요.	wavs/dev/iv_k_018_043_147_0595_en.wav	How accurate your pronunciation is!	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_043_147_0595_en.npy				
+1373	wavs/dev/iv_k_018_043_161_0645.wav	조금 전에 판소리할 때 고수 해 주셨던 이범희 씨께	wavs/dev/iv_k_018_043_161_0645_en.wav	I asked Mr. Lee Beon-hee who played the drum just now	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_043_161_0645_en.npy				
+1383	wavs/dev/iv_k_018_043_201_0785.wav	좋아하는 음식.	wavs/dev/iv_k_018_043_201_0785_en.wav	Your favorite foods.	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_043_201_0785_en.npy				
+1393	wavs/dev/iv_k_018_043_243_0925.wav	진짜 판소리 외교관이시네요.	wavs/dev/iv_k_018_043_243_0925_en.wav	You are a real diplomat of Pansori.	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_043_243_0925_en.npy				
+1396	wavs/dev/iv_k_018_048_002_0005.wav	글쎄요 티비가 흑백이던 시절 브라운관 이던 시절부터 요즘 뭐 그렇게 좋다는 유에이치디 까지	wavs/dev/iv_k_018_048_002_0005_en.wav	I'm not sure. From the days when TV was black and white, to the days when it was a cathode ray tube, to the UHD that is so good these days,	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_048_002_0005_en.npy				
+1406	wavs/dev/iv_k_018_048_038_0125.wav	근데 글쎄요 모르겠어요.	wavs/dev/iv_k_018_048_038_0125_en.wav	But I'm not sure. I don't know.	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_048_038_0125_en.npy				
+1413	wavs/dev/iv_k_018_048_061_0205.wav	우리 어머니가 또 열심히 음식을 잘 맨드시는	wavs/dev/iv_k_018_048_061_0205_en.wav	My mother was also good at cooking.	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_048_061_0205_en.npy				
+1427	wavs/dev/iv_k_018_048_105_0375.wav	시어머니 친정어머니 중매쟁이 시누이	wavs/dev/iv_k_018_048_105_0375_en.wav	There was no one who could do	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_048_105_0375_en.npy				
+1434	wavs/dev/iv_k_018_048_126_0455.wav	내가 다아아 의상준비하고	wavs/dev/iv_k_018_048_126_0455_en.wav	I had to prepare all my outfits.	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_048_126_0455_en.npy				
+1453	wavs/dev/iv_k_018_048_201_0725.wav	홍어 찌개하고 술 한 잔씩 먹고 들어갔는데	wavs/dev/iv_k_018_048_201_0725_en.wav	I went in after eating skate stew and drinking a glass of alcohol.	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_048_201_0725_en.npy				
+1457	wavs/dev/iv_k_018_048_215_0775.wav	저 선생은 노래도 노래지만	wavs/dev/iv_k_018_048_215_0775_en.wav	Mr. Choi sings well.	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_048_215_0775_en.npy				
+1470	wavs/dev/iv_k_018_048_255_0925.wav	처음부터 워낙 잘하셨보다	wavs/dev/iv_k_018_048_255_0925_en.wav	You did a great job from the beginning.	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_048_255_0925_en.npy				
+1498	wavs/dev/iv_k_018_051_003_0009.wav	이런 얘기 자체를 요새는 안 하잖아요?	wavs/dev/iv_k_018_051_003_0009_en.wav	We don't even talk about this these days, right?	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_051_003_0009_en.npy				
+1562	wavs/dev/iv_k_018_051_192_0689.wav	근데 이분이 같이 따라가는 날은 낮에 가는 거잖아요.	wavs/dev/iv_k_018_051_192_0689_en.wav	But the day she follows me is during the day.	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_051_192_0689_en.npy				
+1576	wavs/dev/iv_k_018_051_239_0859.wav	그리고 뭐 그걸 바탕으로 해서	wavs/dev/iv_k_018_051_239_0859_en.wav	And based on that,	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_051_239_0859_en.npy				
+1643	wavs/dev/iv_k_018_066_088_0288.wav	먹먹하네요.	wavs/dev/iv_k_018_066_088_0288_en.wav	It's so touching.	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_066_088_0288_en.npy				
+1655	wavs/dev/iv_k_018_066_130_0428.wav	그런 평가 냉정하게 우리 이승현씨가 해주실 겁니다.	wavs/dev/iv_k_018_066_130_0428_en.wav	Lee Seung-hyun will give you that kind of evaluation soberly.	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_066_130_0428_en.npy				
+1688	wavs/dev/iv_k_018_067_088_0296.wav	근데 이제 재밌는 거는 올려서 그냥 다리 내리는 거 보다	wavs/dev/iv_k_018_067_088_0296_en.wav	What's fun is that instead of putting your legs up and down yourself.	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_067_088_0296_en.npy				
+1701	wavs/dev/iv_k_018_067_123_0426.wav	하지만 투자금 없이도 대박을 터뜨린 수 있었던 데는 어머니의 특별한 교육 있었다는데요.	wavs/dev/iv_k_018_067_123_0426_en.wav	Then, his mother's special education was the reason they were able to hit the jackpot with no investment.	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_067_123_0426_en.npy				
+1783	wavs/dev/iv_k_018_073_168_0697.wav	부자들의 내면의 특징들이 있는데 그 특징들을 연습을 해서 그렇게 바뀌면	wavs/dev/iv_k_018_073_168_0697_en.wav	There are inner characteristics of rich people. If you practice those characteristics and have them.	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_073_168_0697_en.npy				
+1791	wavs/dev/iv_k_018_073_189_0777.wav	미음도 꺾이고	wavs/dev/iv_k_018_073_189_0777_en.wav	The 'mieum' is also curved.	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_073_189_0777_en.npy				
+1795	wavs/dev/iv_k_018_073_200_0817.wav	저희 같은 일반인의 글씨를 분석할 때는 어떤 관점으로 보시는 거예요?	wavs/dev/iv_k_018_073_200_0817_en.wav	What do you consider when you analyze the writing of ordinary people like us?	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_073_200_0817_en.npy				
+1803	wavs/dev/iv_k_018_073_222_0897.wav	그런데 사실 저도 좀 놀랐는데	wavs/dev/iv_k_018_073_222_0897_en.wav	But actually, I was a little surprised.	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_073_222_0897_en.npy				
+1845	wavs/dev/iv_k_018_074_092_0330.wav	아니 진짜 어떻게 칠팔십 년 전 노래를 가사 하나 안 틀리고	wavs/dev/iv_k_018_074_092_0330_en.wav	Really, how can you sing a song from 70 or 80 years ago without a single mistake in the lyrics?	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_074_092_0330_en.npy				
+1851	wavs/dev/iv_k_018_074_109_0390.wav	옛날 엄마들은 참 불쌍해.	wavs/dev/iv_k_018_074_109_0390_en.wav	Old mothers are so pathetic.	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_074_109_0390_en.npy				
+1883	wavs/dev/iv_k_018_074_199_0720.wav	그때 흑인을 얼마나 무서워. 흑인 흑인	wavs/dev/iv_k_018_074_199_0720_en.wav	I was so scared of black people then.	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_074_199_0720_en.npy				
+1935	wavs/dev/iv_k_018_075_036_0199.wav	그러니까 뭐 이 의사분들이 이렇게 병원에 아파서 진찰하러 가면 무슨 운동을 했냐? 그래요.	wavs/dev/iv_k_018_075_036_0199_en.wav	"So, when I go to a hospital to see a doctor, they ask me, ""what exercise do you do?"""	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_075_036_0199_en.npy				
+1950	wavs/dev/iv_k_018_075_086_0549.wav	그걸 방송으로 했는데	wavs/dev/iv_k_018_075_086_0549_en.wav	I did it as a broadcast.	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_075_086_0549_en.npy				
+1954	wavs/dev/iv_k_018_075_099_0629.wav	풍부한 분입니다.	wavs/dev/iv_k_018_075_099_0629_en.wav	He's competent.	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_075_099_0629_en.npy				
+1964	wavs/dev/iv_k_018_075_128_0799.wav	그분이 이 노래를 부르면 왜 그런지 자꾸 저도 잠언이가 나 보는 것 같이 그래서	wavs/dev/iv_k_018_075_128_0799_en.wav	When he sings this song, for some reason, I feel like he is looking at me like Jam-eon does.	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_075_128_0799_en.npy				
+1978	wavs/dev/iv_k_018_076_033_0235.wav	그래서 신혼집을 이제 오라 그래서 갔더니 다 쓰던 물건이에요.	wavs/dev/iv_k_018_076_033_0235_en.wav	I went to the newlywed house, and they used the things they had used.	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_076_033_0235_en.npy				
+1981	wavs/dev/iv_k_018_076_038_0285.wav	인제는 당신 된장찌개 이제 안 끓여도 괜찮아.	wavs/dev/iv_k_018_076_038_0285_en.wav	You don't have to cook Doenjang-jjigae anymore.	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_076_038_0285_en.npy				
+1983	wavs/dev/iv_k_018_076_047_0355.wav	아주 며느리 자랑 실컷 하시더니 본인 자랑까지 묘하게 하시네요.	wavs/dev/iv_k_018_076_047_0355_en.wav	She bragged about her daughter-in-law a lot and then bragged about herself.	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_076_047_0355_en.npy				
+1984	wavs/dev/iv_k_018_076_052_0385.wav	먼저 내는 버릇 근데 그게	wavs/dev/iv_k_018_076_052_0385_en.wav	It's a habit to pay first, but that's.	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_076_052_0385_en.npy				
+2020	wavs/dev/iv_k_018_076_147_0995.wav	그분에 맞게. 맞춰서. 디자인을 하는 게.	wavs/dev/iv_k_018_076_147_0995_en.wav	We design it, customizing it for them.	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_076_147_0995_en.npy				
+2034	wavs/dev/iv_k_018_077_042_0144.wav	이게 제가 너무 나도 모르게 빠져요 무대에.	wavs/dev/iv_k_018_077_042_0144_en.wav	I got into a character without realizing it.	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_077_042_0144_en.npy				
+2046	wavs/dev/iv_k_018_077_081_0274.wav	자취방이 단칸방이잖아요.	wavs/dev/iv_k_018_077_081_0274_en.wav	The dorm room was a single room.	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_077_081_0274_en.npy				
+2057	wavs/dev/iv_k_018_077_116_0394.wav	그러다 보니까 막 이렇게 컴퓨터 회로가 이렇게 하듯이	wavs/dev/iv_k_018_077_116_0394_en.wav	Then, just like the computer circuit does this.	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_077_116_0394_en.npy				
+2069	wavs/dev/iv_k_018_077_151_0514.wav	근데 그것 때문에 아내가 잔소리하잖아요.	wavs/dev/iv_k_018_077_151_0514_en.wav	But if my wife naged me.	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_077_151_0514_en.npy				
+2087	wavs/dev/iv_k_018_077_220_0754.wav	어쨌든 죽어 가는 아이들 보면서	wavs/dev/iv_k_018_077_220_0754_en.wav	Anyway, watching the dying kids.	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_077_220_0754_en.npy				
+2109	wavs/dev/iv_k_018_077_286_0984.wav	너무 고마우신 분이세요.	wavs/dev/iv_k_018_077_286_0984_en.wav	I'm really grateful to her.	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_077_286_0984_en.npy				
+2150	wavs/dev/iv_k_018_078_094_0322.wav	그러니까 노래는 잘하지만 공부도 열심히 했던 차분한 그런 네.	wavs/dev/iv_k_018_078_094_0322_en.wav	So, although you could sing well, you were also a calm person who studied hard.	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_078_094_0322_en.npy				
+2174	wavs/dev/iv_k_018_078_164_0562.wav	가시기 전에 아까 자랑하셨던 노래 한 곡 더.	wavs/dev/iv_k_018_078_164_0562_en.wav	Before you go, let's listen to the song you bragged about.	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_078_164_0562_en.npy				
+2184	wavs/dev/iv_k_018_078_196_0672.wav	그래서 저희가 어린아이 아주 말도 못 하는 어린아이를	wavs/dev/iv_k_018_078_196_0672_en.wav	That's why we're talking about young children, very young children, who can't speak well yet.	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_078_196_0672_en.npy				
+2199	wavs/dev/iv_k_018_078_244_0832.wav	방금 말씀하신 것처럼 표현하시게 되는데.	wavs/dev/iv_k_018_078_244_0832_en.wav	They will express it like you just said.	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_078_244_0832_en.npy				
+2210	wavs/dev/iv_k_018_078_279_0952.wav	논스톱으로 진행을 하실 수가 있습니다.	wavs/dev/iv_k_018_078_279_0952_en.wav	You can proceed non-stop.	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_078_279_0952_en.npy				
+2216	wavs/dev/iv_k_018_078_299_1022.wav	치매 환자 입장에서 그들을 이해하자.	wavs/dev/iv_k_018_078_299_1022_en.wav	Let's understand them from the perspective of dementia patients.	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_078_299_1022_en.npy				
+2231	wavs/dev/iv_k_018_079_015_0114.wav	한 식구니까 편해서 얘기하는 거죠.	wavs/dev/iv_k_018_079_015_0114_en.wav	I'm saying this because we're a family and because we feel comfortable.	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_079_015_0114_en.npy				
+2301	wavs/dev/iv_k_018_079_080_0894.wav	단계별로 진행이 되니까 초기 단계에는	wavs/dev/iv_k_018_079_080_0894_en.wav	It's done in stages, so in the beginning,	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_079_080_0894_en.npy				
+2319	wavs/dev/iv_k_018_080_003_0027.wav	오늘 뭐 쫙 특히 미키가	wavs/dev/iv_k_018_080_003_0027_en.wav	Especially today, Mickey.	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_080_003_0027_en.npy				
+2342	wavs/dev/iv_k_018_080_028_0297.wav	추천을 추천을 한 거죠. 왜냐하면 일꾼의 탄생이면	wavs/dev/iv_k_018_080_028_0297_en.wav	I recommended him. Because if it's the Birth of a Worker.	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_080_028_0297_en.npy				
+2360	wavs/dev/iv_k_018_080_048_0527.wav	제가 봤을 때는 이번에 찍었으면	wavs/dev/iv_k_018_080_048_0527_en.wav	If we filmed it this time.	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_080_048_0527_en.npy				
+2380	wavs/dev/iv_k_018_080_067_0767.wav	이렇게 해서 섭외를 했는데	wavs/dev/iv_k_018_080_067_0767_en.wav	So they cast him.	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_080_067_0767_en.npy				
+2389	wavs/dev/iv_k_018_080_073_0857.wav	이분들이 국민 머슴이 되기까지	wavs/dev/iv_k_018_080_073_0857_en.wav	Before they become the national servants of the people.	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_080_073_0857_en.npy				
+2453	wavs/dev/iv_k_018_081_075_0368.wav	꿈꾸면 생각나고 꼭 만나보고 싶고	wavs/dev/iv_k_018_081_075_0368_en.wav	When I dream, I think of you and I want to meet you.	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_081_075_0368_en.npy				
+2455	wavs/dev/iv_k_018_081_079_0388.wav	그리고 장인어른 한테도 그랬어요. 우리 아버지가 군인 출신이라 좀 엄하다.	wavs/dev/iv_k_018_081_079_0388_en.wav	And so did my father-in-law. She said my father is a soldier, so he's a little strict.	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_081_079_0388_en.npy				
+2464	wavs/dev/iv_k_018_081_097_0478.wav	또 식당 크기는 어느 정도로 해야 될지	wavs/dev/iv_k_018_081_097_0478_en.wav	I didn't know how big the restaurant should be.	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_081_097_0478_en.npy				
+2474	wavs/dev/iv_k_018_081_117_0588.wav	그런데 이제 청년들이 식사를 하고 계산을 하러 왔을 때	wavs/dev/iv_k_018_081_117_0588_en.wav	But when young people came to pay for their meals,	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_081_117_0588_en.npy				
+2483	wavs/dev/iv_k_018_081_138_0708.wav	그래서 하고 싶어도 하지 못하면서 오는 그런 어려움들을 많이 겪고 있더라고요.	wavs/dev/iv_k_018_081_138_0708_en.wav	So, even if they want to do it, they can't do it, and they're going through a lot of difficulties coming from there.	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_081_138_0708_en.npy				
+2485	wavs/dev/iv_k_018_081_142_0728.wav	오늘도 함께 해주신 시청자 여러분 감사합니다 티벗 통해서 열 분께 상품권 보내 드리겠습니다.	wavs/dev/iv_k_018_081_142_0728_en.wav	Thank you for joining us today, we will send gift certificates to 10 people through TVUT.	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_081_142_0728_en.npy				
+2507	wavs/dev/iv_k_018_082_045_0215.wav	제가 나이가 들어서 커피숍을 하면 편하게 물론 가수 활동을 하지만	wavs/dev/iv_k_018_082_045_0215_en.wav	When I get older and open a coffee shop, of course, I work as a singer, too.	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_082_045_0215_en.npy				
+2517	wavs/dev/iv_k_018_082_060_0315.wav	더 많이 많이 행복하고 싶어	wavs/dev/iv_k_018_082_060_0315_en.wav	I want to be much happier.	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_082_060_0315_en.npy				
+2531	wavs/dev/iv_k_018_082_085_0475.wav	노래하러 가고 그냥	wavs/dev/iv_k_018_082_085_0475_en.wav	I just went to sing.	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_082_085_0475_en.npy				
+2564	wavs/dev/iv_k_018_082_127_0805.wav	왜 하늘에 계신 분이 우에서 보신다며	wavs/dev/iv_k_018_082_127_0805_en.wav	You said someone's watching from the above.	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_082_127_0805_en.npy				
+2588	wavs/dev/iv_k_018_083_030_0109.wav	아니 그냥 붙여보는 거예요.	wavs/dev/iv_k_018_083_030_0109_en.wav	Well, I just put that there for no reason.	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_083_030_0109_en.npy				
+2589	wavs/dev/iv_k_018_083_032_0119.wav	이렇게 괜찮네요.	wavs/dev/iv_k_018_083_032_0119_en.wav	It's better like this.	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_083_032_0119_en.npy				
+2613	wavs/dev/iv_k_018_083_100_0359.wav	아 저도 맨날 내 탓이요에서 되게 힘들었거든요.	wavs/dev/iv_k_018_083_100_0359_en.wav	"I always had a hard time with ""it's my fault""."	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_083_100_0359_en.npy				
+2615	wavs/dev/iv_k_018_083_104_0379.wav	네네	wavs/dev/iv_k_018_083_104_0379_en.wav	Yes, yes.	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_083_104_0379_en.npy				
+2664	wavs/dev/iv_k_018_083_250_0909.wav	시간이 지나면서 후회도 되고 한 상황도 있지 않을까 싶은데	wavs/dev/iv_k_018_083_250_0909_en.wav	As time went by, there must have been situations where you regretted.	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_083_250_0909_en.npy				
+2701	wavs/dev/iv_k_018_084_056_0212.wav	네 제가 어릴 때 들어도 너무나 아름다운 노래들이라고 생각해서	wavs/dev/iv_k_018_084_056_0212_en.wav	Yes, I thought they were beautiful songs even when I was young.	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_084_056_0212_en.npy				
+2714	wavs/dev/iv_k_018_084_100_0382.wav	이때가 아니면 제가 윤정이랑 윤정이 같은 스타랑 친구가 안 될 거 같더라고요.	wavs/dev/iv_k_018_084_100_0382_en.wav	I didn't think I'd be friends with stars like Yoonjung if not then.	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_084_100_0382_en.npy				
+2759	wavs/dev/iv_k_018_084_229_0882.wav	두 분 다 풋풋하시네요.	wavs/dev/iv_k_018_084_229_0882_en.wav	You were both young.	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_084_229_0882_en.npy				
+2771	wavs/dev/iv_k_018_084_272_1042.wav	아까 말씀드린 대로 저는 저희 아이에게 대단한 걸 바라지 않습니다.	wavs/dev/iv_k_018_084_272_1042_en.wav	As I said earlier, I don't expect much from my child.	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_084_272_1042_en.npy				
+2813	wavs/dev/iv_k_018_085_110_0393.wav	그러면 군대 다녀오고 나이도 어느 정도 찼을 텐데 생활은 생계는 어떻게	wavs/dev/iv_k_018_085_110_0393_en.wav	You must have been a bit old after serving in the army. How did you make ends meet?	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_085_110_0393_en.npy				
+2836	wavs/dev/iv_k_018_085_175_0643.wav	케이비에스 아들이 맞긴 맞네요.	wavs/dev/iv_k_018_085_175_0643_en.wav	It's true that I'm a KBS's son.	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_085_175_0643_en.npy				
+2879	wavs/dev/iv_k_018_086_025_0200.wav	이래가지고 같이 선생님이랑	wavs/dev/iv_k_018_086_025_0200_en.wav	So, with the teacher.	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_086_025_0200_en.npy				
+2906	wavs/dev/iv_k_018_086_044_0490.wav	취하시면 칭찬 많이 해 주시거든요.	wavs/dev/iv_k_018_086_044_0490_en.wav	He compliments me a lot when he's drunk.	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_086_044_0490_en.npy				
+2913	wavs/dev/iv_k_018_086_049_0560.wav	감동적인 순간입니다 우리 신부는	wavs/dev/iv_k_018_086_049_0560_en.wav	It's a touching moment, the bride.	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_086_049_0560_en.npy				
+2935	wavs/dev/iv_k_018_086_068_0810.wav	또 많은 분들이 봐주셔서 고맙게 생각하고	wavs/dev/iv_k_018_086_068_0810_en.wav	Also, thank you so much for watching.	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_086_068_0810_en.npy				
+2954	wavs/dev/iv_k_018_086_088_1010.wav	시다들은 뜨거운 다리미질을 하다가	wavs/dev/iv_k_018_086_088_1010_en.wav	The sidas were ironing hot.	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_086_088_1010_en.npy				
+2992	wavs/dev/iv_k_018_091_038_0105.wav	저희가 그 당시 텔레비전에서 활동하시던 모습을 또 준비했어요.	wavs/dev/iv_k_018_091_038_0105_en.wav	So we prepared a scene where you were on TV.	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_091_038_0105_en.npy				
+3027	wavs/dev/iv_k_018_091_157_0455.wav	어, 저게 한복 원단, 한복인 것 같기도 하고 아닌 것 같은데? 그러면 관심이 생길 거 아니에요?	wavs/dev/iv_k_018_091_157_0455_en.wav	Oh, that's Hanbok fabric. People would think that it kind of looks like a Hanbok, or not. Then they will be interested in it.	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_091_157_0455_en.npy				
+3034	wavs/dev/iv_k_018_091_170_0525.wav	김리을로 활동명도 바꾸시고, 회사 이름도 만들었다고 말씀해주시네요.	wavs/dev/iv_k_018_091_170_0525_en.wav	They told me that you changed your working name to Kim Ri-eul and made it a company name.	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_091_170_0525_en.npy				
+3043	wavs/dev/iv_k_018_092_003_0014.wav	연기자 오영실 씨 박수로 모시겠습니다.	wavs/dev/iv_k_018_092_003_0014_en.wav	Let's welcome actress, Oh Youngsil, with a round of applause.	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_092_003_0014_en.npy				
+3063	wavs/dev/iv_k_018_092_052_0244.wav	연기. 일단, 제가 아나운서의 꿈을 펼치러 왔지만	wavs/dev/iv_k_018_092_052_0244_en.wav	Acting. I'm here to fulfill my dream of becoming an announcer.	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_092_052_0244_en.npy				
+3068	wavs/dev/iv_k_018_092_063_0314.wav	눈깍지, 그, 콩깍지가 씌었다가 벗겨졌다가 몇 년 간 막 되풀이됐던 그런 일들을 겪고 결혼한 거예요.	wavs/dev/iv_k_018_092_063_0314_en.wav	They got married after experiencing things that had happened over and over again for years.	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_092_063_0314_en.npy				
+3077	wavs/dev/iv_k_018_092_089_0424.wav	그래서 아 이게 짜장면이구나. 뭐 탕수육도. 짜장면과 탕수육밖에 몰랐던 거 같애요.	wavs/dev/iv_k_018_092_089_0424_en.wav	This is jjajangmyeon. What about soy sauce? I think I only knew about jjajangmyeon and sweet and sour pork.	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_092_089_0424_en.npy				
+3090	wavs/dev/iv_k_018_092_119_0574.wav	우리가 가게 하면 넌 무슨 요리야? 그러면 나도 이거 다 하는데	wavs/dev/iv_k_018_092_119_0574_en.wav	What is your food? I do all of this.	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_092_119_0574_en.npy				
+3111	wavs/dev/iv_k_018_094_032_0178.wav	이분은 생각의 스케일이 일반적이지 않아요.	wavs/dev/iv_k_018_094_032_0178_en.wav	This person's thinking scale is not common.	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_094_032_0178_en.npy				
+3116	wavs/dev/iv_k_018_094_041_0228.wav	그냥 뭐, 재미있어, 재미있기도 했었지만 그때 사실은 제가 패션회사에서 일할 때 제 한계가 좀 있다라는 걸 느끼고 있었거든요.	wavs/dev/iv_k_018_094_041_0228_en.wav	Well, it was fun. It was fun, but when I was working for a fashion company, I felt that I had some limitations.	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_094_041_0228_en.npy				
+3132	wavs/dev/iv_k_018_094_077_0388.wav	그렇게 시작한 매장이 지금 유럽 전역에 몇 개 라고요?	wavs/dev/iv_k_018_094_077_0388_en.wav	How many stores have started like that in Europe?	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_094_077_0388_en.npy				
+3139	wavs/dev/iv_k_018_094_099_0478.wav	자, 이번엔 실천 방법 알려 드릴게요. 매일 아침 일어나서 내가 할 일 세 가지를 정하라.	wavs/dev/iv_k_018_094_099_0478_en.wav	Now, I'll show you how to do it. Wake up every morning and decide three things for me to do.	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_094_099_0478_en.npy				
+3166	wavs/dev/iv_k_018_095_051_0226.wav	노래를 하기 위해서는 그냥 이년의 음악 공부로 끝내서는 가수, 평생 가수라는 직업을 하기는 쉽지 않을 거라 생각을 했어요.	wavs/dev/iv_k_018_095_051_0226_en.wav	I thought that it would not be easy to become a singer for the rest of my life if I just study music for two years in order to sing.	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_095_051_0226_en.npy				
+3181	wavs/dev/iv_k_018_095_103_0466.wav	아니 근데 저 댁은 정말 아빠랑 딸이랑 말투 바뀐 거 같애요.	wavs/dev/iv_k_018_095_103_0466_en.wav	No, but I think father and daughter really changed their way of speaking.	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_095_103_0466_en.npy				
+3219	wavs/dev/iv_k_018_097_040_0385.wav	그런 말 할 때마다 그게 아니고 이렇게 자기를 정말 가꾸고 아름답게 보이고 싶은 분들을 위해서	wavs/dev/iv_k_018_097_040_0385_en.wav	It's not like that. It was for those who really want to take care of themselves and look beautiful.	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_097_040_0385_en.npy				
+3284	wavs/dev/iv_k_018_101_023_0102.wav	방청석에 계신 어머니들 다 눈물 흘리시느라.	wavs/dev/iv_k_018_101_023_0102_en.wav	All the mothers in the audience are in tears.	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_101_023_0102_en.npy				
+3290	wavs/dev/iv_k_018_101_033_0162.wav	그렇습니다. 마가 스님 이야기 듣다 보니까요	wavs/dev/iv_k_018_101_033_0162_en.wav	That's right. Because I heard the story of Monk Maga	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_101_033_0162_en.npy				
+3295	wavs/dev/iv_k_018_101_042_0222.wav	그래서 그냥 절에 계속 머물르게 됐죠.	wavs/dev/iv_k_018_101_042_0222_en.wav	So I just stayed in the temple.	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_101_042_0222_en.npy				
+3297	wavs/dev/iv_k_018_101_044_0242.wav	그랬는데 저희 사 남매는 아버지에 대한 원망으로 가득 차 있었죠.	wavs/dev/iv_k_018_101_044_0242_en.wav	But our four brothers and sisters were full of resentment towards our father.	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_101_044_0242_en.npy				
+3312	wavs/dev/iv_k_018_102_016_0096.wav	그래서 뭐 그때부터 이제 양희은 선배님의? '이루어질 수 없는 사랑'까지 저는 기타를 그렇게 시작을 했고요.	wavs/dev/iv_k_018_102_016_0096_en.wav	So, from then on to now, Yang Heeeun's 'Impossible Love', that's how I started playing the guitar.	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_102_016_0096_en.npy				
+3315	wavs/dev/iv_k_018_102_020_0126.wav	제대해 가지고 그 레코드 회사에 갔는데 나하고 동갑내기 트로트 하는 가수는 한 분 계셨는데	wavs/dev/iv_k_018_102_020_0126_en.wav	When I was discharged, I went to the record company, and there was one same-aged singer who sings trots.	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_102_020_0126_en.npy				
+3316	wavs/dev/iv_k_018_102_021_0136.wav	네 같은 레코드 회사인데 저는 정태춘 씨보다 몇 달 뒤에 그 레코드 회사를 가게 됐었고요.	wavs/dev/iv_k_018_102_021_0136_en.wav	Yes. It's the same record company, but I joined that record company a few months after Jeong Taechun.	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_102_021_0136_en.npy				
+3329	wavs/dev/iv_k_018_102_045_0286.wav	그 중간에 또 강산에 씨도 강산에 씨 나름대로 방법으로 가사를 드러내고 앨범을 발표한다든지	wavs/dev/iv_k_018_102_045_0286_en.wav	In the middle, Kang Saneh also revealed the lyrics in his own way and released an album.	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_102_045_0286_en.npy				
+3349	wavs/dev/iv_k_018_103_010_0062.wav	아닙니다. 초대해 주셔서 감사합니다.	wavs/dev/iv_k_018_103_010_0062_en.wav	No, thank you for inviting me.	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_103_010_0062_en.npy				
+3353	wavs/dev/iv_k_018_103_017_0112.wav	쪼금 아까 거는 안 비슷했어요.	wavs/dev/iv_k_018_103_017_0112_en.wav	The previous one wasn't similar.	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_103_017_0112_en.npy				
+3404	wavs/dev/iv_k_018_104_016_0121.wav	진짜 이 삼십 년 전에 어머니가 딱 이렇게 말씀하셨 거 같아요.	wavs/dev/iv_k_018_104_016_0121_en.wav	I think your mother would have said this 20 or 30 years ago.	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_104_016_0121_en.npy				
+3431	wavs/dev/iv_k_018_104_055_0391.wav	야 민교가 저런 게 있었네' 그러면서 '완전 내 과네. 어 이거 완전 내 과다.'	wavs/dev/iv_k_018_104_055_0391_en.wav	"""Oh, I didn't know Min-kyo had such a side, he is really my style. Really my style."""	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_104_055_0391_en.npy				
+3434	wavs/dev/iv_k_018_104_059_0421.wav	그래 갖고 그때부터 재기를 해서 지금 이 자리에 있는 거죠.	wavs/dev/iv_k_018_104_059_0421_en.wav	So I made a comeback and I'm here right now.	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_104_059_0421_en.npy				
+3441	wavs/dev/iv_k_018_104_071_0491.wav	지금 한 이십 프로 정도는 한 거 같아요.	wavs/dev/iv_k_018_104_071_0491_en.wav	I think we've done about twenty percent right now.	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_104_071_0491_en.npy				
+3447	wavs/dev/iv_k_018_105_009_0054.wav	생신 축하드립니다. 저 여기 나왔어요.	wavs/dev/iv_k_018_105_009_0054_en.wav	Happy Birthday. I'm here.	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_105_009_0054_en.npy				
+3455	wavs/dev/iv_k_018_105_021_0134.wav	남편이 키도 크고 아주 훈남이에요.	wavs/dev/iv_k_018_105_021_0134_en.wav	Your husband is tall and very handsome.	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_105_021_0134_en.npy				
+3465	wavs/dev/iv_k_018_105_038_0244.wav	가만. 직접 곡도 쓰고 그러시는 거예요?	wavs/dev/iv_k_018_105_038_0244_en.wav	Wait. Are you writing songs yourself?	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_105_038_0244_en.npy				
+3467	wavs/dev/iv_k_018_105_042_0264.wav	할머니가 하늘에서 얼마나 좋아하실까.	wavs/dev/iv_k_018_105_042_0264_en.wav	I wonder how much your grandmother would love it in the heavens.	
+	/Users/hayubin/EchoStream/data/units/iv_k_018_105_042_0264_en.npy				
+3495	wavs/dev/iv_k_019_001_028_0087.wav	저서를 자필하기는 했습니다	wavs/dev/iv_k_019_001_028_0087_en.wav	I used to write a book	
+	/Users/hayubin/EchoStream/data/units/iv_k_019_001_028_0087_en.npy				
+3499	wavs/dev/iv_k_019_001_038_0127.wav	솔직히 연봉 이런 것도 되게 궁금하지 않습니까? 그들에 비해 너무나 형편 없는 현실이	wavs/dev/iv_k_019_001_038_0127_en.wav	Honestly, aren't you curious about the salary? Compared to them, the reality is so terrible.	
+	/Users/hayubin/EchoStream/data/units/iv_k_019_001_038_0127_en.npy				
+3524	wavs/dev/iv_k_019_005_024_0065.wav	그래서 경찰 시험은 아무리 필기 시험은 만점 받더라도	wavs/dev/iv_k_019_005_024_0065_en.wav	So, no matter how much you get a perfect score on the written test in the police exam,	
+	/Users/hayubin/EchoStream/data/units/iv_k_019_005_024_0065_en.npy				
+3562	wavs/dev/iv_k_019_010_053_0133.wav	그다음에 수출도 일부분 기여할 수 있는 부분을 하자 이런 쪽에서 맞춰진 거죠 양파의 경우에는 우리가 빨리	wavs/dev/iv_k_019_010_053_0133_en.wav	Then, let's do a part that exports can also contribute to, and it's tailored in this way. In the case of onions, we can quickly	
+	/Users/hayubin/EchoStream/data/units/iv_k_019_010_053_0133_en.npy				
+3582	wavs/dev/iv_k_019_012_003_0007.wav	제대로 된 역사 의식을 바탕으로 한 문화 독립이야말로 이천 십구 년을 살아가는 우리들에게 가장 필요한 것이다 라고 말씀하시는 관장님.	wavs/dev/iv_k_019_012_003_0007_en.wav	The director who said that cultural independence based on a proper historical consciousness is the most necessary thing for us living in 2019.	
+	/Users/hayubin/EchoStream/data/units/iv_k_019_012_003_0007_en.npy				
+3617	wavs/dev/iv_k_019_101_015_0043.wav	그런데 무국적 아동이라고 하면 약간 생소한 느낌이 있어요.	wavs/dev/iv_k_019_101_015_0043_en.wav	However, I feel a bit unfamiliar with the word stateless child.	
+	/Users/hayubin/EchoStream/data/units/iv_k_019_101_015_0043_en.npy				
+3621	wavs/dev/iv_k_019_101_030_0083.wav	이거는 좀 네, 될 거 같다 상을 받을 수 있을 것 같다. 이런 생각을 처음에는 했었는데.	wavs/dev/iv_k_019_101_030_0083_en.wav	This is a bit like yes, I think we can get an award. I thought like this at first.	
+	/Users/hayubin/EchoStream/data/units/iv_k_019_101_030_0083_en.npy				
+3647	wavs/dev/iv_k_019_103_006_0017.wav	사차 산업혁명에 대비한 미래 인재 육성에 최선을 다하겠다. 굉장히 많이 강조를 하셨거든요. 어떤 의미가 있습니까?	wavs/dev/iv_k_019_103_006_0017_en.wav	You emphasized I will do my best to cultivate human resources in preparation for the fourth industrial revolution many times. What does it mean?	
+	/Users/hayubin/EchoStream/data/units/iv_k_019_103_006_0017_en.npy				
+3651	wavs/dev/iv_k_019_103_023_0057.wav	사실 요즘 대학생들은 저희가 자라던 때하고는 좀 많이 다릅니다. 저희 다니던 때에는 먹고 대학생 이런 말도 있었지 않습니까?	wavs/dev/iv_k_019_103_023_0057_en.wav	"Actually, university students, these days are very different from when we were growing up. When we went to school, there was a saying, ""Eating university students."""	
+	/Users/hayubin/EchoStream/data/units/iv_k_019_103_023_0057_en.npy				
+3668	wavs/dev/iv_k_019_106_016_0053.wav	공간 때문에 저희들이 굉장히 고민을 많이 하고 있습니다. 공간이 아마 만 명 이상이 수용이 될까 라고 고민을 하고 있는데	wavs/dev/iv_k_019_106_016_0053_en.wav	We are very worried about space. I'm thinking about whether the space will probably accommodate more than 10,000 people.	
+	/Users/hayubin/EchoStream/data/units/iv_k_019_106_016_0053_en.npy				
+3669	wavs/dev/iv_k_019_106_019_0063.wav	두 번째가 식품 산업으로서 새로운 가능성 특히 이제 농림부 쪽에서 많이 주목을 하는 게	wavs/dev/iv_k_019_106_019_0063_en.wav	The second is a new possibility as a food industry. Especially, the Ministry of Agriculture and Forestry pays a lot of attention	
+	/Users/hayubin/EchoStream/data/units/iv_k_019_106_019_0063_en.npy				
+3688	wavs/dev/iv_k_019_107_038_0109.wav	무슨 이야기냐 하면은 군인 그러면은 국가를 위해서 전선에 최전선에서 지키는 역할을 하고 있지 않습니까?	wavs/dev/iv_k_019_107_038_0109_en.wav	What I'm talking about is that soldiers are protecting the front line for the sake of the country, right?	
+	/Users/hayubin/EchoStream/data/units/iv_k_019_107_038_0109_en.npy				
+3703	wavs/dev/iv_k_019_108_036_0097.wav	그래서 이제 돌흥막이라든지 풀포기 이식이라든지 안정적인 복원을 추진했는데.	wavs/dev/iv_k_019_108_036_0097_en.wav	So, we promoted stable restoration such as stone soil-arresting works and grass planting works.	
+	/Users/hayubin/EchoStream/data/units/iv_k_019_108_036_0097_en.npy				
+3705	wavs/dev/iv_k_019_108_044_0117.wav	그래서 소나무 옆에 굴참 나무가 이사 온 것부터 싸움은 시작이 됩니다.	wavs/dev/iv_k_019_108_044_0117_en.wav	So, the fight begins when the oriental oak moves in next to the pine tree.	
+	/Users/hayubin/EchoStream/data/units/iv_k_019_108_044_0117_en.npy				
+3737	wavs/dev/iv_k_019_122_043_0124.wav	제가 힘이 있다면 공공주택을 정부에서 많이 짓게 하고 싶어요	wavs/dev/iv_k_019_122_043_0124_en.wav	If I have power, I want the government to build a lot of public housing.	
+	/Users/hayubin/EchoStream/data/units/iv_k_019_122_043_0124_en.npy				
+3755	wavs/dev/iv_k_019_123_053_0156.wav	해외 유통을 할 수 있도록 플랫폼 역할을 해 줌으로써	wavs/dev/iv_k_019_123_053_0156_en.wav	It serves as a platform for overseas distribution.	
+	/Users/hayubin/EchoStream/data/units/iv_k_019_123_053_0156_en.npy				
+3771	wavs/dev/iv_k_019_124_045_0146.wav	학생들한테 가르칠 수 있는 그런 교제로 쓸 수 있는 그런 초보적인 원론적인 기술 서적	wavs/dev/iv_k_019_124_045_0146_en.wav	It's a basic technical book that we can use to teach students.	
+	/Users/hayubin/EchoStream/data/units/iv_k_019_124_045_0146_en.npy				
+3772	wavs/dev/iv_k_019_124_048_0156.wav	그래서 이제 그때 당시에 유명했던 서울의 이제 이성우 선생님 같은 분	wavs/dev/iv_k_019_124_048_0156_en.wav	Back then, the famous teacher in Seoul, Lee Sung-woo.	
+	/Users/hayubin/EchoStream/data/units/iv_k_019_124_048_0156_en.npy				
+3817	wavs/dev/iv_k_019_127_026_0078.wav	그렇군요. 이렇게 수출을 많이 하시는 것은 참 반가운 일이고 더 없이 좋은 일이지만 간혹 이런 성과들이 그대로 어민들에게 돌아갈까 라는	wavs/dev/iv_k_019_127_026_0078_en.wav	I see. It's a pleasure to export so much, and it's a great thing, but sometimes I wonder if these achievements will go back to the fishermen.	
+	/Users/hayubin/EchoStream/data/units/iv_k_019_127_026_0078_en.npy				
+3838	wavs/dev/iv_k_019_128_033_0092.wav	광주의 현 위치라든지 광주가 가져야 하는 가치 무엇이라고 생각을 하시나요?	wavs/dev/iv_k_019_128_033_0092_en.wav	What do you think is the current location of Gwangju or the value that Gwangju should have?	
+	/Users/hayubin/EchoStream/data/units/iv_k_019_128_033_0092_en.npy				
+3859	wavs/dev/iv_k_019_129_043_0119.wav	그 뒤에 네 잡부로 일을 하셨고 그때가 언젠가요? 중동에 가셔서?	wavs/dev/iv_k_019_129_043_0119_en.wav	You worked there as a laborer, and when was that? Went to the Middle East?	
+	/Users/hayubin/EchoStream/data/units/iv_k_019_129_043_0119_en.npy				
+3902	wavs/dev/iv_k_019_132_026_0069.wav	그래서 그게 계기가 돼서 제가 자원해서 구십 이년에 가서 카자흐스탄 고려인 최초 강제 이주지 우슈또베라는 데서	wavs/dev/iv_k_019_132_026_0069_en.wav	That provided an opportunity for me, so I volunteered to go to Ushtobe in 1992, where the Kazakhstan Goryeo people were first forcibly relocated.	
+	/Users/hayubin/EchoStream/data/units/iv_k_019_132_026_0069_en.npy				
+3994	wavs/dev/iv_k_019_138_032_0111.wav	그 전까지만 해도 그런 중요한 분들을 돕는 스탭으로서 역할을 많이 했었죠.	wavs/dev/iv_k_019_138_032_0111_en.wav	Until then, I played a lot of roles as a staff helping such important people.	
+	/Users/hayubin/EchoStream/data/units/iv_k_019_138_032_0111_en.npy				
+4010	wavs/dev/iv_k_019_140_010_0030.wav	즉 보통 사람이 주인공이자 오 일 팔 증언자로서 등장하게 되죠.	wavs/dev/iv_k_019_140_010_0030_en.wav	In other words, an ordinary person appears as the main character and as a witness of the 5.18.	
+	/Users/hayubin/EchoStream/data/units/iv_k_019_140_010_0030_en.npy				
+4026	wavs/dev/iv_k_019_151_011_0037.wav	그런 제도를 마련하고, 독립 전쟁을 선포하게 되었던 거죠.	wavs/dev/iv_k_019_151_011_0037_en.wav	They established that system and declared a war of independence.	
+	/Users/hayubin/EchoStream/data/units/iv_k_019_151_011_0037_en.npy				
+4029	wavs/dev/iv_k_019_151_021_0067.wav	그러니까 지형 조건을 활용을 아주 잘했고, 게릴라전이 아니라 정규군이었고, 또 굉장히 오랫동안 준비한 전투였다.	wavs/dev/iv_k_019_151_021_0067_en.wav	So they used the terrain conditions very well, not a guerrilla war, but a regular army, and it was a very long-prepared battle.	
+	/Users/hayubin/EchoStream/data/units/iv_k_019_151_021_0067_en.npy				
+4043	wavs/dev/iv_k_019_152_037_0110.wav	굉장히 제가 어리석은 질문을 하나 드리겠습니다.	wavs/dev/iv_k_019_152_037_0110_en.wav	Let me ask you a very foolish question.	
+	/Users/hayubin/EchoStream/data/units/iv_k_019_152_037_0110_en.npy				
+4065	wavs/dev/iv_k_019_154_031_0095.wav	그리고 저는 서울 상영 때문에 올라오고. '야, 잘 지켜. 잘 지켜야 돼' 그리고 올라오고 했는데,	wavs/dev/iv_k_019_154_031_0095_en.wav	"And I had to leave due to the screening in Seoul. I requested my people, ""Hey, keep it safe. You must keep it."""	
+	/Users/hayubin/EchoStream/data/units/iv_k_019_154_031_0095_en.npy				
+4067	wavs/dev/iv_k_019_156_002_0008.wav	코로나로 인해서 더 힘들어진 택배 노동자들의 열악한 노동 환경 개선이 시급한 상황입니다.	wavs/dev/iv_k_019_156_002_0008_en.wav	There is an urgent need to improve courier workers' poor working conditions, which have become even more strainful since the pandemic.	
+	/Users/hayubin/EchoStream/data/units/iv_k_019_156_002_0008_en.npy				
+4075	wavs/dev/iv_k_019_157_003_0008.wav	시청자분들께 간단하게 본인 소개 좀 해주실까요?	wavs/dev/iv_k_019_157_003_0008_en.wav	Could you briefly introduce yourself to the viewers?	
+	/Users/hayubin/EchoStream/data/units/iv_k_019_157_003_0008_en.npy				
+4077	wavs/dev/iv_k_019_157_008_0028.wav	일단 타지, 타국으로 오게 되면 언어, 음식, 그리고 문화. 이 정도로 꼽을 수가 있는데 일단 언어부터 좀 보겠습니다. 한국 말 어떠셨습니까?	wavs/dev/iv_k_019_157_008_0028_en.wav	Once you move to another country, you get to learn things such as new languages, food, cultures, and more. Let's talk about language first. How did your Korean learning journey go?	
+	/Users/hayubin/EchoStream/data/units/iv_k_019_157_008_0028_en.npy				
+4089	wavs/dev/iv_k_019_158_030_0080.wav	첫째 봉사를 해서 좋고, 또 여러 사람하고 대화도 나눌 수 있고, 이렇게 날마다 이렇게 즐거운 시간을 보내잖아요.	wavs/dev/iv_k_019_158_030_0080_en.wav	First of all, it's nice to do volunteer work. I can communicate with many people and have a great time like this every day.	
+	/Users/hayubin/EchoStream/data/units/iv_k_019_158_030_0080_en.npy				
+4097	wavs/dev/iv_k_019_159_015_0035.wav	삼백명의 발기인들이 모였고 또 발기인들이 총회를 거치면서 출발을 하게 됐는데요	wavs/dev/iv_k_019_159_015_0035_en.wav	And 300 promoters gathered and had a general meeting to create the organization.	
+	/Users/hayubin/EchoStream/data/units/iv_k_019_159_015_0035_en.npy				
+4112	wavs/dev/iv_k_019_160_002_0004.wav	하지만 불안한 신분 때문에 임금을 올려달라는 말을 꺼낼 수도 없고 설움과 냉대를 받아도 하소연하기가 어려운 상황입니다	wavs/dev/iv_k_019_160_002_0004_en.wav	However, they cannot ask for a raise in wages due to their unstable status, and it is also difficult for them to complain even if they are mistreated or ignored at work.	
+	/Users/hayubin/EchoStream/data/units/iv_k_019_160_002_0004_en.npy				
+4149	wavs/dev/iv_m_001_003_015_0054.wav	위원장님께서 얼마 전에 유엔기후변화 그 당사국총회 거기도 다녀오셨는데 굉장히 성적표가 좋지가 않더라구요.	wavs/dev/iv_m_001_003_015_0054_en.wav	The chairman recently visited the UN Climate Change Conference of the Parties there, but the report card was not very good.	
+	/Users/hayubin/EchoStream/data/units/iv_m_001_003_015_0054_en.npy				
+4190	wavs/dev/iv_m_001_010_016_0064.wav	육성하고 채용하는 시스템으 전반적으로 개편해야 되겠죠. 그리고 공무원 채용을 개편하고 연간 오만 명 이상이 공직에 들어갑니다. 준비해예죠, 국가에서.	wavs/dev/iv_m_001_010_016_0064_en.wav	The overall system for fostering and hiring needs to be overhauled. And it should reorganize civil service recruitment, and more than 50,000 people enter public office annually. The country has to get ready.	
+	/Users/hayubin/EchoStream/data/units/iv_m_001_010_016_0064_en.npy				
+4217	wavs/dev/iv_m_001_014_008_0029.wav	그담에 마지막으로 중소기업 수출이 역대 가장 좋은 기록을 세워서 이 수출 플레이어들의 어떤 저변이 확대되었다고 하겠습니다.	wavs/dev/iv_m_001_014_008_0029_en.wav	And finally, we will say that exports of small and medium-sized enterprises have the best record ever so the export players' bases have expanded.	
+	/Users/hayubin/EchoStream/data/units/iv_m_001_014_008_0029_en.npy				
+4228	wavs/dev/iv_m_001_015_004_0021.wav	민간에서 침해 사고 발생해도 중간에 거쳐 가다 보면은 공공이나 국방이 있기 때문에	wavs/dev/iv_m_001_015_004_0021_en.wav	Even if an infringement accident happens in the private sector, if you go through it in the middle since there is public or national defense,	
+	/Users/hayubin/EchoStream/data/units/iv_m_001_015_004_0021_en.npy				
+4246	wavs/dev/iv_m_001_016_020_0085.wav	쉰 두 살짜리 변호사도 와서 공부할 정도예요. 베트남에서 해가지고.	wavs/dev/iv_m_001_016_020_0085_en.wav	Even a fifty-two-year-old lawyer comes to study from Vietnam.	
+	/Users/hayubin/EchoStream/data/units/iv_m_001_016_020_0085_en.npy				
+4262	wavs/dev/iv_m_001_017_027_0126.wav	다는 아니지만 십 프로 인제 공제 해드리구요. 또 지자체에선 감사하다는 뜻으로 한 삼십 프로 정도의 답례품.	wavs/dev/iv_m_001_017_027_0126_en.wav	Not for everything, but we give them a 10 percent deduction. In addition, about 30 percent of the local government's gifts are given in return to express gratitude.	
+	/Users/hayubin/EchoStream/data/units/iv_m_001_017_027_0126_en.npy				
+4265	wavs/dev/iv_m_001_018_007_0028.wav	기업이라고 하는 것이야 말로 인플레이션의 가장 좋은 헷지 수단입니다.	wavs/dev/iv_m_001_018_007_0028_en.wav	Businesses are the best hedging instrument for inflation.	
+	/Users/hayubin/EchoStream/data/units/iv_m_001_018_007_0028_en.npy				
+4271	wavs/dev/iv_m_001_018_027_0108.wav	그러니까 저는 반도체 전문가가 아닙니다. 화학 업종? 석유가 어떻게 분해되는지 몰라요.	wavs/dev/iv_m_001_018_027_0108_en.wav	So I'm not a semiconductor expert. The chemical industry? I don't know how oil breaks down.	
+	/Users/hayubin/EchoStream/data/units/iv_m_001_018_027_0108_en.npy				
+4313	wavs/dev/iv_m_001_022_016_0077.wav	코로나 일 구가 장기화 이 년 ​이렇게 되다 보고 또 사회적 거리 두기가 지속되다 보니까	wavs/dev/iv_m_001_022_016_0077_en.wav	Since COVID-19 has been prolonged for two years, and social distancing continues,	
+	/Users/hayubin/EchoStream/data/units/iv_m_001_022_016_0077_en.npy				
+4320	wavs/dev/iv_m_001_022_031_0147.wav	오미크론 변위가 분명한 것은 점점 그 치명률이 좀 떨어지고 그다음 그대신 전파력이 많은데	wavs/dev/iv_m_001_022_031_0147_en.wav	The obvious things about Omicron mutation are that the fatality rate decreases and it becomes easier to spread.	
+	/Users/hayubin/EchoStream/data/units/iv_m_001_022_031_0147_en.npy				
+4328	wavs/dev/iv_m_001_023_018_0085.wav	많은 그런 재난 양상에 인제 직면해서 대응을 해야 되는 그런 시점이 온 거 같습니다.	wavs/dev/iv_m_001_023_018_0085_en.wav	It seems that the time has come when we have to face and respond to many such disasters.	
+	/Users/hayubin/EchoStream/data/units/iv_m_001_023_018_0085_en.npy				
+4333	wavs/dev/iv_m_001_024_006_0031.wav	그렇게 해서 측량을 하기 때문에 실제적으론 굉장히 많은 작업들이 필요하고	wavs/dev/iv_m_001_024_006_0031_en.wav	Since we measure it like that, we need a lot of work.	
+	/Users/hayubin/EchoStream/data/units/iv_m_001_024_006_0031_en.npy				
+4336	wavs/dev/iv_m_001_024_011_0061.wav	맛집도 건색, 검색하고 또 관공서가 어디에 있는지	wavs/dev/iv_m_001_024_011_0061_en.wav	We search for good restaurants and where government offices are.	
+	/Users/hayubin/EchoStream/data/units/iv_m_001_024_011_0061_en.npy				
+4366	wavs/dev/iv_m_001_027_007_0027.wav	이 장내 미생물하고 우리 건강하고는 밀접한 관계가 있습니다.	wavs/dev/iv_m_001_027_007_0027_en.wav	This intestinal microorganism is closely related to our health.	
+	/Users/hayubin/EchoStream/data/units/iv_m_001_027_007_0027_en.npy				
+4373	wavs/dev/iv_m_001_027_025_0097.wav	가장 한국적인 것이 세계적이다.	wavs/dev/iv_m_001_027_025_0097_en.wav	The most Korean thing is global.	
+	/Users/hayubin/EchoStream/data/units/iv_m_001_027_025_0097_en.npy				
+4394	wavs/dev/iv_m_001_029_020_0092.wav	영유아들이 지금 탈수가 되면서 경련에 의해서 입원하는 경우가 많아요.	wavs/dev/iv_m_001_029_020_0092_en.wav	Infants and toddlers are now dehydrated and are often hospitalized due to convulsions.	
+	/Users/hayubin/EchoStream/data/units/iv_m_001_029_020_0092_en.npy				
+4398	wavs/dev/iv_m_001_030_006_0024.wav	그래서 각 나라마다 시중은행들은 그 주주에 대한 이익을 쫓아서 이렇게 가는데 저희들은 조합원들의 이익을 쫓아서 그렇게 가기 때문에	wavs/dev/iv_m_001_030_006_0024_en.wav	So in each country, commercial banks follow the interests of their shareholders, but we follow the interests of our union members.	
+	/Users/hayubin/EchoStream/data/units/iv_m_001_030_006_0024_en.npy				
+4401	wavs/dev/iv_m_001_030_014_0064.wav	그럼요. 지금 농촌이라든가 이런 그 어촌이라든가 이런 데 가면 출산률이 제롭니다.	wavs/dev/iv_m_001_030_014_0064_en.wav	Of course. If you go to rural areas or fishing villages, the birth rate is zero.	
+	/Users/hayubin/EchoStream/data/units/iv_m_001_030_014_0064_en.npy				
+4420	wavs/dev/iv_m_001_031_026_0083.wav	에너지와 사료 효율 개선 회의 여러 가지 대책 가공식품 이용 확대가 포함돼 있는 것으로 저희가 좀 이렇게 알고 있습니다만은,	wavs/dev/iv_m_001_031_026_0083_en.wav	We know that this includes the expansion of the use of processed food like energy and feed efficiency improvement meeting Various measures,	
+	/Users/hayubin/EchoStream/data/units/iv_m_001_031_026_0083_en.npy				
+4439	wavs/dev/iv_m_001_033_033_0107.wav	그리고 일본은 국무총리가, 총리가 직속을 하고 있습니다.	wavs/dev/iv_m_001_033_033_0107_en.wav	And in Japan, the Prime Minister is directly under control.	
+	/Users/hayubin/EchoStream/data/units/iv_m_001_033_033_0107_en.npy				
+4480	wavs/dev/iv_m_001_037_030_0109.wav	그 다음에 뭐 여러가지 뉴스 레터 보내고 교육 활동을 많이 했어요.	wavs/dev/iv_m_001_037_030_0109_en.wav	And then we sent out various newsletters and did a lot of educational activities.	
+	/Users/hayubin/EchoStream/data/units/iv_m_001_037_030_0109_en.npy				
+4484	wavs/dev/iv_m_001_037_039_0149.wav	안전은요, 끝이 없어요. 완벽함이 하나도 없습니다. 끝이 없기 때문에 꾸준히 꾸준히 해나가야 합니다.	wavs/dev/iv_m_001_037_039_0149_en.wav	There is no end to safety. There's no such thing as perfection. There is no end, so we have to keep going.	
+	/Users/hayubin/EchoStream/data/units/iv_m_001_037_039_0149_en.npy				
+4525	wavs/dev/iv_m_001_046_060_0289.wav	그 점에 대해서도 좀 알려주신다면요?	wavs/dev/iv_m_001_046_060_0289_en.wav	Could you tell us about that, too?	
+	/Users/hayubin/EchoStream/data/units/iv_m_001_046_060_0289_en.npy				
+4549	wavs/dev/iv_m_001_161_053_0196.wav	그래서 그 접합점을 좀 찾으려고 노력을 하고 있습니다.	wavs/dev/iv_m_001_161_053_0196_en.wav	So I'm trying to find some of that junction.	
+	/Users/hayubin/EchoStream/data/units/iv_m_001_161_053_0196_en.npy				
+4561	wavs/dev/iv_m_001_163_009_0032.wav	그래도 어쨌든 유아 교육 만큼은 학부모의 요구에 부응하는 식으로 공공적으로 유아 친화적으로,	wavs/dev/iv_m_001_163_009_0032_en.wav	But still, early childhood education is publicly child-friendly, in a way that responds to the needs of parents.	
+	/Users/hayubin/EchoStream/data/units/iv_m_001_163_009_0032_en.npy				
+4574	wavs/dev/iv_m_001_163_073_0242.wav	보통 채권 투자하면은 이제 좀 안전하다 이렇게 생각하시는 분들도 꽤 있는데,	wavs/dev/iv_m_001_163_073_0242_en.wav	Quite a few people think that investing in bonds is safer.	
+	/Users/hayubin/EchoStream/data/units/iv_m_001_163_073_0242_en.npy				
+4606	wavs/dev/iv_m_001_166_001_0002.wav	청년 일자리 문제와 새로운 산업 패러다임을 만들 수 있는 대안으로 청년 창업이 주목 받고 있는데요.	wavs/dev/iv_m_001_166_001_0002_en.wav	Youth entrepreneurship is attracting attention as an alternative to creating a new industrial paradigm and the youth job issue.	
+	/Users/hayubin/EchoStream/data/units/iv_m_001_166_001_0002_en.npy				
+4618	wavs/dev/iv_m_001_166_038_0162.wav	그리고 여러분 이제 대개 알 수 있는 카카오가 인수한 키즈노트. 유치원생들 스마트 알림장 있잖아요.	wavs/dev/iv_m_001_166_038_0162_en.wav	And Kids Note, acquired by Kakao, as you know. Kindergarten students have smart notifications.	
+	/Users/hayubin/EchoStream/data/units/iv_m_001_166_038_0162_en.npy				
+4653	wavs/dev/iv_m_001_167_047_0194.wav	한국금융아이씨티융합학회 오정근 회장 그리고 카카오뱅크 이수영 전략 파트장과 함께 인터넷 전문은행에 대해 이야기 나눠보도록 하겠습니다.	wavs/dev/iv_m_001_167_047_0194_en.wav	Let's talk about Internet-only banks with Oh Jeong-geun, Chairman of the Korea Financial IC Convergence Society, and Lee Soo-young, Strategic Part Manager, Kakao Bank.	
+	/Users/hayubin/EchoStream/data/units/iv_m_001_167_047_0194_en.npy				
+4665	wavs/dev/iv_m_001_167_078_0324.wav	그걸 알기 때문에 일본이나 중국이나 홍콩, 싱가폴이 다 그런 걸 알기 때문에 금융의 세계 중심지지만은.	wavs/dev/iv_m_001_167_078_0324_en.wav	Because they know that Japan, China, Hong Kong, and Singapore are all the same. Even though it's the world's center of finance,	
+	/Users/hayubin/EchoStream/data/units/iv_m_001_167_078_0324_en.npy				
+4671	wavs/dev/iv_m_001_176_010_0061.wav	별로 그런 스타일은 아닌 것 같에요.	wavs/dev/iv_m_001_176_010_0061_en.wav	I don't think I'm that kind of style.	
+	/Users/hayubin/EchoStream/data/units/iv_m_001_176_010_0061_en.npy				
+4693	wavs/dev/iv_m_001_176_064_0341.wav	그동안 태동지가 없었습니다.	wavs/dev/iv_m_001_176_064_0341_en.wav	Until now there was no birthplace.	
+	/Users/hayubin/EchoStream/data/units/iv_m_001_176_064_0341_en.npy				
+4696	wavs/dev/iv_m_001_176_070_0371.wav	새 마을 금고를 어떤 조직으로 더 변화, 혁신 싯고 싶으신지.	wavs/dev/iv_m_001_176_070_0371_en.wav	What kind of organization would you like to change and innovate Saemaegul Geumgo to?	
+	/Users/hayubin/EchoStream/data/units/iv_m_001_176_070_0371_en.npy				
+4711	wavs/dev/iv_m_001_186_043_0144.wav	오늘 좋은 말씀 고맙습니다.	wavs/dev/iv_m_001_186_043_0144_en.wav	Thank you for your kind words today.	
+	/Users/hayubin/EchoStream/data/units/iv_m_001_186_043_0144_en.npy				
+4714	wavs/dev/iv_m_001_186_060_0214.wav	그래서 당연히 코를 골게 되고 그 아이도 마찬가지로 잠을 충분히 못 자기 때문에 짜증을 많이 내고	wavs/dev/iv_m_001_186_060_0214_en.wav	So, obviously, they snore, and the children also get annoyed because they don't get enough sleep	
+	/Users/hayubin/EchoStream/data/units/iv_m_001_186_060_0214_en.npy				
+4716	wavs/dev/iv_m_001_186_066_0234.wav	강제적으로 바깥에서 공기를 넣어 주는 장치가 되는데요.	wavs/dev/iv_m_001_186_066_0234_en.wav	It is a device that forcibly inserts air from the outside.	
+	/Users/hayubin/EchoStream/data/units/iv_m_001_186_066_0234_en.npy				
+4743	wavs/dev/iv_m_001_211_008_0041.wav	어떤 건지 소개를 좀 해 주시죠?	wavs/dev/iv_m_001_211_008_0041_en.wav	Can you explain us what they are?	
+	/Users/hayubin/EchoStream/data/units/iv_m_001_211_008_0041_en.npy				
+4754	wavs/dev/iv_m_001_211_031_0171.wav	언택트 문화의 핵심에 아이오티가 있다, 그렇게 들었습니다. 아이오티가 뭐죠?	wavs/dev/iv_m_001_211_031_0171_en.wav	I heard that IoT is at the heart of the untact culture. What is IoT?	
+	/Users/hayubin/EchoStream/data/units/iv_m_001_211_031_0171_en.npy				
+4807	wavs/dev/iv_m_001_213_022_0120.wav	그건 아무래도 이제 세종학당 재단을 이끌고 있다 보니까	wavs/dev/iv_m_001_213_022_0120_en.wav	That's probably because I'm now leading the King Sejong Institute Foundation	
+	/Users/hayubin/EchoStream/data/units/iv_m_001_213_022_0120_en.npy				
+4832	wavs/dev/iv_m_001_214_012_0066.wav	그렇다보니 고령의 선장과 외국인 선원 사이에 의사소통이 안 돼 안전사고에 노출되곤 합니다.	wavs/dev/iv_m_001_214_012_0066_en.wav	As a result, communication between the elderly captain and foreign crew members is not possible, which often exposes them to safety accidents.	
+	/Users/hayubin/EchoStream/data/units/iv_m_001_214_012_0066_en.npy				
+4889	wavs/dev/iv_m_001_216_020_0106.wav	그 다음에 일정한 어기에만 채취를 한다든지 뭐 이러한 아주 공동체 생활을 함으로써	wavs/dev/iv_m_001_216_020_0106_en.wav	And then by collecting only in a certain season, or by living in such a very community	
+	/Users/hayubin/EchoStream/data/units/iv_m_001_216_020_0106_en.npy				
+4890	wavs/dev/iv_m_001_216_022_0116.wav	그거는 자율관리, 자원관리 어업의 주체가 지역 단위의 어협이 주체가 됩니다.	wavs/dev/iv_m_001_216_022_0116_en.wav	The main body of self-managed, resource-managed fishery is the local fishery cooperative.	
+	/Users/hayubin/EchoStream/data/units/iv_m_001_216_022_0116_en.npy				
+4914	wavs/dev/iv_m_001_217_012_0061.wav	달라진 위상을 좀 체감을 하시나요?	wavs/dev/iv_m_001_217_012_0061_en.wav	Do you feel a bit of a change in status?	
+	/Users/hayubin/EchoStream/data/units/iv_m_001_217_012_0061_en.npy				
+4929	wavs/dev/iv_m_001_217_037_0211.wav	우리나라의 기준점을 잡는 역할을 해주신다고 했는데, 요 내용을 조금 더 자세히 설명을 해주시면 어떨까요?	wavs/dev/iv_m_001_217_037_0211_en.wav	You said you were playing a role in setting the reference point for our country. How about explaining this in a little more detail?	
+	/Users/hayubin/EchoStream/data/units/iv_m_001_217_037_0211_en.npy				
+4950	wavs/dev/iv_m_001_218_020_0101.wav	또 수소법 시행 이천 이십 이 년 대비해서	wavs/dev/iv_m_001_218_020_0101_en.wav	In addition, in preparation for two thousand twenty-two years of hydrogen law enforcement	
+	/Users/hayubin/EchoStream/data/units/iv_m_001_218_020_0101_en.npy				
+4955	wavs/dev/iv_m_001_218_029_0151.wav	이때 저희들은 은행도 망할 수 있고, 그리고 저희들의 예금을 잃을 수도 있다,	wavs/dev/iv_m_001_218_029_0151_en.wav	Back then, we may lose the bank, and we may lose our deposits,	
+	/Users/hayubin/EchoStream/data/units/iv_m_001_218_029_0151_en.npy				
+4959	wavs/dev/iv_m_001_218_035_0191.wav	그러다 보니까 돈을 잘못 보내는 경우들이 종종 발생을 하더라고요.	wavs/dev/iv_m_001_218_035_0191_en.wav	As a result, there are often cases of sending money incorrectly.	
+	/Users/hayubin/EchoStream/data/units/iv_m_001_218_035_0191_en.npy				
+4962	wavs/dev/iv_m_001_218_040_0221.wav	맞아요. 이거 오천만 원이 좀 적다는 생각도 좀 들어요.	wavs/dev/iv_m_001_218_040_0221_en.wav	True. I think that fifty thousand won is a little less.	
+	/Users/hayubin/EchoStream/data/units/iv_m_001_218_040_0221_en.npy				
+4972	wavs/dev/iv_m_001_219_005_0026.wav	우리가 알고 있는 많은 이백여 개의 대학들은 교수님들과 학생들,	wavs/dev/iv_m_001_219_005_0026_en.wav	Many of the more than two hundred universities we know of are professors, students,	
+	/Users/hayubin/EchoStream/data/units/iv_m_001_219_005_0026_en.npy				
+4981	wavs/dev/iv_m_001_219_020_0116.wav	갑자기 새로운 트로트 작곡가가 되어서 트로트 노래도 만들어지는 걸로 알고 있습니다.	wavs/dev/iv_m_001_219_020_0116_en.wav	It suddenly becomes a new trot composer, and that's how trot songs are made.	
+	/Users/hayubin/EchoStream/data/units/iv_m_001_219_020_0116_en.npy				
+4982	wavs/dev/iv_m_001_219_021_0126.wav	이미 외국에서 벌어지고 있는 리버럴 아츠 스쿨, 너무 과학기술만 협소하게 교육을 시킬 게 아니라,	wavs/dev/iv_m_001_219_021_0126_en.wav	Liberal Arts School, which is already taking place in foreign countries, we should not be too narrow in only teaching science and technology,	
+	/Users/hayubin/EchoStream/data/units/iv_m_001_219_021_0126_en.npy				
+5079	wavs/dev/iv_m_001_223_011_0028.wav	전체적인 어떤 코로나에 의한 성장도 보면 메이저 게임사죠, 대기업들이 주로 큰 혜택을 받았고 중견기업까지는 상당히 크게 성장을 했습니다.	wavs/dev/iv_m_001_223_011_0028_en.wav	If you look at the overall growth caused by COVID-19, major game companies and large companies have main benefits, and even medium-sized companies have grown significantly.	
+	/Users/hayubin/EchoStream/data/units/iv_m_001_223_011_0028_en.npy				
+5095	wavs/dev/iv_m_001_223_072_0218.wav	그런 면에 대해서는 정부하고 국회에 상당히 감사를 드리는데 다만 경쟁 기업들이 추천하는 인사가 감사가 돼서 이사회에 들어올 가능성이 없는 건 아니고 많아요 아직도.	wavs/dev/iv_m_001_223_072_0218_en.wav	Int hat aspect, I am very grateful to the government and the National Assembly, but it is not that there is no possibility that the person recommended by competitors will be audited and will enter the board of directors, but there are still a lot.	
+	/Users/hayubin/EchoStream/data/units/iv_m_001_223_072_0218_en.npy				
+5114	wavs/dev/iv_m_001_224_054_0194.wav	매년 건수와 금액 면에서 성장을 하고 있습니다.	wavs/dev/iv_m_001_224_054_0194_en.wav	Every year we are growing both in number and amount.	
+	/Users/hayubin/EchoStream/data/units/iv_m_001_224_054_0194_en.npy				
+5123	wavs/dev/iv_m_001_225_020_0076.wav	그래서 그게 없었는데 요번에 이제 알셉을 하게 됨으로 해서 중국하고 실질적으로 에프티에이를 할 수 있게 됐다.	wavs/dev/iv_m_001_225_020_0076_en.wav	So we didn't have it. But now that we're doing Alsep, we can actually do FTAs with China.	
+	/Users/hayubin/EchoStream/data/units/iv_m_001_225_020_0076_en.npy				
+5130	wavs/dev/iv_m_001_225_036_0146.wav	그다음에 저희들이 이제 별도로 이렇게 전통시장을 보면 그게 사 내지 한 오 퍼센트 정도 이렇게 줄어드는 상황에 있습니다.	wavs/dev/iv_m_001_225_036_0146_en.wav	And then, if we separately look at traditional markets, it is in a situation where it is reduced by about three to five percent.	
+	/Users/hayubin/EchoStream/data/units/iv_m_001_225_036_0146_en.npy				
+5151	wavs/dev/iv_m_001_226_032_0109.wav	그만큼 수요가 많기 때문이다라고 저는 말씀드릴 수 있을 것 같습니다.	wavs/dev/iv_m_001_226_032_0109_en.wav	I guess I can say that it is because there is so much demand.	
+	/Users/hayubin/EchoStream/data/units/iv_m_001_226_032_0109_en.npy				
+5155	wavs/dev/iv_m_001_226_042_0149.wav	관할 지자체 담당 부서에 직접 방문해서 참여 신청서를 작성하면 됩니다.	wavs/dev/iv_m_001_226_042_0149_en.wav	You can directly visit the department in charge of the local municipality and fill out the participation application form.	
+	/Users/hayubin/EchoStream/data/units/iv_m_001_226_042_0149_en.npy				
+5163	wavs/dev/iv_m_001_226_072_0249.wav	참 이 해양 환경은 육지 환경보다 정말 가변적입니다. 변, 변수도 많고 과연 바다 해양 환경을 제어한다는 게 사실은 쉽지 않은 문제입니다.	wavs/dev/iv_m_001_226_072_0249_en.wav	Indeed, this marine environment is really more variable than the land environment. There are many variables and it is not easy to control the marine environment.	
+	/Users/hayubin/EchoStream/data/units/iv_m_001_226_072_0249_en.npy				
+5170	wavs/dev/iv_m_001_227_017_0056.wav	그렇다 보면은 아까 제가 말씀드린 대로 우리 위원회에서 하는 거 구백여 건이 너무 차이가 있으니까	wavs/dev/iv_m_001_227_017_0056_en.wav	Then, as I said before, there are about nine hundred different things that our committee does.	
+	/Users/hayubin/EchoStream/data/units/iv_m_001_227_017_0056_en.npy				
+5173	wavs/dev/iv_m_001_227_031_0096.wav	그 시대적인 흐름도 전혀 바뀌었고요, 우리 속담에도 십 년이면 강산이 변하고 있는데	wavs/dev/iv_m_001_227_031_0096_en.wav	The flow of the times has completely changed, and according to our proverb, rivers and mountains are changing in ten years	
+	/Users/hayubin/EchoStream/data/units/iv_m_001_227_031_0096_en.npy				
+5176	wavs/dev/iv_m_001_227_045_0136.wav	제 꿈은 이제 전국의 교육청들하고 다 엠오유를 맺어서 인식 전환을 할 수 있었으면 좋겠다는 생각을 가지고 있습니다. 그래서 지금 현재 위원회에서는	wavs/dev/iv_m_001_227_045_0136_en.wav	My dream is to form an M.O.U. with all education offices across the country to change perceptions. So, in the present committee	
+	/Users/hayubin/EchoStream/data/units/iv_m_001_227_045_0136_en.npy				
+5180	wavs/dev/iv_m_001_227_062_0186.wav	글로벌 콘솔 시장 성장에 맞춰서 게임위에서는 어떤 준비를 하고 있는지 궁금합니다.	wavs/dev/iv_m_001_227_062_0186_en.wav	I wonder what kind of preparations the Game Board is making in line with the growth of the global console market.	
+	/Users/hayubin/EchoStream/data/units/iv_m_001_227_062_0186_en.npy				
+5187	wavs/dev/iv_m_001_228_012_0042.wav	지난 십 이 월 중소, 중견기업에 대기업과 동일한 기업 규제 내용을 적용한 상법 개정안이 국회를 통과하면서	wavs/dev/iv_m_001_228_012_0042_en.wav	Last December, the amendment bill to the Commercial Act that applied the same corporate regulations to small and medium-sized enterprises as those of large corporations were passed by the National Assembly	
+	/Users/hayubin/EchoStream/data/units/iv_m_001_228_012_0042_en.npy				
+5211	wavs/dev/iv_m_001_229_045_0143.wav	그리고 음식을 포장하거나 배달시킬 때 일회용품 사용을 최대한 줄이고요, 만약에 일회용품을 사용하셨다면 잘 씻어서 쓰레기 배출하시면 되겠습니다.	wavs/dev/iv_m_001_229_045_0143_en.wav	And when packaging or delivering food, we reduce the use of single-use items as much as possible.	
+	/Users/hayubin/EchoStream/data/units/iv_m_001_229_045_0143_en.npy				
+5218	wavs/dev/iv_m_001_229_074_0233.wav	저희 공단의 연수원에 안에 스마트공장 배움터라고 있습니다. 그래서 거기서 기존에 이제 인근에 있는 그 중소기업들이	wavs/dev/iv_m_001_229_074_0233_en.wav	There is a smart factory learning center in our training center. So there, the nearby existing small and medium-sized businesses	
+	/Users/hayubin/EchoStream/data/units/iv_m_001_229_074_0233_en.npy				
+5262	wavs/dev/iv_m_001_304_018_0116.wav	등급을 판정 받을 수 있는 그런 시험을 지금 개발 중에 있고 올해 이제 파일럿을 해서 내년부터 본격화 하려고 하고 있습니다.	wavs/dev/iv_m_001_304_018_0116_en.wav	We are currently developing a test that can can judge our grade, and we are planning to pilot it this year and start in earnest next year.	
+	/Users/hayubin/EchoStream/data/units/iv_m_001_304_018_0116_en.npy				
+5264	wavs/dev/iv_m_001_304_021_0136.wav	그래서 예를 들면 얼마 전에 뭐 방송에도 굉장히 많이 나와 있는, 나왔던 그 판소리 소리꾼 도 있었고	wavs/dev/iv_m_001_304_021_0136_en.wav	For example, there was a pansori singer who appeared a lot on TV a lot recently.	
+	/Users/hayubin/EchoStream/data/units/iv_m_001_304_021_0136_en.npy				
+5265	wavs/dev/iv_m_001_304_022_0146.wav	오늘 말씀 여기까지 듣겠습니다. 고맙습니다.	wavs/dev/iv_m_001_304_022_0146_en.wav	That's all for today. Thank you.	
+	/Users/hayubin/EchoStream/data/units/iv_m_001_304_022_0146_en.npy				
+5273	wavs/dev/iv_m_001_304_037_0247.wav	내 몸이 좋아하는 온도랑 습도를 좀 잘 고려하시고 가급적이면 통풍이 되는 실내 환경이 이제 수면 위생에는 도움이 되겠습니다.	wavs/dev/iv_m_001_304_037_0247_en.wav	Please consider the temperature and humidity that your body likes, and if possible, a ventilated indoor environment will help with sleep hygiene.	
+	/Users/hayubin/EchoStream/data/units/iv_m_001_304_037_0247_en.npy				
+5294	wavs/dev/iv_m_001_305_034_0184.wav	이렇게 금융 외 적인 정보들도 제공을 하여 나의 신용 점수를 높일 수 있는 그런 방안들이 있습니다.	wavs/dev/iv_m_001_305_034_0184_en.wav	By providing non-financial information like this, there are ways to improve my credit score.	
+	/Users/hayubin/EchoStream/data/units/iv_m_001_305_034_0184_en.npy				
+5312	wavs/dev/iv_m_001_306_015_0088.wav	정부 예산도 많습니다.	wavs/dev/iv_m_001_306_015_0088_en.wav	There is also a large government budget.	
+	/Users/hayubin/EchoStream/data/units/iv_m_001_306_015_0088_en.npy				
+5323	wavs/dev/iv_m_001_306_037_0208.wav	봉사가 아니고 돈 벌러 가는 거죠.	wavs/dev/iv_m_001_306_037_0208_en.wav	It's not volunteer work, it's to make money.	
+	/Users/hayubin/EchoStream/data/units/iv_m_001_306_037_0208_en.npy				
+5340	wavs/dev/iv_m_001_307_013_0076.wav	무조건 돈을 많이 들여야지 명품이 되는 게 아니거든요.	wavs/dev/iv_m_001_307_013_0076_en.wav	You don't have to spend a lot of money to make a luxury brand.	
+	/Users/hayubin/EchoStream/data/units/iv_m_001_307_013_0076_en.npy				
+5361	wavs/dev/rf_c_001_001_003_0011.wav	지피에스가 어떻게 움직이는지까지 보고 있다는 건 거죠.	wavs/dev/rf_c_001_001_003_0011_en.wav	The fact that the GPS is even monitoring how they move.	
+	/Users/hayubin/EchoStream/data/units/rf_c_001_001_003_0011_en.npy				
+5371	wavs/dev/rf_c_001_002_017_0055.wav	엔트로피가 그대로 있거나 계속 증가를 할 수밖에 없는 것이죠.	wavs/dev/rf_c_001_002_017_0055_en.wav	Entropy either stays the same or keeps increasing.	
+	/Users/hayubin/EchoStream/data/units/rf_c_001_002_017_0055_en.npy				
+5412	wavs/dev/rf_c_001_007_020_0082.wav	이것도 비슷한 식으로 이해할 수 있습니다.	wavs/dev/rf_c_001_007_020_0082_en.wav	This can be understood in a similar way.	
+	/Users/hayubin/EchoStream/data/units/rf_c_001_007_020_0082_en.npy				
+5417	wavs/dev/rf_c_001_008_004_0015.wav	그렇다면 우리는 우주에 대해서 무엇을 알고 있을까요?	wavs/dev/rf_c_001_008_004_0015_en.wav	So what do we know about the universe?	
+	/Users/hayubin/EchoStream/data/units/rf_c_001_008_004_0015_en.npy				
+5421	wavs/dev/rf_c_001_008_014_0055.wav	또 큰 부분이 있죠.	wavs/dev/rf_c_001_008_014_0055_en.wav	There's another big part.	
+	/Users/hayubin/EchoStream/data/units/rf_c_001_008_014_0055_en.npy				
+5480	wavs/dev/rf_c_001_008_178_0697.wav	카시니라고 하는 탐사선이 갔는데요,	wavs/dev/rf_c_001_008_178_0697_en.wav	A probe called Cassini was launched,	
+	/Users/hayubin/EchoStream/data/units/rf_c_001_008_178_0697_en.npy				
+5484	wavs/dev/rf_c_001_008_187_0738.wav	드디어 천 구백 구십 년 이 월 십 사 일 날 발렌타인데이 때 카메라를 안쪽으로 돌려서 태양계 가족사진을 찍습니다.	wavs/dev/rf_c_001_008_187_0738_en.wav	Finally, on Valentine's Day, February 14th 1990, the camera was turned inward and took a picture of the solar system.	
+	/Users/hayubin/EchoStream/data/units/rf_c_001_008_187_0738_en.npy				
+5491	wavs/dev/rf_c_001_009_011_0041.wav	온도와 압력에 따라서 물과 얼음이 다르게 분포하듯이 메탄가스와 메탄 수하물의 분포도 바닷물의 온도와 압력에 따라서 다릅니다.	wavs/dev/rf_c_001_009_011_0041_en.wav	Just as water and ice are distributed differently depending on temperature and pressure, the distribution of methane gas and methane hydrate also depends on the temperature and pressure of seawater.	
+	/Users/hayubin/EchoStream/data/units/rf_c_001_009_011_0041_en.npy				
+5493	wavs/dev/rf_c_001_009_018_0061.wav	요즘은 훨씬 고도가 높은 곳에서 여객기들이 날아다니기 때문에 그 높이에서는 이미 메탄이 많이 희석되어 있습니다.	wavs/dev/rf_c_001_009_018_0061_en.wav	These days, airliners fly at much higher elevations, so much methane is already diluted at that height.	
+	/Users/hayubin/EchoStream/data/units/rf_c_001_009_018_0061_en.npy				
+5538	wavs/dev/rf_c_002_004_012_0052.wav	칼이 없어진 것을 보고 이제 박씨 집에 갔더니 그 칼이 거기에 딱 놓여 있던 거예요.	wavs/dev/rf_c_002_004_012_0052_en.wav	Seeing that the knife was missing, he went to Mr. Park's house and found that the knife was just there.	
+	/Users/hayubin/EchoStream/data/units/rf_c_002_004_012_0052_en.npy				
+5577	wavs/dev/rf_c_005_002_008_0021.wav	우리가 책을 통해 얻을 수 있는 다양한 통찰들 그리고 그 통찰들이 각기 서로 충돌하는 이렇게 지식과 정보의 홍수가 일어나는 혼란한 시대에는요.	wavs/dev/rf_c_005_002_008_0021_en.wav	In these chaotic times, where there are various insights that we can obtain from books and those insights conflict with each other, that is, there's a flood of knowledge and information,	
+	/Users/hayubin/EchoStream/data/units/rf_c_005_002_008_0021_en.npy				
+5613	wavs/dev/rf_c_005_012_007_0015.wav	이건 몸 고생이 시작됐다는 얘기거든요.	wavs/dev/rf_c_005_012_007_0015_en.wav	This means that my body begins to suffer.	
+	/Users/hayubin/EchoStream/data/units/rf_c_005_012_007_0015_en.npy				
+5616	wavs/dev/rf_c_005_012_018_0045.wav	근데 우리는 현대 사회에서 비가 오나 눈이 오나 등교를 하고 출근을 하죠. 그래서 잠시 잊은 거예요.	wavs/dev/rf_c_005_012_018_0045_en.wav	But in our modern society, whether it rains or snows, we go to school and go to work. So we forgot that for a while.	
+	/Users/hayubin/EchoStream/data/units/rf_c_005_012_018_0045_en.npy				
+5629	wavs/dev/rf_c_005_014_008_0015.wav	현대인들이 짜고 맵게 먹는 경향이 늘어나는 이유? 마찬가지겠죠. 바쁘기 때문에. 여러 가지 일을 한다.	wavs/dev/rf_c_005_014_008_0015_en.wav	Why do modern people tend to eat more salty and spicy food? It might be the same reason. Because they're busy. They do a variety of things.	
+	/Users/hayubin/EchoStream/data/units/rf_c_005_014_008_0015_en.npy				
+5639	wavs/dev/rf_c_005_016_008_0015.wav	자, 가석방이란 게 뭔가요? 형기가 좀 남았는데도 일찍 풀어주는 게 가석방이죠.	wavs/dev/rf_c_005_016_008_0015_en.wav	Well, what is parole? It's parole to release people early even though they still have left of prison term.	
+	/Users/hayubin/EchoStream/data/units/rf_c_005_016_008_0015_en.npy				
+5646	wavs/dev/rf_c_005_017_004_0010.wav	너무 덥지도 않고 너무 춥지도 않은, 너무 배가 부르지도 않고 너무 배가 고프지도 않은,	wavs/dev/rf_c_005_017_004_0010_en.wav	Not too hot, not too cold, not too full, and not too hungry,	
+	/Users/hayubin/EchoStream/data/units/rf_c_005_017_004_0010_en.npy				
+5665	wavs/dev/rf_c_005_020_003_0006.wav	싸이콜로지컬 디스턴스, 심리적 거리. 나와 거리가 먼 사람을 위해서 무언가를 할 때 템퍼럴 디스카운팅이 줄어든다.	wavs/dev/rf_c_005_020_003_0006_en.wav	'Psychological distance'. Temporal decounting decreases when you do something for someone who is far from you.	
+	/Users/hayubin/EchoStream/data/units/rf_c_005_020_003_0006_en.npy				
+5727	wavs/dev/rf_c_005_026_015_0076.wav	아! 이렇게 자기네들의 잘못을 제대로 광범위하게 인정하는 회사라면 믿을 만 하겠구나 라는 걸 오히려 소비자들 머릿속에 각인 시킬 수 있었던 계기가 된 거죠.	wavs/dev/rf_c_005_026_015_0076_en.wav	Ah! In this way, it was an opportunity to imprint in the minds of consumers that they can trust the company that properly and broadly acknowledges their faults.	
+	/Users/hayubin/EchoStream/data/units/rf_c_005_026_015_0076_en.npy				
+5743	wavs/dev/rf_c_005_029_017_0062.wav	정신없이 무언가가 지나가고 소리가 시끄러우니까 사람들은 판단력을 잃어서 사지도 않을 물건을 사기도 한다는 거죠.	wavs/dev/rf_c_005_029_017_0062_en.wav	Because something passes by and the sound is loud, people lose their judgment and buy things even they don't want to buy.	
+	/Users/hayubin/EchoStream/data/units/rf_c_005_029_017_0062_en.npy				
+5775	wavs/dev/rf_c_005_033_004_0025.wav	실제로 사람들은 그 앵커의 아주 쉽게 농락당하더라는 겁니다.	wavs/dev/rf_c_005_033_004_0025_en.wav	In fact, people were easily fooled by that anchor.	
+	/Users/hayubin/EchoStream/data/units/rf_c_005_033_004_0025_en.npy				
+5802	wavs/dev/rf_c_005_036_013_0061.wav	그래서 작고 구체적인 지식을 계속해서 외우는 공부방에도 효과가 있는 것은 당연한 추론인것 같습니다.	wavs/dev/rf_c_005_036_013_0061_en.wav	So, it seems to be a natural reasoning that it is effective in a study room for continuously memorizing small and specific knowledge.	
+	/Users/hayubin/EchoStream/data/units/rf_c_005_036_013_0061_en.npy				
+5803	wavs/dev/rf_c_005_037_001_0001.wav	안녕하세요. 인지심리학자 김경일입니다.	wavs/dev/rf_c_005_037_001_0001_en.wav	Hello. I am Kim Kyung-il, a cognitive psychologist.	
+	/Users/hayubin/EchoStream/data/units/rf_c_005_037_001_0001_en.npy				
+5835	wavs/dev/rf_c_005_039_015_0063.wav	우리 본성의 착한 천사부터 생각의 작동 방식까지 정말 놀라운 지식의 집약체인데,	wavs/dev/rf_c_005_039_015_0063_en.wav	From the good angels of our nature to the way our thoughts work, they are truly amazing collection of knowledge.	
+	/Users/hayubin/EchoStream/data/units/rf_c_005_039_015_0063_en.npy				
+5862	wavs/dev/rf_c_006_002_021_0070.wav	까 도깨비는 우리나라의 전통적인 문화였다 라면, 저승사자는 중국에서 들어온 거예요.	wavs/dev/rf_c_006_002_021_0070_en.wav	If the goblin was a traditional culture of Korea, the grim reaper came from China.	
+	/Users/hayubin/EchoStream/data/units/rf_c_006_002_021_0070_en.npy				
+5886	wavs/dev/rf_c_006_006_003_0007.wav	창덕궁은, 창덕궁은 한마디로 얘기하면 태종이 만든 궁궐입니다. 이게 되게 중요해요.	wavs/dev/rf_c_006_006_003_0007_en.wav	Changdeokgung Palace is a palace built by King Taejong. This is very important.	
+	/Users/hayubin/EchoStream/data/units/rf_c_006_006_003_0007_en.npy				
+5900	wavs/dev/rf_c_006_007_019_0066.wav	졸졸졸졸졸 한강을 이용해서 타고 내려오다가 광나루 같은데 요런 데 이렇게 딱 이제 정착을 하게 되면서 목재 시장의 역할들을 하게 되는 건데, 조선 후기로 가면 점점점 상행위의 규모가 커지기 시작을 해요.	wavs/dev/rf_c_006_007_019_0066_en.wav	After riding down the Han River, when they settled down in a place like Gwangnaru, it played a role of the timber market, and in the late Joseon Dynasty, the scale of commercial activities gradually began to grow.	
+	/Users/hayubin/EchoStream/data/units/rf_c_006_007_019_0066_en.npy				
+5909	wavs/dev/rf_c_006_007_054_0166.wav	이런 거죠. 건축가의 자존심. 직사각형이 원칙이지만 비탈, 구릉 계산하면 사다리야. 이거는 사다리꼴이 맞다.	wavs/dev/rf_c_006_007_054_0166_en.wav	It's like this. The pride of an architect. A rectangle is a rule, but it's a ladder if you calculate slopes and hills. The trapezoid is the right shape.	
+	/Users/hayubin/EchoStream/data/units/rf_c_006_007_054_0166_en.npy				
+5930	wavs/dev/rf_c_006_008_044_0148.wav	글자 그대로 무자비하게 친자식까지 죽인 과오들이 너무 많아	wavs/dev/rf_c_006_008_044_0148_en.wav	As there are so many mistakes that literally killed even her own child mercilessly.	
+	/Users/hayubin/EchoStream/data/units/rf_c_006_008_044_0148_en.npy				
+5993	wavs/dev/rf_c_006_013_014_0061.wav	사가에 유폐가 된 상태에서 마당에 풀도 하나도 깎지도 않고 소복만 입고 지낸다는 거예요.	wavs/dev/rf_c_006_013_014_0061_en.wav	They said that she was spending time in confinement at home, not cutting any grass in the yard and only wearing mourning clothes.	
+	/Users/hayubin/EchoStream/data/units/rf_c_006_013_014_0061_en.npy				
+5998	wavs/dev/rf_c_006_014_012_0040.wav	근데 이게 되게 안타까운 게 뭐냐면 이거에요.	wavs/dev/rf_c_006_014_012_0040_en.wav	But there is something very sad about it.	
+	/Users/hayubin/EchoStream/data/units/rf_c_006_014_012_0040_en.npy				
+6001	wavs/dev/rf_c_006_014_019_0070.wav	근데 실제로 이 글은 고종한테 전해진 거 같진 않아요.	wavs/dev/rf_c_006_014_019_0070_en.wav	But I don't think this article was actually sent to King Gojong.	
+	/Users/hayubin/EchoStream/data/units/rf_c_006_014_019_0070_en.npy				
+6004	wavs/dev/rf_c_006_014_024_0100.wav	근데 여기에 대해서 무당이 어떻게 대응하냐. 가짜 뉴스를 대응을 해요.	wavs/dev/rf_c_006_014_024_0100_en.wav	However, the shaman responded to this with fake news.	
+	/Users/hayubin/EchoStream/data/units/rf_c_006_014_024_0100_en.npy				
+6051	wavs/dev/rf_c_006_018_003_0012.wav	모든 사람들이 우리 독립을 원한다라고 다 일어난 거야.	wavs/dev/rf_c_006_018_003_0012_en.wav	Everyone stood up saying they wanted our independence.	
+	/Users/hayubin/EchoStream/data/units/rf_c_006_018_003_0012_en.npy				
+6067	wavs/dev/rf_c_006_019_019_0106.wav	편법으로 여러 주택을 구입해서 늘리는 방식이 있고요.	wavs/dev/rf_c_006_019_019_0106_en.wav	in order for the wealthy and powerful to live happier.	
+	/Users/hayubin/EchoStream/data/units/rf_c_006_019_019_0106_en.npy				
+6072	wavs/dev/rf_c_006_020_006_0039.wav	정말 대단하다 하면서 굉장히 신임을 받게 됐었습니다.	wavs/dev/rf_c_006_020_006_0039_en.wav	He said that Yi Sun-shin was really great, and he was very trusted.	
+	/Users/hayubin/EchoStream/data/units/rf_c_006_020_006_0039_en.npy				
+6073	wavs/dev/rf_c_006_020_008_0049.wav	율곡 이이한테 연락이 왔어요. 한 번 보자. 안 만납니다. 됐구요.	wavs/dev/rf_c_006_020_008_0049_en.wav	Yi Sun-sin got a call from Yulgok Yi, asking to see him. But Yi Sun-sin didn't meet him.	
+	/Users/hayubin/EchoStream/data/units/rf_c_006_020_008_0049_en.npy				
+6095	wavs/dev/rf_c_006_032_022_0068.wav	단 한 명드 의지할 사람이 없는 상황에서 내시에게 의존해서 업혀서 도망가다가 잡혔다라는 건	wavs/dev/rf_c_006_032_022_0068_en.wav	In a situation where there was no one to rely on, the fact that he was caught while running away by relying on the eunuch's back means.	
+	/Users/hayubin/EchoStream/data/units/rf_c_006_032_022_0068_en.npy				
+6096	wavs/dev/rf_c_006_032_024_0078.wav	해서 결국은 내린 결론이 뭐냐? 영창대군을 죽이자. 그리고 인목대비를 폐비시켜서 서인으로 만들어버리자.	wavs/dev/rf_c_006_032_024_0078_en.wav	She wished she could have driven out Gwanghae-gun at any cost and thought the fact that her son, prince Yeongchangcouldn't become king was really, really nonsense.	
+	/Users/hayubin/EchoStream/data/units/rf_c_006_032_024_0078_en.npy				
+6186	wavs/dev/rf_c_006_044_008_0041.wav	도형이라는 거는 이거는 인제 쉽게 말하면 육십 대 맞고 일 년, 칠십 대 맞고 일 년 반,	wavs/dev/rf_c_006_044_008_0041_en.wav	As for do-hyeong or forced labour punishment, to put it simply, you get 60 beatings and get a year, and get 70 beatings and a year and a half,	
+	/Users/hayubin/EchoStream/data/units/rf_c_006_044_008_0041_en.npy				
+6193	wavs/dev/rf_c_006_044_025_0111.wav	어지간한 죄를 짓지 않는 한 목을 베는 경우는 별로 없고요. 주로 목에 목 졸라 죽이는 경우고.	wavs/dev/rf_c_006_044_025_0111_en.wav	there are very few cases of beheading unless they commit a considerable crime of some sort. In most cases, they were strangled to death.	
+	/Users/hayubin/EchoStream/data/units/rf_c_006_044_025_0111_en.npy				
+6200	wavs/dev/rf_c_006_044_042_0201.wav	그 정도로 실제로 조선 중기 까지만 하더래도 그렇게 유교 문화가 일상에 파고들지 않거든요.	wavs/dev/rf_c_006_044_042_0201_en.wav	To that extent, even until the middle of the Joseon Dynasty, Confucian culture actually has not penetrate into everyday life.	
+	/Users/hayubin/EchoStream/data/units/rf_c_006_044_042_0201_en.npy				
+6248	wavs/dev/rf_c_006_047_011_0060.wav	결국 반 소박 맞듯이 이렇게 별거처럼 이렇게 지내고 있었던 상황이었고. 여종이 굉장히 적극적이었었던 것 같아요.	wavs/dev/rf_c_006_047_011_0060_en.wav	In the end, she was living like this, being humble and as if they were living separately. I think the maidservant was very active.	
+	/Users/hayubin/EchoStream/data/units/rf_c_006_047_011_0060_en.npy				
+6253	wavs/dev/rf_c_006_047_019_0110.wav	그래서 환국이 일어나죠.	wavs/dev/rf_c_006_047_019_0110_en.wav	And so there was the power change.	
+	/Users/hayubin/EchoStream/data/units/rf_c_006_047_019_0110_en.npy				
+6319	wavs/dev/rf_c_008_002_028_0061.wav	그래프를 보시면 알겠지만 처음에는 선호도에 차이가 크게 나지 않고 엇비슷합니다.	wavs/dev/rf_c_008_002_028_0061_en.wav	As you can see from the graph, there is no significant difference in preference at first, but it is similar.	
+	/Users/hayubin/EchoStream/data/units/rf_c_008_002_028_0061_en.npy				
+6321	wavs/dev/rf_c_008_002_038_0081.wav	그러니 우리의 성과와 눈부신 성장에 행복으로부터 멀어지는 건	wavs/dev/rf_c_008_002_038_0081_en.wav	So contrary to our achievements and brilliant growth, we move away from happiness.	
+	/Users/hayubin/EchoStream/data/units/rf_c_008_002_038_0081_en.npy				
+6339	wavs/dev/rf_c_008_003_059_0128.wav	우리가 집중력을 오래 유지하기 위해서는 단계별로 일하는 게 중요합니다.	wavs/dev/rf_c_008_003_059_0128_en.wav	It is important to work step by step for us in order to stay focused for a long time.	
+	/Users/hayubin/EchoStream/data/units/rf_c_008_003_059_0128_en.npy				
+6349	wavs/dev/rf_c_008_004_036_0084.wav	인간에게는 자기가 어떤 결과를 바라고 행동했을 때 받는 피드백보다	wavs/dev/rf_c_008_004_036_0084_en.wav	Rather than feedback about their behavior with the expectation of a certain outcome	
+	/Users/hayubin/EchoStream/data/units/rf_c_008_004_036_0084_en.npy				
+6364	wavs/dev/rf_c_008_006_012_0023.wav	즉 우리는 옛 기억을 떠올리면서 미래에 힘을 낸다는 거예요.	wavs/dev/rf_c_008_006_012_0023_en.wav	In other words, we reminisce about old memories to build strength for the future.	
+	/Users/hayubin/EchoStream/data/units/rf_c_008_006_012_0023_en.npy				
+6366	wavs/dev/rf_c_008_006_026_0053.wav	그 다음에 연구진은 두 그룹 모두에게 다양한 과제를 부여했습니다.	wavs/dev/rf_c_008_006_026_0053_en.wav	The researchers then gave both groups a variety of tasks.	
+	/Users/hayubin/EchoStream/data/units/rf_c_008_006_026_0053_en.npy				
+6388	wavs/dev/rf_c_008_008_007_0012.wav	남녀든 혹은 다른 문화권에서 살고 있는 사람들이든 그 내부에서도 차이가 엄청 크다는 거예요.	wavs/dev/rf_c_008_008_007_0012_en.wav	Whether it's between men and women or people from different cultures, there's a huge difference within them.	
+	/Users/hayubin/EchoStream/data/units/rf_c_008_008_007_0012_en.npy				
+6403	wavs/dev/rf_c_008_009_050_0101.wav	저는 칭찬에 인색한데 어떻게 해야 할까요?	wavs/dev/rf_c_008_009_050_0101_en.wav	I'm stingy with compliments, what should I do?	
+	/Users/hayubin/EchoStream/data/units/rf_c_008_009_050_0101_en.npy				
+6423	wavs/dev/rf_c_008_011_013_0030.wav	눈을 가리고 공을 뽑았는데 빨간색 공이 나오면 돈을 받는 게임을 하겠습니까, 까만색 공이 나오면 돈을 받는 게임을 하겠습니까?	wavs/dev/rf_c_008_011_013_0030_en.wav	Would you rather play a game where you get paid if you pick a red ball with your eyes covered or if you pick a black ball?	
+	/Users/hayubin/EchoStream/data/units/rf_c_008_011_013_0030_en.npy				
+6438	wavs/dev/rf_c_008_013_009_0031.wav	이제는 일을 마치고 돌아가는 시간이 즐겁다라기보다는 활기가 없어지고 기다려지지 않는,	wavs/dev/rf_c_008_013_009_0031_en.wav	Now, the time to go home after work is not enjoyable, but rather that it’s less energetic and it’s not looked forward to,	
+	/Users/hayubin/EchoStream/data/units/rf_c_008_013_009_0031_en.npy				
+6480	wavs/dev/rf_c_008_017_029_0054.wav	그런데 저는 반대로요 이거를 볼 때 내가 좀 느슨한 마음이 필요하겠다.	wavs/dev/rf_c_008_017_029_0054_en.wav	But, on the other hand, when I see something that requires me to be more relaxed	
+	/Users/hayubin/EchoStream/data/units/rf_c_008_017_029_0054_en.npy				
+6485	wavs/dev/rf_c_008_017_056_0114.wav	저는 그래서 일이 잘 안 될 때와 일을 참 잘했다라는 느낌이 들 때 제 컴퓨터 모니터 화면을 캡처하기도 하죠.	wavs/dev/rf_c_008_017_056_0114_en.wav	That's why I take screenshots of my computer monitor when things aren't going well and when I feel like I did a really good job.	
+	/Users/hayubin/EchoStream/data/units/rf_c_008_017_056_0114_en.npy				
+6537	wavs/dev/rf_c_008_023_026_0074.wav	국토 대장정은, 집 안 대청소는, 바보스러운 방법이에요.	wavs/dev/rf_c_008_023_026_0074_en.wav	The grand march through the national land or grand cleaning of the house are stupid ways to do it.	
+	/Users/hayubin/EchoStream/data/units/rf_c_008_023_026_0074_en.npy				
+6552	wavs/dev/rf_c_009_003_001_0003.wav	많이 빠져 봤잖아요.	wavs/dev/rf_c_009_003_001_0003_en.wav	You've fallen in love a lot.	
+	/Users/hayubin/EchoStream/data/units/rf_c_009_003_001_0003_en.npy				
+6562	wavs/dev/rf_c_009_004_008_0024.wav	인간이 할 수 있는 공감은 그걸 넘어선 공감적 개입입니다.	wavs/dev/rf_c_009_004_008_0024_en.wav	Empathy that humans can do is an empathic intervention that goes beyond that.	
+	/Users/hayubin/EchoStream/data/units/rf_c_009_004_008_0024_en.npy				
+6569	wavs/dev/rf_c_009_006_009_0033.wav	또 고장 신호가 들어왔어. 그럼 내가 봐봤자 내가 못 고치니까.	wavs/dev/rf_c_009_006_009_0033_en.wav	And when a fault signal comes in, they know they can't fix it.	
+	/Users/hayubin/EchoStream/data/units/rf_c_009_006_009_0033_en.npy				
+6578	wavs/dev/rf_c_009_007_027_0097.wav	그래서 에너지가 충만한 상태에서 결정을 해줘야 된다는 거죠.	wavs/dev/rf_c_009_007_027_0097_en.wav	you have to make decisions with full energy.	
+	/Users/hayubin/EchoStream/data/units/rf_c_009_007_027_0097_en.npy				
+6624	wavs/dev/rf_c_009_017_006_0028.wav	이 연구는 아주 재밌게도	wavs/dev/rf_c_009_017_006_0028_en.wav	Interestingly enough,	
+	/Users/hayubin/EchoStream/data/units/rf_c_009_017_006_0028_en.npy				
+6660	wavs/dev/rf_c_010_002_055_0169.wav	고등학교 때 필수로 읽어야 되기 때문에 다 읽었어요.	wavs/dev/rf_c_010_002_055_0169_en.wav	I read them all because I had to read them in high school.	
+	/Users/hayubin/EchoStream/data/units/rf_c_010_002_055_0169_en.npy				
+6682	wavs/dev/rf_c_010_004_004_0014.wav	다윈의 이 종의 기원에 보면 수학 공식은 말할 것도 없고요.	wavs/dev/rf_c_010_004_004_0014_en.wav	In Darwin's Origin of Species, we can't leave out the mathematical formula.	
+	/Users/hayubin/EchoStream/data/units/rf_c_010_004_004_0014_en.npy				
+6705	wavs/dev/rf_c_010_006_024_0066.wav	참 많은 일들을 이 사람들이 이제 해줘요.	wavs/dev/rf_c_010_006_024_0066_en.wav	These people do so many things.	
+	/Users/hayubin/EchoStream/data/units/rf_c_010_006_024_0066_en.npy				
+6733	wavs/dev/rf_c_010_007_012_0033.wav	그래서 대화가 많은, 예를 들면 희곡은 더 힘들어요. 그걸 제가 다 해야되거든요.	wavs/dev/rf_c_010_007_012_0033_en.wav	So, something with a lot of dialogue like a play is harder to read. I have to do all of that.	
+	/Users/hayubin/EchoStream/data/units/rf_c_010_007_012_0033_en.npy				
+6750	wavs/dev/rf_c_010_008_039_0098.wav	다윈 시절에는 만연체가 더 좋은 글쓰기 기법이었어요.	wavs/dev/rf_c_010_008_039_0098_en.wav	In Darwin's days, verbosity was a better writing technique.	
+	/Users/hayubin/EchoStream/data/units/rf_c_010_008_039_0098_en.npy				
+6756	wavs/dev/rf_c_010_008_064_0158.wav	위대한 정치인이었고 미국을 새로운 단계로 끌어 올려준 그런 분이다 이거죠.	wavs/dev/rf_c_010_008_064_0158_en.wav	He was a great politician and one who took America to a new level.	
+	/Users/hayubin/EchoStream/data/units/rf_c_010_008_064_0158_en.npy				
+6822	wavs/dev/rf_c_010_010_153_0348.wav	세계에서 가장 미워하는 세 사람 중에 한 사람이 저였어요.	wavs/dev/rf_c_010_010_153_0348_en.wav	I was one of the three people she hated the most in the world.	
+	/Users/hayubin/EchoStream/data/units/rf_c_010_010_153_0348_en.npy				
+6829	wavs/dev/rf_c_010_011_026_0058.wav	다윈 선생이 평생 애써서 만든 이론하고 참 비슷한 얘기를 했더군.	wavs/dev/rf_c_010_011_026_0058_en.wav	You said something similar to Darwin's lifelong theory.	
+	/Users/hayubin/EchoStream/data/units/rf_c_010_011_026_0058_en.npy				
+6830	wavs/dev/rf_c_010_011_030_0068.wav	그래서 다윈도 안 갔어요.	wavs/dev/rf_c_010_011_030_0068_en.wav	So Darwin did not attend.	
+	/Users/hayubin/EchoStream/data/units/rf_c_010_011_030_0068_en.npy				
+6862	wavs/dev/rf_c_010_012_137_0314.wav	이거는 다윈 선생님이 하신 거다. 그래서 그 모든 이론을 부르는 용어로 다위니즘, 다윈주의라는 용어까지 만들어 가지고 그렇게 열심히 했어요.	wavs/dev/rf_c_010_012_137_0314_en.wav	He considered this to be Darwin's achievement. So he worked hard to even coin the term Darwinism as a term for all the theories about him.	
+	/Users/hayubin/EchoStream/data/units/rf_c_010_012_137_0314_en.npy				
+6865	wavs/dev/rf_c_010_012_151_0344.wav	그 나온다는 얘기 듣고 한 며칠 전부터 주문을 받은 게 나온 날 그냥 다 해서 출판되는 날 재판을 찍는	wavs/dev/rf_c_010_012_151_0344_en.wav	When they heard that the book was about to be published, they took orders a few days ago, but as soon as the book came out, it was sold out, so they started printing again that day.	
+	/Users/hayubin/EchoStream/data/units/rf_c_010_012_151_0344_en.npy				
+6885	wavs/dev/rf_c_010_013_011_0022.wav	근데 거기에 또 따라오는 패키지 중에 하나가 박물학자라고, 아 이제, 우리가 이제 뭐 한, 한 달 후면은 어디에 도착합니다.	wavs/dev/rf_c_010_013_011_0022_en.wav	One of the packages that came with it was a naturalist who provided information about the itinerary and destination.	
+	/Users/hayubin/EchoStream/data/units/rf_c_010_013_011_0022_en.npy				
+6889	wavs/dev/rf_c_010_013_031_0062.wav	이게 무슨 소린가. 무슨 소리냐 하면요.	wavs/dev/rf_c_010_013_031_0062_en.wav	What does this mean?	
+	/Users/hayubin/EchoStream/data/units/rf_c_010_013_031_0062_en.npy				
+6899	wavs/dev/rf_c_010_014_029_0064.wav	그 무거운 꼬리 깃털 때문에 이게 이륙이 잘 안 되는 거예요. 그래서 진짜 비행기 이륙하듯이 공작새가 처음에 날아오를 때 보면요.	wavs/dev/rf_c_010_014_029_0064_en.wav	The heavy tail feathers make them difficult to take off. So when you see a peacock take off for the first time, it's like an airplane taking off.	
+	/Users/hayubin/EchoStream/data/units/rf_c_010_014_029_0064_en.npy				
+6902	wavs/dev/rf_c_010_014_046_0104.wav	그렇게 살아본들 세계의 선택받을 확률이 거의 영이니까. 그러면 그 녀석은 후손을 못 남기는 거죠.	wavs/dev/rf_c_010_014_046_0104_en.wav	Even if they live that way, they have little chance of being chosen by the female, and then they will leave no offspring.	
+	/Users/hayubin/EchoStream/data/units/rf_c_010_014_046_0104_en.npy				
+6906	wavs/dev/rf_c_010_014_064_0144.wav	그런 일화를 얘기하시는 분도 있는데 두 백작부인이 이렇게 차를 마시면서 이렇게 얘기하는데	wavs/dev/rf_c_010_014_064_0144_en.wav	In another example, two countess were talking while drinking tea.	
+	/Users/hayubin/EchoStream/data/units/rf_c_010_014_064_0144_en.npy				
+6908	wavs/dev/rf_c_010_014_073_0164.wav	근데 지금은요. 저희 분야에 일 년에 만약에 논문이 백 편이 나온다. 백 편이 나올 리는 없지만 훨씬 많이 나오지만,	wavs/dev/rf_c_010_014_073_0164_en.wav	But now, if we assume that there are 100 papers per year in our field,	
+	/Users/hayubin/EchoStream/data/units/rf_c_010_014_073_0164_en.npy				
+6909	wavs/dev/rf_c_010_014_078_0174.wav	그래서 다윈은 참 좋은데 일개미들이 그런 희생정신 때문에 개미나라가 번성한다. 근데 그게 왜 그러느냐를 설명하기가 너무 힘들었던 거예요.	wavs/dev/rf_c_010_014_078_0174_en.wav	The ant kingdom prospered because of the sacrificial spirit of the workers, but it was too difficult for Darwin to explain why.	
+	/Users/hayubin/EchoStream/data/units/rf_c_010_014_078_0174_en.npy				
+6950	wavs/dev/rf_c_011_001_026_0130.wav	넷플릭스 버전 있다는 걸 알고 계십니까? 넷플릭스 엔 칠 혹은 넷플릭스 보면서 쉰다 넷플릭스 넷플렉싱	wavs/dev/rf_c_011_001_026_0130_en.wav	Did you know that there's a Netflix version? Netflix and chill, Chill with Netflix, Netflix, Netflixing.	
+	/Users/hayubin/EchoStream/data/units/rf_c_011_001_026_0130_en.npy				
+6965	wavs/dev/rf_c_011_002_029_0140.wav	생각해보세요? 내일이 시험인데 불안해야 공부하죠.	wavs/dev/rf_c_011_002_029_0140_en.wav	Think about it? Tomorrow is the exam, so I have to be anxious to study.	
+	/Users/hayubin/EchoStream/data/units/rf_c_011_002_029_0140_en.npy				
+7008	wavs/dev/rf_c_012_003_017_0047.wav	어느 화가 보다도 대상과 화가 그 사이에 있는 대기의 필터링 색감 온도 이러한 미묘한 표현들을 살려내는 것도 중요하게 생각했던 그는 자신의 그림을 실험할 수 있는 일종의 야외 실험실을 만든 셈이죠.	wavs/dev/rf_c_012_003_017_0047_en.wav	More than any other artist, he thought it was important to bring these subtle expressions to life through the atmosphere filtering between the subject and the artist, color, and temperature, so he created a kind of outdoor laboratory where he could experiment with his paintings.	
+	/Users/hayubin/EchoStream/data/units/rf_c_012_003_017_0047_en.npy				
+7013	wavs/dev/rf_c_012_004_001_0001.wav	안녕하세요 한국예술종합학교 교수 미술사학자 양정무입니다.	wavs/dev/rf_c_012_004_001_0001_en.wav	Hello, my name is Yang Jeong-mu, an art historian and professor at Korea National University of Arts.	
+	/Users/hayubin/EchoStream/data/units/rf_c_012_004_001_0001_en.npy				
+7017	wavs/dev/rf_c_012_004_014_0041.wav	정말 수위가 상당하죠. 읽기 전에 단단히 각오를 하셔도 약간 당황 하실 수 있을 겁니다.	wavs/dev/rf_c_012_004_014_0041_en.wav	It's quite R-rated. Even if you are prepared before reading, you may be a little shocked.	
+	/Users/hayubin/EchoStream/data/units/rf_c_012_004_014_0041_en.npy				
+7033	wavs/dev/rf_c_012_005_024_0073.wav	그런데 이 그림을 자세히 보시면 소매에 달린 장식이나 머리카락을 그냥 쓱쓱 발라놓은 것처럼 보이게 되죠.	wavs/dev/rf_c_012_005_024_0073_en.wav	But if you look closely at this picture, you can see that the decorations on the sleeves or the hair are just brushed on loosely.	
+	/Users/hayubin/EchoStream/data/units/rf_c_012_005_024_0073_en.npy				
+7087	wavs/dev/rf_c_012_009_049_0181.wav	이 어린 딸의 다리를 보게 되면 휘어져 있고 유전에 의해서 이 어린 딸도 성병을 앓고 있다는 것을 얘기하고 있죠.	wavs/dev/rf_c_012_009_049_0181_en.wav	If you look at this little girl's legs, they are curved, and they're telling us that this little girl also has a sexually transmitted disease by heredity.	
+	/Users/hayubin/EchoStream/data/units/rf_c_012_009_049_0181_en.npy				
+7095	wavs/dev/rf_c_012_010_020_0066.wav	그래서 사람들은 서기 천 년이 되면 성경이 말하는 악마가 풀려나서 천 년왕국이 끝날 거라고 생각했는데요.	wavs/dev/rf_c_012_010_020_0066_en.wav	So, people thought that the millennium kingdom would end in the 1000 A.D. when the devil the Bible speaks of would be set free.	
+	/Users/hayubin/EchoStream/data/units/rf_c_012_010_020_0066_en.npy				
+7129	wavs/dev/rf_c_012_015_004_0013.wav	이 치열한 경쟁 끝에 상대방을 자살로 몰기까지도 했는데요.	wavs/dev/rf_c_012_015_004_0013_en.wav	After this fierce competition, they even drove their opponent to suicide.	
+	/Users/hayubin/EchoStream/data/units/rf_c_012_015_004_0013_en.npy				
+7149	wavs/dev/rf_c_012_018_006_0012.wav	바로 베르사유 인데요. 이 베르사유를 만든 인물이 바로 태양왕 루이 십 사 세 입니다.	wavs/dev/rf_c_012_018_006_0012_en.wav	That's Versailles. The person who created this Versailles was the Sun King, Louis XIV.	
+	/Users/hayubin/EchoStream/data/units/rf_c_012_018_006_0012_en.npy				
+7197	wavs/dev/rf_c_012_024_042_0120.wav	이런 상황에서 헨리 팔 세의 재혼상대를 강력히 추천하는 인물이 나타납니다.	wavs/dev/rf_c_012_024_042_0120_en.wav	In this situation, a person appears who strongly recommends the remarriage of Henry VIII.	
+	/Users/hayubin/EchoStream/data/units/rf_c_012_024_042_0120_en.npy				
+7199	wavs/dev/rf_c_012_025_008_0016.wav	대체 유디트는 누구이길래 이 많은 영웅둘과 나란히 자리한 걸까요?	wavs/dev/rf_c_012_025_008_0016_en.wav	Who the hell is Judith to sit side by side with these two heroes?	
+	/Users/hayubin/EchoStream/data/units/rf_c_012_025_008_0016_en.npy				
+7204	wavs/dev/rf_c_012_025_038_0096.wav	그리고 배경이 예루살렘의 어느 도시 풍경인 거까지 종합해 보면, 이 그림 속 주인공은 살로메보단 유디트에 가깝다고 할 수 있겠네요.	wavs/dev/rf_c_012_025_038_0096_en.wav	And considering that the background is a certain city in Jerusalem, it can be said that the main character in this picture is closer to Judith than Salome.	
+	/Users/hayubin/EchoStream/data/units/rf_c_012_025_038_0096_en.npy				
+7207	wavs/dev/rf_c_012_026_018_0050.wav	건강 악화로 죽어 가는 병실 안에서 동이 트는 모습을 보고 그린 그림이죠.	wavs/dev/rf_c_012_026_018_0050_en.wav	It's a picture of dawn in a hospital room dying of poor health.	
+	/Users/hayubin/EchoStream/data/units/rf_c_012_026_018_0050_en.npy				
+7212	wavs/dev/rf_c_012_026_034_0100.wav	유아에 질감을 얘기할 때 반 고흐를 빼놓을 수 없죠. 반 고흐는 물감을 하도 많이 써서 주변 사람들한테 혼났다는 얘기도 있을 만큼 물감을 많이 썼는데요.	wavs/dev/rf_c_012_026_034_0100_en.wav	When talking about the texture of oil paintings, Van Gogh cannot be left out. Van Gogh used so many paints that people around him scolded him because he used so many paints.	
+	/Users/hayubin/EchoStream/data/units/rf_c_012_026_034_0100_en.npy				
+7237	wavs/dev/rf_c_013_002_020_0083.wav	이 행동이 잘못된 게 아니라, 이 행동 대신에 이 행동을 해야 돼! 라는 걸 체벌로는 알려 줄 수 있는 방법이 없습니다.	wavs/dev/rf_c_013_002_020_0083_en.wav	This action is not wrong, but you should do this action instead of this action! There is no way to tell by physical punishment.	
+	/Users/hayubin/EchoStream/data/units/rf_c_013_002_020_0083_en.npy				
+7244	wavs/dev/rf_c_013_003_011_0035.wav	그래서 각종 문제 행동의 원인이 되고, 이것이 반려견의 산책이 필요한 가장 중요한 이유 중 하나입니다.	wavs/dev/rf_c_013_003_011_0035_en.wav	So, it causes a variety of problem behaviors, and this is one of the most important reasons why your dog needs a walk.	
+	/Users/hayubin/EchoStream/data/units/rf_c_013_003_011_0035_en.npy				
+7258	wavs/dev/rf_c_013_004_005_0013.wav	뜬장, 이 뜬장이라는 단어에 대해서 들어보신 적 있으신가요?	wavs/dev/rf_c_013_004_005_0013_en.wav	Have you ever heard of the word, floating cage?	
+	/Users/hayubin/EchoStream/data/units/rf_c_013_004_005_0013_en.npy				
+7276	wavs/dev/rf_c_013_005_006_0024.wav	반려견들이 어떤 감정을 가지고 있는지 알아야만 소통을 할 수 있겠죠?	wavs/dev/rf_c_013_005_006_0024_en.wav	You need to know what emotions your dogs have, so you can communicate with each other, right?	
+	/Users/hayubin/EchoStream/data/units/rf_c_013_005_006_0024_en.npy				
+7277	wavs/dev/rf_c_013_005_009_0034.wav	개가 갖는 이런 질투 감정은 사람과 살면서 후천적으로 학습한 것일까요? 아니면 타고난 것일까요?	wavs/dev/rf_c_013_005_009_0034_en.wav	Is this feeling of jealousy that dogs have acquired through living with people? Or is it innate?	
+	/Users/hayubin/EchoStream/data/units/rf_c_013_005_009_0034_en.npy				
+7282	wavs/dev/rf_c_013_005_019_0084.wav	근데 이 정도 스트레스는 나 좀 싫은데! 라는 표현이에요.	wavs/dev/rf_c_013_005_019_0084_en.wav	But this kind of stress is an expression of dislike.	
+	/Users/hayubin/EchoStream/data/units/rf_c_013_005_019_0084_en.npy				
+7284	wavs/dev/rf_c_013_005_023_0104.wav	세상이가 전체적으로 갈색 강아지인데 꼬리 끝 이만큼만 흰색이더라구요.	wavs/dev/rf_c_013_005_023_0104_en.wav	Sesang's fur is all brown, but only the tip of the tail is white.	
+	/Users/hayubin/EchoStream/data/units/rf_c_013_005_023_0104_en.npy				
+7289	wavs/dev/rf_c_013_005_036_0154.wav	진짜 아무것도 모르는 애들 잘라요.	wavs/dev/rf_c_013_005_036_0154_en.wav	cut off the tails of puppies that don't really know anything.	
+	/Users/hayubin/EchoStream/data/units/rf_c_013_005_036_0154_en.npy				
+7299	wavs/dev/rf_c_013_006_025_0089.wav	새로운 형질이 태어나기 쉬운 동물이기 때문에 한 삼,사대 동안 품종 개량을 하면 새로운 품종이 탄생할 가능성이 있어요.	wavs/dev/rf_c_013_006_025_0089_en.wav	Since it is an animal that is easy to be born with new traits, there is a possibility that a new breed will be born if breeding is performed for three or four generations.	
+	/Users/hayubin/EchoStream/data/units/rf_c_013_006_025_0089_en.npy				
+7305	wavs/dev/rf_c_013_007_005_0015.wav	아메리칸 핏불테리어, 도사견, 아메리칸 스테퍼드 셔테리어, 로트와일러, 스테퍼드셔 불테리어,	wavs/dev/rf_c_013_007_005_0015_en.wav	American Pit Bull Terrier, Dosa Mastiff, American Staffordshire Terrier, Rottweiler, Staffordshire Bull Terrier,	
+	/Users/hayubin/EchoStream/data/units/rf_c_013_007_005_0015_en.npy				
+7306	wavs/dev/rf_c_013_007_007_0025.wav	작은 개라고 해도 무는 행동을 보이면 반드시 보호자가 관리하거나 이 행동을 고칠 수 있도록 도와줘야 돼요.	wavs/dev/rf_c_013_007_007_0025_en.wav	Even small dogs that show biting behavior must be managed by owners or help to correct this behavior.	
+	/Users/hayubin/EchoStream/data/units/rf_c_013_007_007_0025_en.npy				
+7315	wavs/dev/rf_c_013_007_034_0115.wav	그때는 즉시 그 자리에서 벗어나 개의 긴장을 풀어 주는 게 좋습니다.	wavs/dev/rf_c_013_007_034_0115_en.wav	In that case, it is best to get out of the place immediately and let the dogs relax.	
+	/Users/hayubin/EchoStream/data/units/rf_c_013_007_034_0115_en.npy				
+7364	wavs/dev/rf_k_001_003_017_0051.wav	깨끗하게 세척한 막창은	wavs/dev/rf_k_001_003_017_0051_en.wav	The pork tripe that was washed clean is	
+	/Users/hayubin/EchoStream/data/units/rf_k_001_003_017_0051_en.npy				
+7377	wavs/dev/rf_k_003_001_076_0181.wav	이들을 이끈 이는 요시다 쇼인 이었다.	wavs/dev/rf_k_003_001_076_0181_en.wav	It was Yoshida Shoin who led them.	
+	/Users/hayubin/EchoStream/data/units/rf_k_003_001_076_0181_en.npy				
+7393	wavs/dev/rf_k_003_002_047_0110.wav	황제는 하늘에 제사를 지낸 후, 국호를 대한, 연호를 광무로 정하고 초대황제로 즉위했다.	wavs/dev/rf_k_003_002_047_0110_en.wav	After performing a ritual in heaven, the emperor set the country's name Daehan and the era name Gwangmu, and ascended to the throne as the first emperor.	
+	/Users/hayubin/EchoStream/data/units/rf_k_003_002_047_0110_en.npy				
+7399	wavs/dev/rf_k_003_002_078_0190.wav	고종은 천 팔백 구십 삼 년에 명성황후와 함께 임진왜란 삼백 주년 을 기념하는 의례를 이곳 즉조당에 와서 한 적이 있습니다.	wavs/dev/rf_k_003_002_078_0190_en.wav	In 1893, King Gojong, along with Empress Myeongseong, had a ceremony to commemorate the 300th anniversary of the Japanese Invasion of Joseon at this place Jeukjodang.	
+	/Users/hayubin/EchoStream/data/units/rf_k_003_002_078_0190_en.npy				
+7431	wavs/dev/rf_k_003_004_050_0103.wav	남들과 다른 우리를 갈망했던 시대.	wavs/dev/rf_k_003_004_050_0103_en.wav	It was a time when we longed to be different from others.	
+	/Users/hayubin/EchoStream/data/units/rf_k_003_004_050_0103_en.npy				
+7444	wavs/dev/rf_k_003_005_012_0033.wav	이게 반사가, 조금 오목하거든요. 빛이 반사돼서 한쪽으로 모이는 것이죠	wavs/dev/rf_k_003_005_012_0033_en.wav	The reflection is a bit concave. The light is reflected and converges to one side.	
+	/Users/hayubin/EchoStream/data/units/rf_k_003_005_012_0033_en.npy				
+7495	wavs/dev/rf_k_003_008_026_0057.wav	숟가락이 발견된 위치로 보아, 왕비가 합장되면서 함께 부장됐을 가능성이 높다.	wavs/dev/rf_k_003_008_026_0057_en.wav	Judging from the location where the spoon was found, it is highly probable that it was buried together with the queen.	
+	/Users/hayubin/EchoStream/data/units/rf_k_003_008_026_0057_en.npy				
+7496	wavs/dev/rf_k_003_008_029_0067.wav	이곳에선 삼만 삼천 여 점에 달하는 유물이 출토됐다.	wavs/dev/rf_k_003_008_029_0067_en.wav	About 33,000 relics have been unearthed here.	
+	/Users/hayubin/EchoStream/data/units/rf_k_003_008_029_0067_en.npy				
+7515	wavs/dev/rf_k_003_009_071_0148.wav	일본군 같은 경우에는 무장한 게 적게는 십 퍼센트, 많게는 삼십 퍼센트정도. 근데 이제 당시의 우리나라같은 경우에는 화기가 있긴 있었죠, 승자총통들.	wavs/dev/rf_k_003_009_071_0148_en.wav	In the case of the Japanese military, at least 10% and at most 30% are armed. But now, in Korea at the time, there was firearms, seungja-chongtong.	
+	/Users/hayubin/EchoStream/data/units/rf_k_003_009_071_0148_en.npy				
+7538	wavs/dev/rf_k_003_011_072_0144.wav	경기도 광주 분원 과늘 중심으로 해서 백자를 대량 생산하기 시작했고, 그때 만들어진 것이 이 백자 큰항아리입니다.	wavs/dev/rf_k_003_011_072_0144_en.wav	They started mass production of white porcelain centered on the branch of Gwangju, Gyeonggi-do, and this large white porcelain jar was made at that time.	
+	/Users/hayubin/EchoStream/data/units/rf_k_003_011_072_0144_en.npy				
+7541	wavs/dev/rf_k_003_012_001_0002.wav	꽃피는 봄이 지나면,	wavs/dev/rf_k_003_012_001_0002_en.wav	After the blooming spring,	
+	/Users/hayubin/EchoStream/data/units/rf_k_003_012_001_0002_en.npy				
+7552	wavs/dev/rf_k_003_012_055_0133.wav	처음 봤을 때, 굉장히 당황스러웠습니다. 도대체 지금까지 불교 조각을 연구하면서, 그렇게 생긴 상을 본 적이 없거든요. 서 이건 뭐지? 이게 정말 고려시대 혹은 조선 전기의 상이 맞나?	wavs/dev/rf_k_003_012_055_0133_en.wav	When I first saw it, I was very confused. I've never seen a statue like that while studying Buddhist sculpture. What is this? Is this really the statue of the Goryeo Dynasty or the early Joseon Dynasty?	
+	/Users/hayubin/EchoStream/data/units/rf_k_003_012_055_0133_en.npy				
+7582	wavs/dev/rf_k_003_014_071_0159.wav	당시 동대문 밖 기와집이 고작 백 팔십 냥.	wavs/dev/rf_k_003_014_071_0159_en.wav	At that time, the tiled houses outside Dongdaemun were only 180 nyang.	
+	/Users/hayubin/EchoStream/data/units/rf_k_003_014_071_0159_en.npy				
+7614	wavs/dev/rf_k_003_016_051_0130.wav	소줏고리는 어떻게 쓰이는 걸까? 답을 찾아서 제주로 가봅니다.	wavs/dev/rf_k_003_016_051_0130_en.wav	How is the sojugori used? Let's go to Jeju to find the answer.	
+	/Users/hayubin/EchoStream/data/units/rf_k_003_016_051_0130_en.npy				
+7654	wavs/dev/rf_k_007_002_001_0002.wav	안녕하세요 아나운서 한석준입니다.	wavs/dev/rf_k_007_002_001_0002_en.wav	Hello, I'm announcer Han Seok-jun.	
+	/Users/hayubin/EchoStream/data/units/rf_k_007_002_001_0002_en.npy				
+7699	wavs/dev/rf_k_007_003_005_0030.wav	네 안녕하세요 이앤디 일레트릭에 이준호 대표입니다. 새해부터 재밌는 이벤트가 생겨서 저는 즐기고 놀러 나왔습니다. 잘 부탁드립니다.	wavs/dev/rf_k_007_003_005_0030_en.wav	Hello, I am Junho Lee, CEO of E&D Electric. Since the new year, there has been a fun event, so I came out to have fun. I look forward to your kind cooperation.	
+	/Users/hayubin/EchoStream/data/units/rf_k_007_003_005_0030_en.npy				
+7757	wavs/dev/rf_k_007_004_052_0355.wav	매일 보내오는 답장들이에요.	wavs/dev/rf_k_007_004_052_0355_en.wav	These are the daily replies.	
+	/Users/hayubin/EchoStream/data/units/rf_k_007_004_052_0355_en.npy				
+7767	wavs/dev/rf_k_007_005_006_0041.wav	케이 뷰티 위상을 전세계에 알리는데 기여하고 있다고 생각을 하고 있어서 개인적으로 뿌듯하고 자랑스러운 회사입니다.	wavs/dev/rf_k_007_005_006_0041_en.wav	Personally, I am proud to think that our company is contributing to promoting the status of K-beauty all over the world.	
+	/Users/hayubin/EchoStream/data/units/rf_k_007_005_006_0041_en.npy				
+7791	wavs/dev/rf_k_007_005_066_0311.wav	그래서 저희 직원들은 그 시간에 굉장히 좋아 하고 있고요.	wavs/dev/rf_k_007_005_066_0311_en.wav	So our employees are very fond of that time.	
+	/Users/hayubin/EchoStream/data/units/rf_k_007_005_066_0311_en.npy				
+7794	wavs/dev/rf_k_007_005_082_0381.wav	두 분 다 뭔가 훌륭한 사장이 되는 조건에는 달리기가 있구나라는 생각이 들 정도에요.	wavs/dev/rf_k_007_005_082_0381_en.wav	I think that running is behind the two of you becoming great bosses.	
+	/Users/hayubin/EchoStream/data/units/rf_k_007_005_082_0381_en.npy				
+7802	wavs/dev/rf_k_007_006_018_0070.wav	믿기지 않겠지만 여기 진짜 회사 맞습니다.	wavs/dev/rf_k_007_006_018_0070_en.wav	It might be unbelievable but this is a real company.	
+	/Users/hayubin/EchoStream/data/units/rf_k_007_006_018_0070_en.npy				
+7809	wavs/dev/rf_k_007_006_040_0140.wav	배우자랑 자녀 둘 이렇게 해서 총 십팔만 원 받아요.	wavs/dev/rf_k_007_006_040_0140_en.wav	I have a spouse and two children, so I get a total of 180,000 won.	
+	/Users/hayubin/EchoStream/data/units/rf_k_007_006_040_0140_en.npy				
+7822	wavs/dev/rf_k_007_006_085_0310.wav	바로 사랑하는 아내와 두 아들 때문이었습니다.	wavs/dev/rf_k_007_006_085_0310_en.wav	because of his beloved wife and two sons.	
+	/Users/hayubin/EchoStream/data/units/rf_k_007_006_085_0310_en.npy				
+7846	wavs/dev/rf_k_008_002_061_0196.wav	농업 쓰레기를 재활용해서 만든 연료 용 숯.	wavs/dev/rf_k_008_002_061_0196_en.wav	Charcoal for fuel made by recycling agricultural waste.	
+	/Users/hayubin/EchoStream/data/units/rf_k_008_002_061_0196_en.npy				
+7872	wavs/dev/rf_k_008_008_017_0032.wav	매장 한 곳에 이백 오십 리터씩 공급하는데 오후 두 세 시면 동이 납니다.	wavs/dev/rf_k_008_008_017_0032_en.wav	We supply two hundred and fifty liters to each store, and they run out of supplies at two or three in the afternoon.	
+	/Users/hayubin/EchoStream/data/units/rf_k_008_008_017_0032_en.npy				
+7897	wavs/dev/rf_k_009_301_051_0186.wav	그리운 맛 찾아오는데 거리가 대수랴.	wavs/dev/rf_k_009_301_051_0186_en.wav	Distance doesn't matter when we come to the taste we miss.	
+	/Users/hayubin/EchoStream/data/units/rf_k_009_301_051_0186_en.npy				
+7919	wavs/dev/rf_k_009_301_142_0486.wav	따듯한 와인 먹고 몸도 뜨끈해졌겠다.	wavs/dev/rf_k_009_301_142_0486_en.wav	They drank warm wine and warmed up.	
+	/Users/hayubin/EchoStream/data/units/rf_k_009_301_142_0486_en.npy				
+7925	wavs/dev/rf_k_009_301_160_0576.wav	요리저리 자유자재로 바람을 타고 노니 일반 스노우보드와는 달리 평지에서도 탈 수 있는 것은 물론.	wavs/dev/rf_k_009_301_160_0576_en.wav	We can freely ride the wind everywhere, so unlike regular snowboards, we can also ride it on flat ground.	
+	/Users/hayubin/EchoStream/data/units/rf_k_009_301_160_0576_en.npy				
+7955	wavs/dev/rf_k_009_302_131_0243.wav	정확히 밥이 잘 되는 지 확인 하기 위해서 밥만 먹고 있습니다.	wavs/dev/rf_k_009_302_131_0243_en.wav	I eat only rice to check whether the rice is cooked properly.	
+	/Users/hayubin/EchoStream/data/units/rf_k_009_302_131_0243_en.npy				
+7978	wavs/dev/rf_k_009_303_015_0058.wav	가게 출근 시간부터 퇴근 시간까지 끊임없이 꽂고 또 꽂는단다.	wavs/dev/rf_k_009_303_015_0058_en.wav	From the time of starting the work to the time of finishing the work at the store, they are constantly plugging in and out.	
+	/Users/hayubin/EchoStream/data/units/rf_k_009_303_015_0058_en.npy				
+8021	wavs/dev/rf_k_009_304_070_0250.wav	너도나도 무거운 스키 짊어지고 굳이 대중교통 이용한 이유 있었으니, 기차역이 바로 스키장? 출구 나서자마자 줄을 서시오!	wavs/dev/rf_k_009_304_070_0250_en.wav	There was a reason why everyone carried heavy skiing and used public transportation, so is the train station a ski resort? Line up as soon as you get out of the exit!	
+	/Users/hayubin/EchoStream/data/units/rf_k_009_304_070_0250_en.npy				
+8042	wavs/dev/rf_k_009_311_014_0038.wav	숫놈 같은 경우는 발정기가 오게 되면은 힘이 엄청나게 되고 축사가 막 무너질 정도로 굉장히 좀 힘들어요.	wavs/dev/rf_k_009_311_014_0038_en.wav	In the case of a male, when the mating season comes, the strength is enormous and the barn is about to collapse.	
+	/Users/hayubin/EchoStream/data/units/rf_k_009_311_014_0038_en.npy				
+8048	wavs/dev/rf_k_009_311_064_0148.wav	새콤달콤한 거는 둘째치고 일단은 씹을수록 너무 고소하고 담백해요 정말.	wavs/dev/rf_k_009_311_064_0148_en.wav	Aside from sweet and sour, the more you chew, the more savory and light tastes you get for real.	
+	/Users/hayubin/EchoStream/data/units/rf_k_009_311_064_0148_en.npy				
+8062	wavs/dev/rf_k_009_311_130_0298.wav	재밌어요.	wavs/dev/rf_k_009_311_130_0298_en.wav	It's fun.	
+	/Users/hayubin/EchoStream/data/units/rf_k_009_311_130_0298_en.npy				
+8086	wavs/dev/rf_k_009_312_003_0013.wav	돼지 갈비를 시키면 차돌박이가 공짜로 나온다? 하루에 나가는 차돌박이만 이백오십 키로그램	wavs/dev/rf_k_009_312_003_0013_en.wav	If you order pork ribs, you get beef brisket for free! Two hundred and fifty kilograms of beef brisket is served everyday.	
+	/Users/hayubin/EchoStream/data/units/rf_k_009_312_003_0013_en.npy				
+8094	wavs/dev/rf_k_009_312_024_0093.wav	바로 최상급 횡성 한우가 무한 제공 된다는 한우 무한 리필 집 되시겠다. 고기가 때깔부터 다르네.	wavs/dev/rf_k_009_312_024_0093_en.wav	It is a all-you-can eat Hoengseong Korean beef restaurant that offers unlimited top-quality beef. Look at the color, it tells the quality.	
+	/Users/hayubin/EchoStream/data/units/rf_k_009_312_024_0093_en.npy				
+8147	wavs/dev/rf_k_009_313_112_0321.wav	씹는 맛 일품인 회부터 산처럼 쌓아 주는 조개찜 제철 맞아 맛 제대로 오른 주꾸미, 소금이 탐스러운 붉은 대하구이, 얼큰한 마무리 매운탕까지	wavs/dev/rf_k_009_313_112_0321_en.wav	From sashimi, excellent in texture, to steamed clams piled up like mountains, webfoot octopus in right season, grilled red jumbo shrimp, and spicy fish stew.	
+	/Users/hayubin/EchoStream/data/units/rf_k_009_313_112_0321_en.npy				
+8160	wavs/dev/rf_k_009_313_170_0481.wav	그리움 해소에 나서는데 뽀빠이의 시금치가 이러할까? 든든하게 밥 한 공기 먹고 나니 힘 불끈 보약이 따로 없다.	wavs/dev/rf_k_009_313_170_0481_en.wav	Is Popeye's spinach like this to relieve longing? After a hearty meal, there is no other medicine that is strong.	
+	/Users/hayubin/EchoStream/data/units/rf_k_009_313_170_0481_en.npy				
+8166	wavs/dev/rf_k_009_314_012_0059.wav	아니 이거 짜장면 진짜 이렇게 천 원씩 받아서 남아요? 안 왔으면 후회할 뻔 했네.	wavs/dev/rf_k_009_314_012_0059_en.wav	Gee, how do you make profit by selling jajangmyeon thousand won each? I would have regretted it if I hadn't come here.	
+	/Users/hayubin/EchoStream/data/units/rf_k_009_314_012_0059_en.npy				
+8169	wavs/dev/rf_k_009_314_019_0089.wav	이른 새벽 허허벌판에 난데없이 생 닭 육백 마리가 등장했다. 사 일 구 일 마다 열리는 오일장, 통닭집에서 쓰일 닭이란다.	wavs/dev/rf_k_009_314_019_0089_en.wav	In the early morning, six hundred raw chickens appeared out of nowhere. These chicken will be used at grilled whole chicken stand in this 5-day market, which is held in every fourth and ninth day.	
+	/Users/hayubin/EchoStream/data/units/rf_k_009_314_019_0089_en.npy				
+8192	wavs/dev/rf_k_009_315_018_0058.wav	대게 내장 볶음밥을 먹지 않고서 대게를 먹었다고 말하지 말라잉? 알았냐 아그야.	wavs/dev/rf_k_009_315_018_0058_en.wav	Without eating crab shell fried rice, you can't say you've eaten snow crabs. Understand?	
+	/Users/hayubin/EchoStream/data/units/rf_k_009_315_018_0058_en.npy				
+8225	wavs/dev/rf_k_009_315_166_0448.wav	이렇게 잡힌 대왕 해삼은 우리나라 돈으로 이십 오만 원 정도 하는데 참치가 일 키로그램에 삼천 백 원인 것을 감안하면 꽤나 고급 해산물인 셈.	wavs/dev/rf_k_009_315_166_0448_en.wav	The giant sea cucumber costs about 250,000 won in Korean won. Considering that tuna costs 3,000 won per kilogram, it is quite expensive seafood.	
+	/Users/hayubin/EchoStream/data/units/rf_k_009_315_166_0448_en.npy				
+8240	wavs/dev/rf_k_009_316_047_0134.wav	세 시간 동안 재벌하면 고기 손질 완료. 이 갈비집의 특징 함양의 명물인 양파를 듬뿍 넣어 소 갈비찜을 만드는 것.	wavs/dev/rf_k_009_316_047_0134_en.wav	After 3 hours of trimming, the meat is done. The specialty of this galbi restaurant is to make braised short ribs with plenty of onions.	
+	/Users/hayubin/EchoStream/data/units/rf_k_009_316_047_0134_en.npy				
+8248	wavs/dev/rf_k_009_316_095_0274.wav	지금은 가장 든든한 응원단이자 최상만표 김치의 열혈 팬들이라는데	wavs/dev/rf_k_009_316_095_0274_en.wav	are now the most reliable cheering squad and passionate fans of Choi Sang-man brand Kimchi.	
+	/Users/hayubin/EchoStream/data/units/rf_k_009_316_095_0274_en.npy				
+8250	wavs/dev/rf_k_009_316_102_0294.wav	세계 삼 위 금융 도시로 중국의 심장이라 불리는 상하이	wavs/dev/rf_k_009_316_102_0294_en.wav	Shanghai, the third largest financial city in the world and the heart of China,	
+	/Users/hayubin/EchoStream/data/units/rf_k_009_316_102_0294_en.npy				
+8253	wavs/dev/rf_k_009_316_114_0324.wav	우리 돈으로 약 이십만 원 선부터 수백만 원 대 호가하는 것까지 가격대는 천차만별.	wavs/dev/rf_k_009_316_114_0324_en.wav	The price range varies from about 200,000 won to millions of won in Korean money.	
+	/Users/hayubin/EchoStream/data/units/rf_k_009_316_114_0324_en.npy				
+8271	wavs/dev/rf_k_009_317_060_0180.wav	시대에 발맞춰 이번엔 기계 칼 갈이 수업 보기엔 기계가 알아서 가는 것 같아도 이게 또 기술 없이는 못 한다나?	wavs/dev/rf_k_009_317_060_0180_en.wav	In line with the times, this time, the machine knife sharpening class, even though it seems like the machine is doing it on its own, it can't be done without technology?	
+	/Users/hayubin/EchoStream/data/units/rf_k_009_317_060_0180_en.npy				
+8276	wavs/dev/rf_k_009_317_081_0240.wav	저는 전공이 성악입니다. 유학까지 갔다 와 가지고 이거하고 있습니다.	wavs/dev/rf_k_009_317_081_0240_en.wav	My major is vocal music. I studied abroad, but I'm doing this.	
+	/Users/hayubin/EchoStream/data/units/rf_k_009_317_081_0240_en.npy				
+8278	wavs/dev/rf_k_009_317_087_0260.wav	유망 직종으로 될 거라고 저는 확신하고 있기 때문에 열심히 하고 있습니다.	wavs/dev/rf_k_009_317_087_0260_en.wav	I'm doing my best because I'm sure it'll be a promising job.	
+	/Users/hayubin/EchoStream/data/units/rf_k_009_317_087_0260_en.npy				
+8304	wavs/dev/rf_k_009_318_034_0095.wav	본격적으로 연장 들고 공격 개시, 이 집에 오면 요건 필수라고 하네요.	wavs/dev/rf_k_009_318_034_0095_en.wav	He started attacking with a tool, and it is said that it is a must if you come to this house.	
+	/Users/hayubin/EchoStream/data/units/rf_k_009_318_034_0095_en.npy				
+8346	wavs/dev/rf_k_009_319_070_0212.wav	잘 된 것 같아요. 색깔도 마음에 들고 이제 좀 사람 사는 집 같으네요, 정신이 없었는데 너무 예뻐요.	wavs/dev/rf_k_009_319_070_0212_en.wav	I think it's done well. I like the color, and now it looks like a people's house. I didn't pay much attention, but it's pretty.	
+	/Users/hayubin/EchoStream/data/units/rf_k_009_319_070_0212_en.npy				
+8354	wavs/dev/rf_k_009_319_107_0312.wav	암벽 등반과 유격 코스를 완주한 자에게만 주어진다. 정상을 잇는 가슴 철렁한 출렁 다리.	wavs/dev/rf_k_009_319_107_0312_en.wav	It is only given to those who have completed the rock climbing and shortstop course. There's a wobbly footbridge that leads to the summit.	
+	/Users/hayubin/EchoStream/data/units/rf_k_009_319_107_0312_en.npy				
+8388	wavs/dev/rf_k_009_320_097_0300.wav	초고층에 걸맞는 초고속 엘리베이터 등장, 백 층 높이를 사십 팔 초 만에 당도 한단다.	wavs/dev/rf_k_009_320_097_0300_en.wav	It is a high-speed elevator suitable for a high-rise building. Reach the hundredth floor height in 48 seconds.	
+	/Users/hayubin/EchoStream/data/units/rf_k_009_320_097_0300_en.npy				
+8391	wavs/dev/rf_k_009_320_121_0370.wav	마을 전체가 곧 박물관, 생소해도 다양한 체험의 아이들은 지루할 틈이 없다.	wavs/dev/rf_k_009_320_121_0370_en.wav	The whole town is a museum. Even if it is unfamiliar, children are not bored because they can experience various things.	
+	/Users/hayubin/EchoStream/data/units/rf_k_009_320_121_0370_en.npy				
+8432	wavs/dev/rf_k_009_321_180_0603.wav	불황을 이기는 힘은 바로 톡톡 튀는 아이디어와 자신만의 전략을 내세운 소상공인.	wavs/dev/rf_k_009_321_180_0603_en.wav	The power to overcome the recession is a small business owner with a unique idea and his or her own strategy.	
+	/Users/hayubin/EchoStream/data/units/rf_k_009_321_180_0603_en.npy				
+8441	wavs/dev/rf_k_009_322_046_0158.wav	장내 방송을 진행할 성우는 목 관리를 위해 며칠 전부터 외출까지 금지하고 대회를 준비했단다.	wavs/dev/rf_k_009_322_046_0158_en.wav	The voice actor who will be broadcasting has been preparing for the competition by prohibiting going out for a few days in order to take care of his neck.	
+	/Users/hayubin/EchoStream/data/units/rf_k_009_322_046_0158_en.npy				
+8446	wavs/dev/rf_k_009_322_073_0248.wav	물 비빔 가릴 것 없이 양손으로 쓱쓱 비벼 국수 한 젓가락 흡입하면 자석이 쇠붙이를 당기듯 입에 착착 붙는 면발.	wavs/dev/rf_k_009_322_073_0248_en.wav	If you mix it with both hands without distinction of cool noodles or spicy noodles, and eat a bite of noodles, the noodles stick to your mouth like a magnet pulling metal.	
+	/Users/hayubin/EchoStream/data/units/rf_k_009_322_073_0248_en.npy				
+8463	wavs/dev/rf_k_009_322_166_0548.wav	도심에서는 할 수 없는 일이라 조개 캐기에 빠진다.	wavs/dev/rf_k_009_322_166_0548_en.wav	It's impossible to do in the city, so they are busy at digging for clams.	
+	/Users/hayubin/EchoStream/data/units/rf_k_009_322_166_0548_en.npy				
+8484	wavs/dev/rf_k_009_323_140_0474.wav	설레는 표정 감출 길이 없다.	wavs/dev/rf_k_009_323_140_0474_en.wav	There is no way to hide the excitement.	
+	/Users/hayubin/EchoStream/data/units/rf_k_009_323_140_0474_en.npy				
+8492	wavs/dev/rf_k_009_324_038_0140.wav	밴댕이 소금 구이도 회 그리고 무침과 함께 이 골목을 책임지는 삼 총사 되시겠시며,	wavs/dev/rf_k_009_324_038_0140_en.wav	The three musketeers in charge of this alley is salt-grilled bandengi, along with the sliced raw fish and seasoned vegetables.	
+	/Users/hayubin/EchoStream/data/units/rf_k_009_324_038_0140_en.npy				
+8500	wavs/dev/rf_k_009_324_065_0250.wav	피부 미인 만들어 준다고 소문 자자하게 난 유황 온천을 느긋하게 즐길 수 있으니 여름 밤 가족 나들이 장소 일 번지.	wavs/dev/rf_k_009_324_065_0250_en.wav	Since you can relaxingly enjoy the sulfur hot springs for making beautiful skin, it is obviously a place for a family outing on a summer night.	
+	/Users/hayubin/EchoStream/data/units/rf_k_009_324_065_0250_en.npy				
+8525	wavs/dev/rf_k_009_325_027_0094.wav	주머니 가벼운 날도 부담 없이 찾을 수 있는 곳이란다.	wavs/dev/rf_k_009_325_027_0094_en.wav	It is a place where you can go with little money without burden.	
+	/Users/hayubin/EchoStream/data/units/rf_k_009_325_027_0094_en.npy				
+8526	wavs/dev/rf_k_009_325_033_0114.wav	시원한 맥주까지 곁들이면 가슴속까지 짜릿해지는 이 맛. 말을 해요 아저씨. 말을 하라고! 그만 먹고.	wavs/dev/rf_k_009_325_033_0114_en.wav	It's a taste that makes your heart race with cold beer. Say something, mister. Say it! Stop eating.	
+	/Users/hayubin/EchoStream/data/units/rf_k_009_325_033_0114_en.npy				
+8532	wavs/dev/rf_k_009_325_061_0204.wav	어서오십시오. 반갑습니다. 무료 숙박하시고.	wavs/dev/rf_k_009_325_061_0204_en.wav	Welcome. Nice to meet you. Stay for free.	
+	/Users/hayubin/EchoStream/data/units/rf_k_009_325_061_0204_en.npy				
+8563	wavs/dev/rf_k_009_326_029_0108.wav	맛있어요 아저씨? 예? 천천히 드세요.	wavs/dev/rf_k_009_326_029_0108_en.wav	Is it delicious, sir? Yes? Eat slowly.	
+	/Users/hayubin/EchoStream/data/units/rf_k_009_326_029_0108_en.npy				
+8588	wavs/dev/rf_k_009_327_007_0029.wav	야외에서 모여 먹으니 기분이 업! 술 한잔이 달디 달단다.	wavs/dev/rf_k_009_327_007_0029_en.wav	It feels good to eat together outside! A glass of alcohol is sweet.	
+	/Users/hayubin/EchoStream/data/units/rf_k_009_327_007_0029_en.npy				
+8600	wavs/dev/rf_k_009_327_061_0239.wav	정말로 여기 공기 좋고, 해물 좋고, 지상 낙원이 따로 없네요.	wavs/dev/rf_k_009_327_061_0239_en.wav	The air here is really good, the seafood is good, and there is no other paradise on earth.	
+	/Users/hayubin/EchoStream/data/units/rf_k_009_327_061_0239_en.npy				
+8613	wavs/dev/rf_k_009_327_115_0469.wav	발견된 사체는 흰 티에 흰 바지. 실종 당시 소년의 의상과 같은 것이었다.	wavs/dev/rf_k_009_327_115_0469_en.wav	The body was found wearing a white T-shirt and white pants. It was the same as the boy's costume at the time of his disappearance.	
+	/Users/hayubin/EchoStream/data/units/rf_k_009_327_115_0469_en.npy				
+8641	wavs/dev/rf_k_009_328_074_0265.wav	언제 어디서 먹어도 맛있다지만 물놀이 끝에 즐기는 치킨과 맥주의 콤비 플레이에 비할 수 있을까? 이거야 말로 뗄래야 뗄 수 없는 천생연분.	wavs/dev/rf_k_009_328_074_0265_en.wav	It's delicious to eat anytime, anywhere, but can it be compared to the combination play of chicken and beer enjoyed after playing in the water? This is a match made in heaven that cannot be separated.	
+	/Users/hayubin/EchoStream/data/units/rf_k_009_328_074_0265_en.npy				
+8642	wavs/dev/rf_k_009_328_079_0285.wav	도대체 어떤 맛이에요?	wavs/dev/rf_k_009_328_079_0285_en.wav	What the hell does it taste like?	
+	/Users/hayubin/EchoStream/data/units/rf_k_009_328_079_0285_en.npy				
+8651	wavs/dev/rf_k_009_328_122_0435.wav	덕분에 매일 아침 해뜨기가 무섭게 마을 식당 사장님부터 마을 주부들까지 이 해안가 어시장으로 총집합.	wavs/dev/rf_k_009_328_122_0435_en.wav	Thanks to this, every morning, as soon as the sun rises, everyone from the village restaurant owner to the village housewives gather at this coastal fish market.	
+	/Users/hayubin/EchoStream/data/units/rf_k_009_328_122_0435_en.npy				
+8653	wavs/dev/rf_k_009_328_128_0455.wav	긴급 인명 구조 현장을 브이제이 카메라가 취재했습니다.	wavs/dev/rf_k_009_328_128_0455_en.wav	VJ camera covered the emergency lifesaving scene.	
+	/Users/hayubin/EchoStream/data/units/rf_k_009_328_128_0455_en.npy				
+8665	wavs/dev/rf_k_009_329_017_0067.wav	좋아하는 사람은 소금 구이만 먹죠. 꼼장어 본 맛을 느낄 수가 있어요.	wavs/dev/rf_k_009_329_017_0067_en.wav	People who like it only eat grilled one with salt. I can feel the original taste of eel.	
+	/Users/hayubin/EchoStream/data/units/rf_k_009_329_017_0067_en.npy				
+8670	wavs/dev/rf_k_009_329_034_0137.wav	고기가 있는 곳에 술이 빠질 쏘나? 더운 여름 밤 맥주 한잔 곁들이면 이보다 더 좋을 수 없다.	wavs/dev/rf_k_009_329_034_0137_en.wav	Where there's meat, alcohol has to be with it. It couldn't be better to drink a glass of beer on a hot summer night.	
+	/Users/hayubin/EchoStream/data/units/rf_k_009_329_034_0137_en.npy				
+8674	wavs/dev/rf_k_009_329_058_0237.wav	또한 폐음을 보충해 주는 그런 아주 좋은 본초로 기록이 되어 있습니다.	wavs/dev/rf_k_009_329_058_0237_en.wav	It is also recorded as a very good herb that improves the lung.	
+	/Users/hayubin/EchoStream/data/units/rf_k_009_329_058_0237_en.npy				
+8688	wavs/dev/rf_k_009_329_104_0447.wav	어떻게 팔을 쫙 벌릴까?	wavs/dev/rf_k_009_329_104_0447_en.wav	How do I open my arms wide?	
+	/Users/hayubin/EchoStream/data/units/rf_k_009_329_104_0447_en.npy				
+8699	wavs/dev/rf_k_009_330_015_0056.wav	김치찜, 삼계탕, 젖갈, 산 낙지 외 총 18가지를 맛 볼 수 있어요.	wavs/dev/rf_k_009_330_015_0056_en.wav	You can taste a total of 18 kinds including kimchi stew, chicken soup, salted seafood, and live octopus.	
+	/Users/hayubin/EchoStream/data/units/rf_k_009_330_015_0056_en.npy				
+8728	wavs/dev/rf_k_009_330_139_0536.wav	업체에서 원하는 알짜배기 실습 교육을 하기 때문에 기업의 러브콜은 쇄도하고, 직접 학교를 찾아오는 모의 면접까지 이뤄졌다.	wavs/dev/rf_k_009_330_139_0536_en.wav	Since thia provides the practical training that the company wants, love calls from companies rush in. Even mock interviews were conducted by visiting the school in person.	
+	/Users/hayubin/EchoStream/data/units/rf_k_009_330_139_0536_en.npy				
+8773	wavs/dev/rf_k_009_332_023_0068.wav	바로 손님상에 차려지니 화끈한 감탄사 절로 나온다. 눈길 잡는 레드 컬러에 보기만 해도 입 안이 얼얼해 질 지경.	wavs/dev/rf_k_009_332_023_0068_en.wav	As soon as it is served to the guests, it comes out with a hot exclamation. The eye-catching red color makes your mouth tingle just by looking at it.	
+	/Users/hayubin/EchoStream/data/units/rf_k_009_332_023_0068_en.npy				
+8775	wavs/dev/rf_k_009_332_052_0158.wav	밋밋한 원피스는 날선 주름이 잘 보이는 하늘하늘한 원피스로, 드릴을 이용해 잡은 꽈배기 주름은 자연스러운 웨이브가 살아있는 고급스러운 가디건으로 탄생했다.	wavs/dev/rf_k_009_332_052_0158_en.wav	The flat one-piece is transformed to a light one-piece with sharp pleats, and the twisted pleats that are made by a drill are created as luxurious cardigans with natural waves.	
+	/Users/hayubin/EchoStream/data/units/rf_k_009_332_052_0158_en.npy				
+8852	wavs/dev/rf_k_009_703_015_0051.wav	밥 한 톨 안 남기고 깨끗하게 쓱싹쓱싹.	wavs/dev/rf_k_009_703_015_0051_en.wav	Scrub cleanly without leaving a single grain of rice.	
+	/Users/hayubin/EchoStream/data/units/rf_k_009_703_015_0051_en.npy				
+8854	wavs/dev/rf_k_009_703_023_0081.wav	우리가 작업 다 해야 되니까요. 손으로 하니까.	wavs/dev/rf_k_009_703_023_0081_en.wav	Because we have to do all the work. Since I'm doing it with my hands.	
+	/Users/hayubin/EchoStream/data/units/rf_k_009_703_023_0081_en.npy				
+8876	wavs/dev/rf_k_009_703_124_0411.wav	제주도 놀러 오시면 한번 꼭 드셔 보세요! 저희가 자신있게 장담합니다.	wavs/dev/rf_k_009_703_124_0411_en.wav	If you come to Jeju Island, you must try it! We can guarantee it with confidence.	
+	/Users/hayubin/EchoStream/data/units/rf_k_009_703_124_0411_en.npy				
+8882	wavs/dev/rf_k_009_801_016_0075.wav	하면서 안돼서 그 울면서 이거 채우기도 했어요.	wavs/dev/rf_k_009_801_016_0075_en.wav	I couldn't do it, so I filled it up while crying.	
+	/Users/hayubin/EchoStream/data/units/rf_k_009_801_016_0075_en.npy				
+8900	wavs/dev/rf_k_009_801_089_0375.wav	입양도 계속 오랜 시간 동안 안 되고 있고.	wavs/dev/rf_k_009_801_089_0375_en.wav	Adoption has not been going on for a long time.	
+	/Users/hayubin/EchoStream/data/units/rf_k_009_801_089_0375_en.npy				
+8912	wavs/dev/rf_k_009_802_015_0080.wav	총 16m길이의 낚시 줄에 무려 70개의 추를 매달아야 삼치가 있는 바다 속 까지 도달 할 수 있다는데.	wavs/dev/rf_k_009_802_015_0080_en.wav	It is said that as many as 70 weights must be hung on a fishing line with a total length of 16 m to reach the depths of the sea where the mackerel is located.	
+	/Users/hayubin/EchoStream/data/units/rf_k_009_802_015_0080_en.npy				
+8929	wavs/dev/rf_k_009_802_076_0370.wav	저는 요 못과 요 망치만 있으면은 어떤 얼음이라도 만들 자신이 있어요.	wavs/dev/rf_k_009_802_076_0370_en.wav	I am confident that I can make any kind of ice with these nails and this hammer.	
+	/Users/hayubin/EchoStream/data/units/rf_k_009_802_076_0370_en.npy				
+8933	wavs/dev/rf_k_009_802_104_0490.wav	칼국수 하면은 밀가루라서 많이 부담스럽잖아요. 근데 이건 메밀가루랑 같이 들어 있어서 그런지 먹는데도 부담이 없고, 또 맛도 있고.	wavs/dev/rf_k_009_802_104_0490_en.wav	When it comes to kalguksu, it's very burdensome because it's flour. But maybe it's because it's mixed with buckwheat flour, so it's not burdensome to eat, and it's also delicious.	
+	/Users/hayubin/EchoStream/data/units/rf_k_009_802_104_0490_en.npy				
+8949	wavs/dev/rf_k_009_803_094_0335.wav	나 이거 봤어. 우리 연습실 가는 길에 이시우 치킨집 있잖아. 소름 돋아요. 무서워요 좀.	wavs/dev/rf_k_009_803_094_0335_en.wav	i saw this. On the way to our practice room, there is Siwoo Lee's Chicken Restaurant. It's creepy. I'm kinda scared.	
+	/Users/hayubin/EchoStream/data/units/rf_k_009_803_094_0335_en.npy				
+8950	wavs/dev/rf_k_009_803_097_0345.wav	아/ 이쪽 동네 재개발 지역이 아닌데요.	wavs/dev/rf_k_009_803_097_0345_en.wav	Oh, this neighborhood is not a redevelopment area.	
+	/Users/hayubin/EchoStream/data/units/rf_k_009_803_097_0345_en.npy				
+8988	wavs/dev/rf_k_009_805_078_0302.wav	뿐만 아니라 부족하지도 또 과하지도 않은 건강한 양념을 사용하는 것 역시 사찰 음식의 포인트.	wavs/dev/rf_k_009_805_078_0302_en.wav	In addition, the use of healthy seasoning that is neither insufficient nor excessive is the point of temple food.	
+	/Users/hayubin/EchoStream/data/units/rf_k_009_805_078_0302_en.npy				
+8990	wavs/dev/rf_k_009_805_083_0322.wav	온도가 너무 약하면 소금이 잘 안 구워지고, 또 너무 세면 나무가 다 타버릴 수 있기 때문에 팔백 도 정도가 적당하다. 때문에 계속 불을 지켜야 한다는데.	wavs/dev/rf_k_009_805_083_0322_en.wav	If the temperature is too low, the salt will not be baked well, and if the temperature is too high, the wood may be burned, so about 800 degrees is appropriate. That's why they have to keep the fire going.	
+	/Users/hayubin/EchoStream/data/units/rf_k_009_805_083_0322_en.npy				
+9022	wavs/dev/rf_k_009_806_090_0427.wav	다이어트도 건강하게 즐긴다. 개개인 특성에 맞춘 식단 덕에 먹을수록 건강해지는 구내식당.	wavs/dev/rf_k_009_806_090_0427_en.wav	People also enjoy dieting healthily. It's a cafeteria where the more you eat, the healthier you become thanks to the menu tailored to each individual's characteristics.	
+	/Users/hayubin/EchoStream/data/units/rf_k_009_806_090_0427_en.npy				
+9024	wavs/dev/rf_k_009_806_098_0457.wav	아직 젊으니까 이것도 해 보고 또 괜찮아지면 다른 거 하면 되겠지 이래 생각했는데 지 지 지금 생각해보면 잘했죠. 탁월한 선택.	wavs/dev/rf_k_009_806_098_0457_en.wav	Since I was still young, I thought I'd do something else after doing this, but now that I think about it, I did well. It was an excellent choice.	
+	/Users/hayubin/EchoStream/data/units/rf_k_009_806_098_0457_en.npy				
+9037	wavs/dev/rf_k_009_811_016_0058.wav	요것이 제가 볼 때는 한 오십 마리 되는 것 같아요.	wavs/dev/rf_k_009_811_016_0058_en.wav	I think I caught about fifty toads.	
+	/Users/hayubin/EchoStream/data/units/rf_k_009_811_016_0058_en.npy				
+9049	wavs/dev/rf_k_009_811_048_0198.wav	마음이 많이 놓이네요.	wavs/dev/rf_k_009_811_048_0198_en.wav	My feel a lot relieved.	
+	/Users/hayubin/EchoStream/data/units/rf_k_009_811_048_0198_en.npy				
+9081	wavs/dev/rf_k_009_812_039_0137.wav	등장부터 시선을 압도하는 초대형 철판.	wavs/dev/rf_k_009_812_039_0137_en.wav	A super-large iron plate that overwhelms the eyes from the moment it appeared.	
+	/Users/hayubin/EchoStream/data/units/rf_k_009_812_039_0137_en.npy				
+9122	wavs/dev/rf_k_009_813_041_0156.wav	황홀한 야경을 안주 삼아 마시는 시원한 생맥주까지	wavs/dev/rf_k_009_813_041_0156_en.wav	A refreshing draft beer that you can drink while enjoying the night view.	
+	/Users/hayubin/EchoStream/data/units/rf_k_009_813_041_0156_en.npy				
+9161	wavs/dev/rf_k_009_814_045_0197.wav	분봉한 벌이니까 만지지 말고 비켜주세요.	wavs/dev/rf_k_009_814_045_0197_en.wav	It's a swarmed bee, so please don't touch it and move out of the way.	
+	/Users/hayubin/EchoStream/data/units/rf_k_009_814_045_0197_en.npy				
+9186	wavs/dev/rf_k_009_816_021_0074.wav	피해자는 물론 베테랑 형사들까지 쉽게 눈치채지 못할 만큼, 기상천외 하다는 불법 촬영 도모들.	wavs/dev/rf_k_009_816_021_0074_en.wav	Illegal filming plans that are so extraordinary that not only the victims, but also veteran detectives are not easily noticed.	
+	/Users/hayubin/EchoStream/data/units/rf_k_009_816_021_0074_en.npy				
+9188	wavs/dev/rf_k_009_816_025_0094.wav	등 뒤에 바짝 붙은 용의자에게서 이상한 낌새를 여성, 그를 째려 보기까지 한다.	wavs/dev/rf_k_009_816_025_0094_en.wav	A woman who has a strange feeling from the suspect who is close behind her back even stares at him.	
+	/Users/hayubin/EchoStream/data/units/rf_k_009_816_025_0094_en.npy				
+9210	wavs/dev/rf_k_009_816_098_0364.wav	바로 그때 음식이 나오는데 아니 근데 왜 맨밥만 나오는 거시당가?	wavs/dev/rf_k_009_816_098_0364_en.wav	That's when the food comes out. But why is it only a bowl of rice?	
+	/Users/hayubin/EchoStream/data/units/rf_k_009_816_098_0364_en.npy				
+9222	wavs/dev/rf_k_009_817_046_0164.wav	부모님이나 아버님이 걱정하실 수도 있겠는데 제가 선택한 일이니까 최대한 안 다치도록 부모님도 걱정 안 시키고,	wavs/dev/rf_k_009_817_046_0164_en.wav	My parents or father might be worried, but since it's my choice, I don't want them to worry as much as possible so that they don't get hurt.	
+	/Users/hayubin/EchoStream/data/units/rf_k_009_817_046_0164_en.npy				
+9229	wavs/dev/rf_k_009_817_076_0264.wav	나만 아는 무릉도원을 공개합니다.	wavs/dev/rf_k_009_817_076_0264_en.wav	I'm revealing the Mureungdowon that only I know.	
+	/Users/hayubin/EchoStream/data/units/rf_k_009_817_076_0264_en.npy				
+9245	wavs/dev/rf_k_009_818_023_0101.wav	또, 자기가 물에 빠져서 그걸 헤엄치기에 헤엄칠 만한 그런 상황이 안 됐을 가능성이 있습니다.	wavs/dev/rf_k_009_818_023_0101_en.wav	Also, it's possible that she were drowning and she were not in the right situation to swim through there.	
+	/Users/hayubin/EchoStream/data/units/rf_k_009_818_023_0101_en.npy				
+9277	wavs/dev/rf_k_009_820_015_0061.wav	아니 달러는 가져가라고 나는 달러라는지 알았어. 근데 현금은 나 생활을 해야 되니까.	wavs/dev/rf_k_009_820_015_0061_en.wav	Take the dollars. I thought you were talking about the dollars. But the notes, I need them to live.	
+	/Users/hayubin/EchoStream/data/units/rf_k_009_820_015_0061_en.npy				
+9321	wavs/dev/rf_m_001_908_052_0200.wav	수국이 이 보라색이 핑크 색으로도 바뀝니다.	wavs/dev/rf_m_001_908_052_0200_en.wav	The purple color of the hydrangea also changes to pink.	
+	/Users/hayubin/EchoStream/data/units/rf_m_001_908_052_0200_en.npy				
+9329	wavs/dev/rf_m_001_908_084_0331.wav	네. 보죠. 한번 드셔 보세요.	wavs/dev/rf_m_001_908_084_0331_en.wav	Yes. Try it once.	
+	/Users/hayubin/EchoStream/data/units/rf_m_001_908_084_0331_en.npy				
+9362	wavs/dev/rf_m_001_911_029_0121.wav	저온에서 저장을 하시기 때문에 세균이 없을 거라고 생각들 하시는 데요. 이 안에서도 음식이 상해요.	wavs/dev/rf_m_001_911_029_0121_en.wav	You think there will be no germs because it is stored at a low temperature. Food spoils here too.	
+	/Users/hayubin/EchoStream/data/units/rf_m_001_911_029_0121_en.npy				
+9413	wavs/dev/rf_m_001_914_029_0133.wav	다시 왼다리 뒤로 가다 꺾으면서 이렇게 하면 뒤로 갈 때는 유리 닦는 식으로	wavs/dev/rf_m_001_914_029_0133_en.wav	You do this while going behind your left leg again and bending it. You walk as if you are wiping a glass.	
+	/Users/hayubin/EchoStream/data/units/rf_m_001_914_029_0133_en.npy				
+9491	wavs/dev/rf_m_001_921_035_0172.wav	예 제주도 청정 쑥입니다.	wavs/dev/rf_m_001_921_035_0172_en.wav	Yes, it is clean mugwort from Jeju island.	
+	/Users/hayubin/EchoStream/data/units/rf_m_001_921_035_0172_en.npy				
+9514	wavs/dev/rf_m_001_922_024_0116.wav	가지런히 정돈도 돼있고,	wavs/dev/rf_m_001_922_024_0116_en.wav	It is neatly organized.	
+	/Users/hayubin/EchoStream/data/units/rf_m_001_922_024_0116_en.npy				
+9527	wavs/dev/rf_m_001_922_048_0246.wav	국가 공인 일 호 신데, 아직도 공부하시는 그 마음이시라니까. 대단한 열정이십니다.	wavs/dev/rf_m_001_922_048_0246_en.wav	He's first nationally-certified taxidermist, but he's extremely passionate and still studying.	
+	/Users/hayubin/EchoStream/data/units/rf_m_001_922_048_0246_en.npy				
+9541	wavs/dev/rf_m_001_923_019_0104.wav	그 다음에 수확 철에 가서는 가을에 또 캐면은 거기 이렇게 열매가 달려, 밑에 뿌리도 달려 있으니까.	wavs/dev/rf_m_001_923_019_0104_en.wav	And then, in the harvest season, if you dig it in the fall, there are fruits hanging like this, and roots underneath.	
+	/Users/hayubin/EchoStream/data/units/rf_m_001_923_019_0104_en.npy				
+9552	wavs/dev/rf_m_001_923_042_0254.wav	천천히 씹으면 단 맛이 나죠.	wavs/dev/rf_m_001_923_042_0254_en.wav	If you chew it slowly, it tastes sweet.	
+	/Users/hayubin/EchoStream/data/units/rf_m_001_923_042_0254_en.npy				
+9557	wavs/dev/rf_m_001_923_047_0304.wav	오늘은 제가 일을 도와드리고, 그러면은 꿀물 한 잔 좀 얻어먹어도 되겠습니까?	wavs/dev/rf_m_001_923_047_0304_en.wav	I'll help you with the work today, and then can I get a glass of honey water?	
+	/Users/hayubin/EchoStream/data/units/rf_m_001_923_047_0304_en.npy				
+9573	wavs/dev/rf_m_001_924_011_0047.wav	집에 들어가시나 봐요?	wavs/dev/rf_m_001_924_011_0047_en.wav	Are you going home?	
+	/Users/hayubin/EchoStream/data/units/rf_m_001_924_011_0047_en.npy				
+9613	wavs/dev/rf_m_001_926_028_0145.wav	오징어는 충분히 익혀 주셔야 되는데요. 튀김옷 넣어서 바로 떠오르면은 적당한 온도니까. 오징어를 하나/씩 넣어서 튀겨 주시면 됩니다.	wavs/dev/rf_m_001_926_028_0145_en.wav	Squid should be cooked well enough. If the batter floats right after you put it in the oil, that's the right temperature. Add squid piece by piece and fry them.	
+	/Users/hayubin/EchoStream/data/units/rf_m_001_926_028_0145_en.npy				
+9658	wavs/dev/rf_m_001_927_057_0354.wav	아니 이거 세금이 무서워 가지고 일단 동업을 하면 안 될 거 같은데.	wavs/dev/rf_m_001_927_057_0354_en.wav	Wow, I'm scared of taxes, so I don't think we should do business together.	
+	/Users/hayubin/EchoStream/data/units/rf_m_001_927_057_0354_en.npy				
+9691	wavs/dev/rf_m_001_931_012_0067.wav	그러면 이 문을 열면 저희가 이제	wavs/dev/rf_m_001_931_012_0067_en.wav	Then, if we open the door,	
+	/Users/hayubin/EchoStream/data/units/rf_m_001_931_012_0067_en.npy				
+9698	wavs/dev/rf_m_001_931_021_0137.wav	맞아요. 저도 물 좋아해서 물멍이 제일 인상 깊었습니다. 푸르른 곳에서 그 바람 맞으면서,	wavs/dev/rf_m_001_931_021_0137_en.wav	That's right. I like water, so zoning out over the water was the most impressive to me. As the wind blows in a green place,	
+	/Users/hayubin/EchoStream/data/units/rf_m_001_931_021_0137_en.npy				
+9713	wavs/dev/rf_m_001_931_053_0337.wav	코봉이 여기 있잖아요.	wavs/dev/rf_m_001_931_053_0337_en.wav	Here is Kobong-i.	
+	/Users/hayubin/EchoStream/data/units/rf_m_001_931_053_0337_en.npy				
+9749	wavs/dev/rf_m_001_933_010_0064.wav	감동 받으셨나 봐요.	wavs/dev/rf_m_001_933_010_0064_en.wav	I guess you're impressed.	
+	/Users/hayubin/EchoStream/data/units/rf_m_001_933_010_0064_en.npy				
+9750	wavs/dev/rf_m_001_933_012_0074.wav	근데 오늘 진짜 색이.	wavs/dev/rf_m_001_933_012_0074_en.wav	The colors are really, today.	
+	/Users/hayubin/EchoStream/data/units/rf_m_001_933_012_0074_en.npy				
+9775	wavs/dev/rf_m_001_933_054_0374.wav	그래서 오늘 열무에다가 조금 넣고 조금 넣고 해가지고 근사하지만 간단하게 완성되는 밥을 한번 해 볼 거예요.	wavs/dev/rf_m_001_933_054_0374_en.wav	So, I'm going to add a little bit of young radish and make a rice dish that's simple but cool.	
+	/Users/hayubin/EchoStream/data/units/rf_m_001_933_054_0374_en.npy				
+9784	wavs/dev/rf_m_001_934_008_0043.wav	굉장히 멋쟁이세요.	wavs/dev/rf_m_001_934_008_0043_en.wav	I think you are very stylish.	
+	/Users/hayubin/EchoStream/data/units/rf_m_001_934_008_0043_en.npy				
+9805	wavs/dev/rf_m_001_934_060_0313.wav	아까 말씀하셨던 소부장 이 점 영 을 다시 한번 좀 설명 좀 부탁드릴게요.	wavs/dev/rf_m_001_934_060_0313_en.wav	Can you tell us more about the 'Sobjuang Measures 2.0'?	
+	/Users/hayubin/EchoStream/data/units/rf_m_001_934_060_0313_en.npy				
+9815	wavs/dev/rf_m_001_936_018_0098.wav	여성 운전자 분들한텐 아주 좋은 서비스가 될 거 같습니다.	wavs/dev/rf_m_001_936_018_0098_en.wav	I think it will be a very good service for female drivers.	
+	/Users/hayubin/EchoStream/data/units/rf_m_001_936_018_0098_en.npy				
+9816	wavs/dev/rf_m_001_936_020_0108.wav	여기가 한 십 팔 미터, 이십 미터 정도 되겠네요.	wavs/dev/rf_m_001_936_020_0108_en.wav	It's probably eighteen or twenty meters here.	
+	/Users/hayubin/EchoStream/data/units/rf_m_001_936_020_0108_en.npy				
+9849	wavs/dev/rf_m_001_937_044_0214.wav	탱탱한 피부를 만들어 줄 오늘의 요리는?	wavs/dev/rf_m_001_937_044_0214_en.wav	What's the dish that will make your skin firm?	
+	/Users/hayubin/EchoStream/data/units/rf_m_001_937_044_0214_en.npy				
+9866	wavs/dev/rf_m_001_941_005_0019.wav	네, 맞습니다. 네! 바로 아는 맛인데요.	wavs/dev/rf_m_001_941_005_0019_en.wav	Yes, that's right. Yes, it's the taste you already know.	
+	/Users/hayubin/EchoStream/data/units/rf_m_001_941_005_0019_en.npy				
+9878	wavs/dev/rf_m_001_941_070_0229.wav	대게의 껍질에는 키토산 이라는 성분이 많이 들어가 있는 거 아시죠?	wavs/dev/rf_m_001_941_070_0229_en.wav	You know that the skin of snow crab contains a lot of chitosan, right?	
+	/Users/hayubin/EchoStream/data/units/rf_m_001_941_070_0229_en.npy				
+9881	wavs/dev/rf_m_001_941_088_0289.wav	아까 한 입 먹었잖아요?	wavs/dev/rf_m_001_941_088_0289_en.wav	Didn't you have a bite earlier?	
+	/Users/hayubin/EchoStream/data/units/rf_m_001_941_088_0289_en.npy				
+9909	wavs/dev/rf_m_001_951_082_0358.wav	베트남 투어 빅 포. 일 위는 승무원들이 뽑은 사계절이 다 아름다운 도시 베트남 달랏 입니다.	wavs/dev/rf_m_001_951_082_0358_en.wav	Tours to Big Four in Vietnam. The first place is Dalat, Vietnam, a city flight attendants chose, where all four seasons are beautiful.	
+	/Users/hayubin/EchoStream/data/units/rf_m_001_951_082_0358_en.npy				
+9944	wavs/dev/rf_m_001_955_085_0411.wav	신선하고 뭔가 한번쯤은 그래도 생각을 해봐야 되는 부분인 것 같아요.	wavs/dev/rf_m_001_955_085_0411_en.wav	It's refreshing and I think you need to think about it at least once.	
+	/Users/hayubin/EchoStream/data/units/rf_m_001_955_085_0411_en.npy				
+9947	wavs/dev/rf_m_001_956_005_0026.wav	힐링의 도시 충북 제천을 담은 여행 맛집. 지금 바로 열어 보도록 하겠습니다. 클릭 클릭.	wavs/dev/rf_m_001_956_005_0026_en.wav	A travel destination containing the city of healing, Jecheon, Chungbuk. Let's open it right now. Click, click.	
+	/Users/hayubin/EchoStream/data/units/rf_m_001_956_005_0026_en.npy				
+9964	wavs/dev/rf_m_001_956_052_0226.wav	콜레스트롤 중화되는 게 들기름이라고 그래요. 그래서 일부러 들기름을 치고 아무것도 안 하고 그냥 썰어서 들기름만 살짝 뿌려 갖고 나와요.	wavs/dev/rf_m_001_956_052_0226_en.wav	Perilla oil is said to neutralize cholesterol. So, I purposely put perilla oil and do nothing. Just chop it up and sprinkle it with a little bit of perilla oil and serve.	
+	/Users/hayubin/EchoStream/data/units/rf_m_001_956_052_0226_en.npy				
+10004	wavs/dev/rf_m_001_957_069_0335.wav	요기가 이제 환자분이 병이 있었던 마디거든요. 이, 삼 번에 밑에 나사 다 버렸고요, 위에 새로운 나사로 이렇게 잘 고정이 되어 있습니다.	wavs/dev/rf_m_001_957_069_0335_en.wav	This is now the node where the patient was ill. I threw away all the screws at the bottom of no. 2 and 3, and it is fixed so well with new screws.	
+	/Users/hayubin/EchoStream/data/units/rf_m_001_957_069_0335_en.npy				
+10028	wavs/dev/rf_m_001_958_043_0236.wav	그렇죠. 저도 저렇게 김. 저렇게 싸서 먹죠.	wavs/dev/rf_m_001_958_043_0236_en.wav	That's right. Me too. I wrap it like that.	
+	/Users/hayubin/EchoStream/data/units/rf_m_001_958_043_0236_en.npy				
+10039	wavs/dev/rf_m_001_958_080_0396.wav	삼십 초.	wavs/dev/rf_m_001_958_080_0396_en.wav	30 seconds.	
+	/Users/hayubin/EchoStream/data/units/rf_m_001_958_080_0396_en.npy				
+10054	wavs/dev/rf_m_001_959_024_0100.wav	네. 오늘요, 이 가지 밥을 저는 냄비밥을 할려고 해요.	wavs/dev/rf_m_001_959_024_0100_en.wav	Today, I'm going to make eggplant rice with pot rice.	
+	/Users/hayubin/EchoStream/data/units/rf_m_001_959_024_0100_en.npy				
+10062	wavs/dev/rf_m_001_959_055_0240.wav	브로콜리? 나는 방울부터 가야겠다.	wavs/dev/rf_m_001_959_055_0240_en.wav	Broccoli? I'll go with the tomatoes.	
+	/Users/hayubin/EchoStream/data/units/rf_m_001_959_055_0240_en.npy				
+10064	wavs/dev/rf_m_001_959_059_0260.wav	진짜 처음이에요.	wavs/dev/rf_m_001_959_059_0260_en.wav	It's really my first time.	
+	/Users/hayubin/EchoStream/data/units/rf_m_001_959_059_0260_en.npy				
+10076	wavs/dev/rf_m_001_959_094_0430.wav	우리가 호강도 이런 호강이 없네.	wavs/dev/rf_m_001_959_094_0430_en.wav	We're so lucky.	
+	/Users/hayubin/EchoStream/data/units/rf_m_001_959_094_0430_en.npy				
+10118	wavs/dev/rf_m_005_040_011_0071.wav	용수 오라버니 아니 얼마 전에 아주 좋은 소식을 매스콤으로만 들었어요.	wavs/dev/rf_m_005_040_011_0071_en.wav	Yong Soo, I heard a very good news through media recently.	
+	/Users/hayubin/EchoStream/data/units/rf_m_005_040_011_0071_en.npy				
+10122	wavs/dev/rf_m_005_040_017_0121.wav	일 점 칠 구 배로 좀 매우 높으신 편이세요.	wavs/dev/rf_m_005_040_017_0121_en.wav	1.7 times higher, and it's really high.	
+	/Users/hayubin/EchoStream/data/units/rf_m_005_040_017_0121_en.npy				
+10170	wavs/dev/rf_m_005_048_044_0262.wav	짜증 나지. 저거 입고 싶은데 맘대로 안 되니까. 갱년기 때는 어떻게 살을 빼기가 너무 힘들어요.	wavs/dev/rf_m_005_048_044_0262_en.wav	It's annoying. Because I can't wear it even if I want to. It's hard to lose weight during menopause.	
+	/Users/hayubin/EchoStream/data/units/rf_m_005_048_044_0262_en.npy				
+10184	wavs/dev/rf_m_005_049_015_0049.wav	저절로 힘이 가운데 이렇게. 이거 효과 좀 봤을까? 아무래도 난 모르겠네.	wavs/dev/rf_m_005_049_015_0049_en.wav	You will get strength in your core automatically. Do you think It worked? I don't know about that.	
+	/Users/hayubin/EchoStream/data/units/rf_m_005_049_015_0049_en.npy				
+10260	wavs/dev/rf_m_005_051_066_0203.wav	그때는 좌절감, 우울감 이런 것 때문에 사실 암보다도 더 힘들었던 것 같아요. 그때는.	wavs/dev/rf_m_005_051_066_0203_en.wav	I think it was harder because of frustration and depression, rather than the cancer. At that time.	
+	/Users/hayubin/EchoStream/data/units/rf_m_005_051_066_0203_en.npy				
+10285	wavs/dev/rf_m_005_052_057_0216.wav	이거 네, 아몬드 우유에요.	wavs/dev/rf_m_005_052_057_0216_en.wav	This, yes, almond milk.	
+	/Users/hayubin/EchoStream/data/units/rf_m_005_052_057_0216_en.npy				
+10291	wavs/dev/rf_m_005_052_088_0326.wav	게다가 제가 이제 갱년기가 시작되면서 호르몬이 점차 없어지다 보니까 이제 더 심해진 거죠. 콜라겐이 부족하니까.	wavs/dev/rf_m_005_052_088_0326_en.wav	Besides, as I'm starting menopause, my hormones are gradually disappearing, so it's getting worse now, due to lack of collagen.	
+	/Users/hayubin/EchoStream/data/units/rf_m_005_052_088_0326_en.npy				
+10307	wavs/dev/rf_m_005_053_011_0046.wav	엄마의 마음을 아는 듯. 누구보다 오늘 제일 신이 난 선이, 얼굴에서 웃음이 떠나질 않는데요.	wavs/dev/rf_m_005_053_011_0046_en.wav	He seems to know his mother's heart. Seon is more excited today than anyone else, and the smile never leaves his face.	
+	/Users/hayubin/EchoStream/data/units/rf_m_005_053_011_0046_en.npy				
+10327	wavs/dev/rf_m_005_053_051_0266.wav	하지만 탄수화물의 과다 섭취는 에너지원으로 쓰고 남는 포도당이 지방으로 체내에 축적되어서 비만의 원인이 되기도 하고요.	wavs/dev/rf_m_005_053_051_0266_en.wav	However, excessive intake of carbohydrates is used as an energy source and the excess glucose is stored as fat in the body, which can lead to obesity.	
+	/Users/hayubin/EchoStream/data/units/rf_m_005_053_051_0266_en.npy				
+10334	wavs/dev/rf_m_005_053_063_0336.wav	장사 준비에 한창인데요.	wavs/dev/rf_m_005_053_063_0336_en.wav	I'm in the middle of preparing for business.	
+	/Users/hayubin/EchoStream/data/units/rf_m_005_053_063_0336_en.npy				
+10355	wavs/dev/rf_m_005_054_030_0095.wav	정말 아파 봐, 몸이 아파 봐. 정말 사람이 얼마나 고통스러운데.	wavs/dev/rf_m_005_054_030_0095_en.wav	If you are really sick and your body is really sick, that puts a person in real pain.	
+	/Users/hayubin/EchoStream/data/units/rf_m_005_054_030_0095_en.npy				
+10359	wavs/dev/rf_m_005_054_050_0155.wav	지금처럼 뼈 건강을 위해서는 칼슘 섭취 신경 쓰시고, 식사 관리를 하시는 게 좋은 습관이라서요.	wavs/dev/rf_m_005_054_050_0155_en.wav	It is a good habit to pay attention to calcium intake and manage your diet for bone health like now.	
+	/Users/hayubin/EchoStream/data/units/rf_m_005_054_050_0155_en.npy				
+10390	wavs/dev/rf_m_005_055_055_0193.wav	이거 당신 먹는 거 이거 하나씩 넣어서 먹으면 아주 편할 거야.	wavs/dev/rf_m_005_055_055_0193_en.wav	It'll be very convenient if you put this in what you eat.	
+	/Users/hayubin/EchoStream/data/units/rf_m_005_055_055_0193_en.npy				
+10412	wavs/dev/rf_m_005_055_127_0443.wav	오메가 쓰리 같은 경우는 피에 떠다니는 기름, 중성지방을 대사하는데 중요한 역할을 하는데요.	wavs/dev/rf_m_005_055_127_0443_en.wav	Omega-3 plays an important role in metabolizing oil and triglycerides floating in the blood.	
+	/Users/hayubin/EchoStream/data/units/rf_m_005_055_127_0443_en.npy				
+10512	wavs/dev/rf_m_005_061_104_0301.wav	그리고 5대 영양소 고루 갖춰 요요를 방지한 균형 잡힌 식단, 거기에 체지방 감소와 호르몬 조절에 영향을 준 시서스의 섭취가 도움이 됐을 것으로 보입니다.	wavs/dev/rf_m_005_061_104_0301_en.wav	And a balanced diet that prevents a yo-yo effect by consuming all the five major nutrients, along with the intake of cissus, which has an effect on body fat reduction and hormone regulation, seems to have helped.	
+	/Users/hayubin/EchoStream/data/units/rf_m_005_061_104_0301_en.npy				
+10564	wavs/dev/rf_m_005_072_020_0062.wav	물을 챙겨 다 주는 아내 조병희씨	wavs/dev/rf_m_005_072_020_0062_en.wav	His wife, Jo Byeong-hee, who brings him all water.	
+	/Users/hayubin/EchoStream/data/units/rf_m_005_072_020_0062_en.npy				
+10566	wavs/dev/rf_m_005_072_042_0112.wav	옛날에 트위스트 그런거	wavs/dev/rf_m_005_072_042_0112_en.wav	In the past, twist things like that.	
+	/Users/hayubin/EchoStream/data/units/rf_m_005_072_042_0112_en.npy				
+10580	wavs/dev/rf_m_005_072_137_0322.wav	공복 인데 왜 이렇게 많이 나왔지?	wavs/dev/rf_m_005_072_137_0322_en.wav	Why is it so high on an empty stomach?	
+	/Users/hayubin/EchoStream/data/units/rf_m_005_072_137_0322_en.npy				
+10581	wavs/dev/rf_m_005_072_144_0342.wav	나도그래 언니, 근데 언니는 당뇨가 있으니까 좀 조심하면 좋겠어	wavs/dev/rf_m_005_072_144_0342_en.wav	Me, too. But you have diabetes, so I want you to be careful	
+	/Users/hayubin/EchoStream/data/units/rf_m_005_072_144_0342_en.npy				
+10585	wavs/dev/rf_m_005_072_170_0392.wav	많이 좋아진 것 같아요. 운동도 하고 식단도 관리해서 그런지 수치가 전보다 훨씬 좋아졌어요	wavs/dev/rf_m_005_072_170_0392_en.wav	I think it's gotten a lot better. Maybe it's because I worked out and took care of my diet, so my figure is much better than before	
+	/Users/hayubin/EchoStream/data/units/rf_m_005_072_170_0392_en.npy				
+10615	wavs/dev/rf_m_005_073_117_0346.wav	거기다가 산양유 단백질도 음료로 준비해봤어요.	wavs/dev/rf_m_005_073_117_0346_en.wav	In addition, I prepared goat milk protein as a drink.	
+	/Users/hayubin/EchoStream/data/units/rf_m_005_073_117_0346_en.npy				
+10648	wavs/dev/rf_m_005_075_110_0393.wav	확실히 그 체중 감소도 있었고 몸이 일단 가벼워져서 내가 생활하는 데 좀 불편이 없지 않나 하는 생각이 들어요 지금.	wavs/dev/rf_m_005_075_110_0393_en.wav	There was certainly that weight loss, and once my body has become lighter, I think that it is not inconvenient for me to live my life now.	
+	/Users/hayubin/EchoStream/data/units/rf_m_005_075_110_0393_en.npy				
+10662	wavs/dev/rf_m_005_076_056_0198.wav	사골국이 관절에 좋잖아요. 그래서 자주 먹어요.	wavs/dev/rf_m_005_076_056_0198_en.wav	Beef bone soup is good for joints. So I eat often.	
+	/Users/hayubin/EchoStream/data/units/rf_m_005_076_056_0198_en.npy				
+10696	wavs/dev/rf_m_005_080_095_0256.wav	정규 앨범까지 낸 부부의 노래 실력 한 번 들어봅시다.	wavs/dev/rf_m_005_080_095_0256_en.wav	Let's have a listen to the singing skills of the couple who even released an official record.	
+	/Users/hayubin/EchoStream/data/units/rf_m_005_080_095_0256_en.npy				
+10699	wavs/dev/rf_m_005_080_104_0286.wav	불면증에 뇌경색까지 와서 고통스럽다는 김금희 씨까지	wavs/dev/rf_m_005_080_104_0286_en.wav	Kim Geumhee is suffering from insomnia and cerebral infarction.	
+	/Users/hayubin/EchoStream/data/units/rf_m_005_080_104_0286_en.npy				
+10722	wavs/dev/rf_m_005_081_029_0117.wav	당신 맨날 욕심내고	wavs/dev/rf_m_005_081_029_0117_en.wav	You are greedy every day	
+	/Users/hayubin/EchoStream/data/units/rf_m_005_081_029_0117_en.npy				
+10723	wavs/dev/rf_m_005_081_032_0127.wav	아내 진송아 씨 또한 뇌동맥류로 인한 건강에 위기가 있었는데요.	wavs/dev/rf_m_005_081_032_0127_en.wav	His wife, JIn Song-ah, also had a health crisis due to cerebral aneurysm.	
+	/Users/hayubin/EchoStream/data/units/rf_m_005_081_032_0127_en.npy				
+10728	wavs/dev/rf_m_005_081_050_0177.wav	국내 뇌동맥류 환자 수 또한 매년 증가하며 혈관 건강의 중요성이 대두되고 있는 상황이다.	wavs/dev/rf_m_005_081_050_0177_en.wav	As the number of cerebral aneurysm patients in Korea is also increasing every year, the importance of vascular health has come to the fore.	
+	/Users/hayubin/EchoStream/data/units/rf_m_005_081_050_0177_en.npy				
+10774	wavs/dev/rf_m_005_082_074_0305.wav	특히 소화 기능이 저하된 노년층의 경우 단백질이 풍부하면서도 열량이 너무 높지 않고,	wavs/dev/rf_m_005_082_074_0305_en.wav	In particular, in the case of the elderly with reduced digestive function, they need something that is rich in protein but not too high in calories.	
+	/Users/hayubin/EchoStream/data/units/rf_m_005_082_074_0305_en.npy				
+10797	wavs/dev/rf_m_005_083_051_0208.wav	우리 신체는 변화를 싫어해서 이전의 상태를 유지하려는 항상성을 가지고 있는데요.	wavs/dev/rf_m_005_083_051_0208_en.wav	Our body doesn't like change, so it has homeostasis to maintain the previous state.	
+	/Users/hayubin/EchoStream/data/units/rf_m_005_083_051_0208_en.npy				
+10806	wavs/dev/rf_m_005_083_078_0298.wav	요요 반복에 탄수화물 중독인 김정은 도전자. 다이어트가 시급합니다.	wavs/dev/rf_m_005_083_078_0298_en.wav	Challenger Kim Jung-eun addicted to carbohydrates with repeated yo-yo effect. There is an urgent call for diet.	
+	/Users/hayubin/EchoStream/data/units/rf_m_005_083_078_0298_en.npy				
+10824	wavs/dev/rf_m_005_084_039_0079.wav	돼지 불백 쌈밥이 그렇게 좋대 비타민 비 원이 많아서 몸에 되게 좋대 관절에 정말 좋대	wavs/dev/rf_m_005_084_039_0079_en.wav	I heard that pork bulbaek ssambap is so good for the body because it has a lot of vitamin B1, it’s really good for the joints	
+	/Users/hayubin/EchoStream/data/units/rf_m_005_084_039_0079_en.npy				
+10828	wavs/dev/rf_m_005_084_073_0139.wav	관절염을 오랜 시간 방치할 경우 심혈관계 질환의 발병확률은 약 16% 퍼센트 가량 증가하며 전신질환을 유발할 수 있고	wavs/dev/rf_m_005_084_073_0139_en.wav	If arthritis is left unattended for a long time, the risk of cardiovascular disease increases by about 16%, which can lead to systemic disease.	
+	/Users/hayubin/EchoStream/data/units/rf_m_005_084_073_0139_en.npy				
+10846	wavs/dev/rf_m_005_085_019_0067.wav	얘, 너희 아버지 이거 또 샀어.	wavs/dev/rf_m_005_085_019_0067_en.wav	Hey, your father bought this again.	
+	/Users/hayubin/EchoStream/data/units/rf_m_005_085_019_0067_en.npy				
+10863	wavs/dev/rf_m_005_085_085_0277.wav	무릎도 아프고 또 허리도 아프고 손목도 좀 이렇게 하다 보면 손도 저리고 그래서 그런 게 좀 힘들어요.	wavs/dev/rf_m_005_085_085_0277_en.wav	My knees hurt, my back hurts, and my wrists also get numb when I do this kind of thing, so it's a little difficult.	
+	/Users/hayubin/EchoStream/data/units/rf_m_005_085_085_0277_en.npy				
+10916	wavs/dev/rf_m_005_088_076_0266.wav	제가 옛날에는 이게 잘 맞았었거든요. 근데 이게 지금은 안 맞아요	wavs/dev/rf_m_005_088_076_0266_en.wav	I used to be fine with this in the past. But this is not right now	
+	/Users/hayubin/EchoStream/data/units/rf_m_005_088_076_0266_en.npy				
+10935	wavs/dev/rf_m_005_089_039_0137.wav	안녕하세요. 알약방의 건강 주치의 한약 박사 김기호입니다. 건강인을 직접 찾아 나선 김경호 주치의.	wavs/dev/rf_m_005_089_039_0137_en.wav	Hello. I am Dr. Kyungho Kim, the oriental doctor of the 'pill room'. Dr. Kyungho Kim, who went directly to find a healthy person.	
+	/Users/hayubin/EchoStream/data/units/rf_m_005_089_039_0137_en.npy				
+10947	wavs/dev/rf_m_005_089_072_0267.wav	바빠죽겠는데 뭘 먹고 있어? 빨리 와. 뱃살 빼야지.	wavs/dev/rf_m_005_089_072_0267_en.wav	We're busy, and what are you eating? Come quickly. We need to lose belly fat.	
+	/Users/hayubin/EchoStream/data/units/rf_m_005_089_072_0267_en.npy				
+10983	wavs/dev/rf_m_005_090_093_0340.wav	건강을 위해 하나 씩 습관을 바꿔나가는 옥순 씨. 이런 게 큰 변화의 시작일 것입니다.	wavs/dev/rf_m_005_090_093_0340_en.wav	Ok-sun changes her habits one by one for her health. This will be the beginning of a big change.	
+	/Users/hayubin/EchoStream/data/units/rf_m_005_090_093_0340_en.npy				
+10986	wavs/dev/rf_m_005_091_001_0002.wav	당뇨병은 심뇌혈관 질환의 발생률이 약 네 배, 만성콩팥 질환 발생률이 약 열 배 증가합니다.	wavs/dev/rf_m_005_091_001_0002_en.wav	Diabetes increases the incidence of cardiovascular disease by about four times and chronic kidney disease by about ten times.	
+	/Users/hayubin/EchoStream/data/units/rf_m_005_091_001_0002_en.npy				
+11077	wavs/dev/rf_m_005_093_035_0201.wav	일 년에 한 번 정도는 주기적으로 제 관절 체크를 하기 위해서 이렇게 한 번씩 진료를 받으러 오고 있어요.	wavs/dev/rf_m_005_093_035_0201_en.wav	I come to see a doctor once a year to check my joints regularly.	
+	/Users/hayubin/EchoStream/data/units/rf_m_005_093_035_0201_en.npy				
+11098	wavs/dev/rf_m_005_094_003_0020.wav	여러 분야에서 최초라는 타이틀을 보유한 아나운서, 그 정체는	wavs/dev/rf_m_005_094_003_0020_en.wav	The announcer who has the title of being the first in many fields. Guess who that is.	
+	/Users/hayubin/EchoStream/data/units/rf_m_005_094_003_0020_en.npy				
+11112	wavs/dev/rf_m_005_094_028_0160.wav	산속에 울려 퍼지는 여러 사람의 목소리. 일단 그쪽으로 향해보는데.	wavs/dev/rf_m_005_094_028_0160_en.wav	The voice of many people reverberating in the mountains. Heading over there.	
+	/Users/hayubin/EchoStream/data/units/rf_m_005_094_028_0160_en.npy				
+11178	wavs/dev/rf_m_005_097_017_0065.wav	진짜? 이게 맛있는 게 몸에도 좋단 말이야? 나 너무 호강한다. 고마워 언니.	wavs/dev/rf_m_005_097_017_0065_en.wav	Really? Are you saying that this delicious thing is good for the body as well? I can't be treated better. Thank you so much.	
+	/Users/hayubin/EchoStream/data/units/rf_m_005_097_017_0065_en.npy				
+11179	wavs/dev/rf_m_005_097_019_0075.wav	언니 내가 얼마 전에 본 게 있는데 이 근력을 테스트하는 게 있거든.	wavs/dev/rf_m_005_097_019_0075_en.wav	Mi-young, I saw something a while ago that tests muscular strength.	
+	/Users/hayubin/EchoStream/data/units/rf_m_005_097_019_0075_en.npy				
+11199	wavs/dev/rf_m_005_097_089_0315.wav	또한 우리 몸에서 혈중 포도당을 가장 많이 소모하는 조직이 근육인 만큼 단백질 섭취는 당뇨병 예방에도 도움이 됩니다.	wavs/dev/rf_m_005_097_089_0315_en.wav	In addition, as muscle is the tissue that consumes the most blood glucose in our body, protein intake helps to prevent diabetes.	
+	/Users/hayubin/EchoStream/data/units/rf_m_005_097_089_0315_en.npy				
+11223	wavs/dev/rf_m_005_098_071_0274.wav	고혈압, 고지혈증과 더불어 시작된 무릎 통증. 과연 금자씨는 이겨낼 수 있을까?	wavs/dev/rf_m_005_098_071_0274_en.wav	Could Geumja overcome knee pain that started with high blood pressure and hyperlipidemia?	
+	/Users/hayubin/EchoStream/data/units/rf_m_005_098_071_0274_en.npy				
+11256	wavs/dev/rf_m_005_099_088_0290.wav	맛있겠다 먹자 라면 조금만 먹어. 내가 다 먹을 거야.	wavs/dev/rf_m_005_099_088_0290_en.wav	It looks good. Let's eat. Eat ramen a little bit. I'm going to eat it all.	
+	/Users/hayubin/EchoStream/data/units/rf_m_005_099_088_0290_en.npy				
+11259	wavs/dev/rf_m_005_099_098_0320.wav	검사 결과 이선미 씨 당뇨약을 먹는데도 혈당이 높은 것을 확인했습니다.	wavs/dev/rf_m_005_099_098_0320_en.wav	As a result of the test, it was confirmed that Lee Sun-mi has high blood sugar even though she is taking diabetes medication.	
+	/Users/hayubin/EchoStream/data/units/rf_m_005_099_098_0320_en.npy				
+11266	wavs/dev/rf_m_005_099_123_0400.wav	뱃살이 빠지긴 빠졌네요. 내장 지방 삼십 일 점 얼마였는데 이십 점 구까지 빠졌네요. 허리 둘레가 많이 줄었네.	wavs/dev/rf_m_005_099_123_0400_en.wav	Some of the belly fat is gone. The visceral fat was about 31 points, but it decreased to 20.9. The waist circumference has decreased a lot.	
+	/Users/hayubin/EchoStream/data/units/rf_m_005_099_123_0400_en.npy				
+11275	wavs/dev/rf_m_005_100_055_0125.wav	어, 오/, 뭐야?	wavs/dev/rf_m_005_100_055_0125_en.wav	uh, oh, what is it?	
+	/Users/hayubin/EchoStream/data/units/rf_m_005_100_055_0125_en.npy				
+11279	wavs/dev/rf_m_005_100_085_0185.wav	평일에는 피아노 학원을 운영하고 주말에는 아이들에게 운동법까지 전수하는 건강인	wavs/dev/rf_m_005_100_085_0185_en.wav	A healthy person who runs a piano academy on weekdays and teaches children how to exercise on weekends.	
+	/Users/hayubin/EchoStream/data/units/rf_m_005_100_085_0185_en.npy				
+11291	wavs/dev/rf_m_005_100_194_0395.wav	땡기지? 허벅지랑 엉덩이도 땡기고?	wavs/dev/rf_m_005_100_194_0395_en.wav	Got a tight feeling? Tight on your thighs and butt?	
+	/Users/hayubin/EchoStream/data/units/rf_m_005_100_194_0395_en.npy				
+11306	wavs/dev/rf_m_005_101_039_0140.wav	운동을 하고 있는 사람들 전부 건강 인으로 보이는 상황.	wavs/dev/rf_m_005_101_039_0140_en.wav	At the moment, everyone who is exercising appears to be the Healthy Person.	
+	/Users/hayubin/EchoStream/data/units/rf_m_005_101_039_0140_en.npy				
+11331	wavs/dev/rf_m_005_102_012_0041.wav	보여지는 직업이기 때문에, 굉장히 외모에 신경을 많이 썼어요. 그래서 스무 살 때부터 다이어트 아닌 다이어트를 쫙 관리를 지금까지 했고.	wavs/dev/rf_m_005_102_012_0041_en.wav	Since I am an entertainer, I paid a lot of attention to my appearance. Since I was 20, I've been on a diet.	
+	/Users/hayubin/EchoStream/data/units/rf_m_005_102_012_0041_en.npy				
+11338	wavs/dev/rf_m_005_102_032_0111.wav	오십 좀 넘으셨죠	wavs/dev/rf_m_005_102_032_0111_en.wav	Over 50.	
+	/Users/hayubin/EchoStream/data/units/rf_m_005_102_032_0111_en.npy				
+11345	wavs/dev/rf_m_005_102_050_0181.wav	제가 오늘 운동량이 얼마나 되나 체크하려고, 제가 장사도 하고	wavs/dev/rf_m_005_102_050_0181_en.wav	I wanted to check how much I worked out today. Since I run a business,	
+	/Users/hayubin/EchoStream/data/units/rf_m_005_102_050_0181_en.npy				
+11387	wavs/dev/rf_m_005_104_066_0265.wav	즉, 진피층을 위한 관리를 아무리 열심히 해도	wavs/dev/rf_m_005_104_066_0265_en.wav	In other words, no matter how hard you try to take care of your dermal layer,	
+	/Users/hayubin/EchoStream/data/units/rf_m_005_104_066_0265_en.npy				
+11388	wavs/dev/rf_m_005_104_073_0285.wav	건강한 삶을 되찾기 위한 십사 일의 도전 체인지업.	wavs/dev/rf_m_005_104_073_0285_en.wav	A 14-day challenge to regain a healthy life.	
+	/Users/hayubin/EchoStream/data/units/rf_m_005_104_073_0285_en.npy				
+11389	wavs/dev/rf_m_005_104_076_0295.wav	건강의 지표, 피부 장벽의 붕괴를 막아라.	wavs/dev/rf_m_005_104_076_0295_en.wav	Prevent the breakdown of the skin barrier, an indicator of health.	
+	/Users/hayubin/EchoStream/data/units/rf_m_005_104_076_0295_en.npy				
+11398	wavs/dev/rf_m_005_104_109_0415.wav	두 번째 지압점은 눈꼬리 옆 광대뼈와 볼 밑 부분에 광대뼈 둘레를 지그시 눌러줍니다.	wavs/dev/rf_m_005_104_109_0415_en.wav	The second acupressure point is to gently press around the cheekbones next to the outer corners of the eyes and the cheekbones at the bottom of the cheeks.	
+	/Users/hayubin/EchoStream/data/units/rf_m_005_104_109_0415_en.npy				
+11401	wavs/dev/rf_m_005_105_001_0006.wav	근육건강을 회복한 건강인의 일 퍼센트 건강 기밀은?	wavs/dev/rf_m_005_105_001_0006_en.wav	What is the 1% health secret of the Healthy Person who has recovered muscle health?	
+	/Users/hayubin/EchoStream/data/units/rf_m_005_105_001_0006_en.npy				
+11432	wavs/dev/rf_m_005_105_103_0436.wav	길고도 짧았던 십사 일 간의 도전이 종료됐습니다.	wavs/dev/rf_m_005_105_103_0436_en.wav	The long and short 14-day challenge has come to an end.	
+	/Users/hayubin/EchoStream/data/units/rf_m_005_105_103_0436_en.npy				
+11455	wavs/dev/rf_m_005_106_084_0285.wav	문제는 한국인의 육십 오 퍼센트가 탄수화물에 중독돼 있다는 것인데요.	wavs/dev/rf_m_005_106_084_0285_en.wav	The problem is that fifty-five percent of Koreans are addicted to carbohydrates.	
+	/Users/hayubin/EchoStream/data/units/rf_m_005_106_084_0285_en.npy				
+11457	wavs/dev/rf_m_005_106_089_0305.wav	그래서 병원에 갔는데 협심증으로 인해서 스텐스를 습니다.	wavs/dev/rf_m_005_106_089_0305_en.wav	So I went to the hospital, and they said it was angina, and a stent was performed.	
+	/Users/hayubin/EchoStream/data/units/rf_m_005_106_089_0305_en.npy				
+11475	wavs/dev/rf_m_005_107_016_0054.wav	다리 운동 진짜 되겠는데?	wavs/dev/rf_m_005_107_016_0054_en.wav	This is good for leg workout.	
+	/Users/hayubin/EchoStream/data/units/rf_m_005_107_016_0054_en.npy				
+11503	wavs/dev/rf_m_005_107_098_0374.wav	당뇨병을 비롯한 만성질환을 막는 근력, 어떻게 키워야 할까?	wavs/dev/rf_m_005_107_098_0374_en.wav	Strength to prevent chronic diseases including diabetes. How should I develop it?	
+	/Users/hayubin/EchoStream/data/units/rf_m_005_107_098_0374_en.npy				
+11537	wavs/dev/rf_m_005_108_075_0341.wav	또 여성에게 발병률이 높은 유방암 발병률도 높아지는 시기라 더욱 관리가 필요합니다.	wavs/dev/rf_m_005_108_075_0341_en.wav	In addition, as the incidence of breast cancer, which is high in women, is also increasing, more management is required.	
+	/Users/hayubin/EchoStream/data/units/rf_m_005_108_075_0341_en.npy				
+11547	wavs/dev/rf_m_005_108_099_0441.wav	도전 전과 후 정말 많이 달라졌습니다.	wavs/dev/rf_m_005_108_099_0441_en.wav	She has changed a lot before and after the challenge.	
+	/Users/hayubin/EchoStream/data/units/rf_m_005_108_099_0441_en.npy				

@@ -26,32 +26,55 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--host", type=str, default="127.0.0.1", help="Server host (default: 127.0.0.1)")
     parser.add_argument("--port", type=int, default=8000, help="Server port (default: 8000)")
     parser.add_argument("--chunk", type=int, default=1024, help="Microphone chunk size in frames")
+    parser.add_argument("--input-device", type=int, default=None, help="Input device index (see sounddevice query)")
+    parser.add_argument("--samplerate", type=int, default=16000, help="Sampling rate for capture/playback")
+    parser.add_argument("--channels", type=int, default=1, help="Number of input/output channels")
     parser.add_argument("--outfile", type=str, default="", help="Output WAV filename (optional, if not provided, audio will be played in real-time)")
     return parser.parse_args()
 
 
-async def stream_microphone(host: str, port: int, chunk: int, outfile: str):
+async def stream_microphone(host: str, port: int, chunk: int, outfile: str, input_device: int | None, samplerate: int, channels: int):
     url = f"ws://{host}:{port}/ws"
-    sample_rate = 16000
-    channels = 1
+    sample_rate = samplerate
 
     print(f"Connecting to {url}")
 
     async with websockets.connect(url) as websocket:
         print("🎙️  Speak now (Ctrl+C to finish)...")
         stop_recording = asyncio.Event()
-        loop = asyncio.get_event_loop()
+        end_requested = asyncio.Event()
+        loop = asyncio.get_running_loop()
+        try:
+            # Use asyncio-native signal handler (more reliable on macOS/Unix with asyncio)
+            loop.add_signal_handler(
+                signal.SIGINT,
+                lambda: (print("\n⏹️  Stopping recording..."), end_requested.set(), stop_recording.set()),
+            )
+        except NotImplementedError:
+            # Fallback (e.g., on Windows): best-effort synchronous handler
+            signal.signal(signal.SIGINT, lambda *_: (end_requested.set(), stop_recording.set()))
         
-        def signal_handler(signum, frame):
-            """Signal handler that sets the stop event."""
-            loop.call_soon_threadsafe(stop_recording.set)
+        async def stdin_listener():
+            # 엔터(빈 줄)를 누르면 종료 신호를 보냄 (Ctrl+C 대신 안전)
+            try:
+                await loop.run_in_executor(None, sys.stdin.readline)
+                print("\n⏹️  Stopping (ENTER pressed)...")
+                end_requested.set()
+                stop_recording.set()
+            except Exception:
+                pass
         
-        # Signal handler 등록
-        signal.signal(signal.SIGINT, signal_handler)
+        async def send_end_when_stopped():
+            # As soon as stop signal arrives, try to send END promptly while socket is open
+            await end_requested.wait()
+            try:
+                await websocket.send("END")
+            except Exception as e:
+                print(f"❌ Error sending END (early): {e}")
         
         async def send_audio():
             try:
-                with sd.InputStream(samplerate=sample_rate, channels=channels, dtype="int16", blocksize=chunk) as stream:
+                with sd.InputStream(samplerate=sample_rate, channels=channels, dtype="int16", blocksize=chunk, device=input_device) as stream:
                     while not stop_recording.is_set():
                         try:
                             audio_chunk, _ = stream.read(chunk)
@@ -125,15 +148,21 @@ async def stream_microphone(host: str, port: int, chunk: int, outfile: str):
                 print(f"\n❌ Error in receive_and_play_translations: {e}")
         
         # 오디오 전송 및 수신을 동시에 처리
+        stdin_task = asyncio.create_task(stdin_listener())
         send_task = asyncio.create_task(send_audio())
+        end_task = asyncio.create_task(send_end_when_stopped())
         receive_task = asyncio.create_task(receive_and_play_translations(websocket))
         
         try:
             # stop_recording이 설정될 때까지 대기
             await stop_recording.wait()
             print("\n⏳ Finishing translation...")
+        except KeyboardInterrupt:
+            # Fallback: ensure graceful stop on KeyboardInterrupt even if signal handler didn't run
+            stop_recording.set()
+            print("\n⏹️  KeyboardInterrupt received, stopping...")
         except Exception as e:
-            print(f"Error: {e}")
+            print(f"\nError: {e}")
             stop_recording.set()
         
         # 태스크가 완료될 때까지 잠시 대기
@@ -141,12 +170,11 @@ async def stream_microphone(host: str, port: int, chunk: int, outfile: str):
             await asyncio.wait_for(send_task, timeout=1.0)
         except (asyncio.TimeoutError, asyncio.CancelledError):
             pass
-
-        # END 신호 전송
+        # Ensure END task had a chance to run
         try:
-            await websocket.send("END")
-        except Exception as e:
-            print(f"❌ Error sending END: {e}")
+            await asyncio.wait_for(end_task, timeout=1.0)
+        except (asyncio.TimeoutError, asyncio.CancelledError):
+            pass
         
         # 마지막 번역 결과 수신 대기
         try:
@@ -160,7 +188,7 @@ async def stream_microphone(host: str, port: int, chunk: int, outfile: str):
 def main():
     args = parse_args()
     try:
-        asyncio.run(stream_microphone(args.host, args.port, args.chunk, args.outfile))
+        asyncio.run(stream_microphone(args.host, args.port, args.chunk, args.outfile, args.input_device, args.samplerate, args.channels))
     except KeyboardInterrupt:
         print("\n프로그램을 종료합니다.")
         sys.exit(0)

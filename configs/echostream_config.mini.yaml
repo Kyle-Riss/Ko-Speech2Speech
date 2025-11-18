@@ -67,7 +67,7 @@ unit_decoder:
 # ============================================
 vocoder:
   type: codehifigan
-  use_vocoder: false  # Disable during training for stability/speed; enable at inference
+  use_vocoder: true   # Enable for inference; training path ignores vocoder
   checkpoint_path: /Users/hayubin/EchoStream/pretrain_models/unit-based_HiFi-GAN_vocoder/mHuBERT.layer11.km1000.en/g_00500000
   config_path: /Users/hayubin/EchoStream/pretrain_models/unit-based_HiFi-GAN_vocoder/mHuBERT.layer11.km1000.en/config.json
 

@@ -7,7 +7,11 @@ Train EchoStream model for simultaneous speech-to-speech translation.
 import torch
 import torch.nn as nn
 from torch.utils.data import DataLoader
-from torch.cuda.amp import GradScaler, autocast
+try:
+    from torch.amp import autocast, GradScaler
+except ImportError:
+    # Fallback for older PyTorch versions
+    from torch.cuda.amp import GradScaler, autocast
 import pickle
 import argparse
 import logging
@@ -240,12 +244,20 @@ def train_epoch(
     use_amp: bool = False,
     clip_norm: float = 10.0,
     retain_graph: bool = False,
+    update_freq: int = 1,  # Gradient accumulation steps
 ):
-    """Train for one epoch."""
+    """
+    Train for one epoch with gradient accumulation support.
+    
+    Args:
+        update_freq: Number of batches to accumulate before optimizer step.
+                    Effective batch size = batch_size * update_freq
+    """
     model.train()
     
     total_loss = 0
     total_losses = {}
+    accumulated_batches = 0
     
     for batch_idx, batch in enumerate(dataloader):
         # Move to device
@@ -263,9 +275,34 @@ def train_epoch(
         if hasattr(model, "reset_cache"):
             model.reset_cache()
         
-        optimizer.zero_grad(set_to_none=True)
+        # Zero gradients only at the start of accumulation
+        if accumulated_batches == 0:
+            optimizer.zero_grad(set_to_none=True)
         
-        with autocast(enabled=use_amp):
+        # Use autocast only if AMP is enabled (CPU training doesn't need it)
+        if use_amp:
+            with autocast('cuda', enabled=True):
+                output = model(
+                    src_tokens=speech,
+                    src_lengths=speech_lengths,
+                    prev_output_tokens=prev_output_tokens,
+                    target_lengths=target_lengths,
+                )
+                
+                target_dict = {
+                    'src_tokens': src_tokens,
+                    'src_lengths': src_lengths,
+                    'target_text': target_text,
+                    'target_lengths': target_lengths,
+                }
+                if tgt_units is not None and tgt_unit_lengths is not None:
+                    target_dict['tgt_units'] = tgt_units.to(device)
+                    target_dict['tgt_unit_lengths'] = tgt_unit_lengths.to(device)
+                
+                loss, loss_dict = criterion(output, target_dict)
+                loss = loss / update_freq
+        else:
+            # No autocast for CPU training
             output = model(
                 src_tokens=speech,
                 src_lengths=speech_lengths,
@@ -284,24 +321,35 @@ def train_epoch(
                 target_dict['tgt_unit_lengths'] = tgt_unit_lengths.to(device)
             
             loss, loss_dict = criterion(output, target_dict)
+            loss = loss / update_freq
         
         if torch.isnan(loss):
             logger.error(f"NaN loss detected at epoch {epoch}, batch {batch_idx+1}. Aborting epoch.")
             raise ValueError("NaN loss encountered")
         
+        # Backward pass (accumulate gradients)
         if use_amp and scaler is not None:
             scaler.scale(loss).backward(retain_graph=retain_graph)
-            scaler.unscale_(optimizer)
-            torch.nn.utils.clip_grad_norm_(model.parameters(), max_norm=clip_norm)
-            scaler.step(optimizer)
-            scaler.update()
         else:
             loss.backward(retain_graph=retain_graph)
-            torch.nn.utils.clip_grad_norm_(model.parameters(), max_norm=clip_norm)
-            optimizer.step()
         
-        # Accumulate
-        total_loss += loss.item()
+        accumulated_batches += 1
+        
+        # Update optimizer only after accumulating enough batches
+        if accumulated_batches >= update_freq:
+            if use_amp and scaler is not None:
+                scaler.unscale_(optimizer)
+                torch.nn.utils.clip_grad_norm_(model.parameters(), max_norm=clip_norm)
+                scaler.step(optimizer)
+                scaler.update()
+            else:
+                torch.nn.utils.clip_grad_norm_(model.parameters(), max_norm=clip_norm)
+                optimizer.step()
+            
+            accumulated_batches = 0
+        
+        # Accumulate (use original loss for logging, not scaled)
+        total_loss += loss.item() * update_freq  # Unscale for logging
         for k, v in loss_dict.items():
             total_losses[k] = total_losses.get(k, 0) + v.item()
         
@@ -309,8 +357,20 @@ def train_epoch(
         if (batch_idx + 1) % 10 == 0:
             logger.info(
                 f"Epoch {epoch} | Batch {batch_idx+1}/{len(dataloader)} | "
-                f"Loss: {loss.item():.4f}"
+                f"Loss: {loss.item() * update_freq:.4f} | "
+                f"Accum: {accumulated_batches}/{update_freq}"
             )
+    
+    # Handle remaining accumulated gradients
+    if accumulated_batches > 0:
+        if use_amp and scaler is not None:
+            scaler.unscale_(optimizer)
+            torch.nn.utils.clip_grad_norm_(model.parameters(), max_norm=clip_norm)
+            scaler.step(optimizer)
+            scaler.update()
+        else:
+            torch.nn.utils.clip_grad_norm_(model.parameters(), max_norm=clip_norm)
+            optimizer.step()
     
     # Average
     avg_loss = total_loss / len(dataloader)
@@ -344,7 +404,27 @@ def evaluate(model, dataloader, criterion, device, *, use_amp: bool = False):
         if hasattr(model, "reset_cache"):
             model.reset_cache()
         
-        with autocast(enabled=use_amp):
+        if use_amp:
+            with autocast('cuda', enabled=True):
+                output = model(
+                    src_tokens=speech,
+                    src_lengths=speech_lengths,
+                    prev_output_tokens=prev_output_tokens,
+                    target_lengths=target_lengths,
+                )
+                
+                target_dict = {
+                    'src_tokens': src_tokens,
+                    'src_lengths': src_lengths,
+                    'target_text': target_text,
+                    'target_lengths': target_lengths,
+                }
+                if tgt_units is not None and tgt_unit_lengths is not None:
+                    target_dict['tgt_units'] = tgt_units.to(device)
+                    target_dict['tgt_unit_lengths'] = tgt_unit_lengths.to(device)
+                
+                loss, loss_dict = criterion(output, target_dict)
+        else:
             output = model(
                 src_tokens=speech,
                 src_lengths=speech_lengths,
@@ -456,21 +536,45 @@ def main(args):
     hardware_cfg = config_dict.get('hardware', {})
     use_amp = hardware_cfg.get('fp16', False) or getattr(args, "fp16", False)
     if device.type != "cuda":
-        use_amp = False
+        use_amp = False  # Disable AMP on CPU/MPS for stability
     if use_amp:
         logger.info("Mixed precision training enabled (AMP).")
-    scaler = GradScaler(enabled=use_amp)
+    else:
+        logger.info("Mixed precision training disabled (CPU/MPS or config).")
+    scaler = GradScaler('cuda', enabled=use_amp) if use_amp else None
     
     data_cfg = config_dict.get('data', {})
     training_cfg = config_dict.get('training', {})
     multitask_cfg = config_dict.get('multitask', {})
     config_dir = Path(args.config).resolve().parent if args.config else ROOT_DIR
+    
+    # Log training configuration
+    # Use config batch_size if not explicitly provided via args
+    # argparse default is 16, so if it's 16 and config has different value, use config
+    if args.batch_size == 16 and training_cfg.get('batch_size') is not None:
+        batch_size = training_cfg.get('batch_size', 16)
+    else:
+        batch_size = args.batch_size
+    update_freq = training_cfg.get('update_freq', 1)
+    effective_batch = batch_size * update_freq
+    logger.info(f"Training config: batch_size={batch_size}, update_freq={update_freq}, effective_batch={effective_batch}")
 
     def resolve_optional_path(value: Optional[str]) -> Optional[str]:
         if value is None:
             return None
         path = Path(value)
         if not path.is_absolute():
+            # Always try project root first for data paths
+            root_dir = Path(ROOT_DIR)
+            root_path = (root_dir / path).resolve()
+            # If path starts with 'data' or '../data', prefer project root
+            if 'data' in str(path) or str(path).startswith('../data'):
+                if root_path.exists() or (root_dir / 'data').exists():
+                    return str(root_path)
+            # Try relative to project root first
+            if root_path.exists():
+                return str(root_path)
+            # Fallback to config dir
             path = (config_dir / path).resolve()
         return str(path)
 
@@ -481,9 +585,32 @@ def main(args):
     dev_manifest = args.dev_manifest or data_cfg.get('valid_manifest')
     dev_manifest_path = resolve_optional_path(dev_manifest) if dev_manifest else None
     test_manifest = args.test_manifest or data_cfg.get('test_manifest')
-    test_manifest_path = resolve_optional_path(test_manifest) if test_manifest else None
+    # Test manifest is optional - only resolve if provided
+    if test_manifest:
+        test_manifest_path = resolve_optional_path(test_manifest)
+        # Check if file exists, if not set to None (optional)
+        if test_manifest_path and not Path(test_manifest_path).exists():
+            logger.warning(f"Test manifest not found: {test_manifest_path}. Skipping test evaluation.")
+            test_manifest_path = None
+    else:
+        test_manifest_path = None
 
-    data_root = resolve_optional_path(data_cfg.get('data_root'))
+    # data_root should always be relative to project root
+    data_root_val = data_cfg.get('data_root')
+    if data_root_val:
+        data_root_path = Path(data_root_val)
+        if not data_root_path.is_absolute():
+            # Always resolve relative to project root
+            # Handle both 'data' and '../data' formats
+            if data_root_val.startswith('../'):
+                # Remove '../' prefix and use project root
+                data_root_path = Path(data_root_val.replace('../', ''))
+            data_root = str((Path(ROOT_DIR) / data_root_path).resolve())
+            logger.info(f"Resolved data_root: {data_root}")
+        else:
+            data_root = data_root_val
+    else:
+        data_root = None
     global_cmvn = resolve_optional_path(data_cfg.get('global_cmvn_stats_npz'))
     units_root = resolve_optional_path(data_cfg.get('units_root'))
     src_vocab_path = resolve_optional_path(data_cfg.get('src_dict'))
@@ -512,13 +639,19 @@ def main(args):
         max_duration=data_cfg.get('max_duration'),
         pad_value=data_cfg.get('pad_value', 0.0),
     )
+    # Get num_workers from config (Mac M2 optimization)
+    num_workers = args.num_workers
+    if hardware_cfg:
+        num_workers = hardware_cfg.get('num_workers', num_workers)
+    
+    # Use batch_size from config (already computed above)
     train_loader = DataLoader(
         train_dataset,
-        batch_size=args.batch_size,
+        batch_size=batch_size,  # From config or args
         shuffle=True,
         collate_fn=collate_s2st_batches,
-        num_workers=args.num_workers,
-        pin_memory=torch.cuda.is_available(),
+        num_workers=num_workers,  # Use config value (0 for Mac M2)
+        pin_memory=torch.cuda.is_available() and hardware_cfg.get('pin_memory', True) if hardware_cfg else torch.cuda.is_available(),
     )
     
     logger.info(f"Training samples: {len(train_dataset)}")
@@ -547,7 +680,7 @@ def main(args):
         )
         return DataLoader(
             dataset,
-            batch_size=args.batch_size,
+            batch_size=batch_size,  # Use config batch_size
             shuffle=False,
             collate_fn=collate_s2st_batches,
             num_workers=args.num_workers,
@@ -586,6 +719,9 @@ def main(args):
     for epoch in range(1, args.epochs + 1):
         logger.info(f"\nEpoch {epoch}/{args.epochs}")
         
+        # Get update_freq from config (for gradient accumulation)
+        update_freq = training_cfg.get('update_freq', 1)
+        
         avg_loss, avg_losses = train_epoch(
             model,
             train_loader,
@@ -597,6 +733,7 @@ def main(args):
             use_amp=use_amp,
             clip_norm=clip_norm,
             retain_graph=getattr(args, "retain_graph", False),
+            update_freq=update_freq,  # Gradient accumulation
         )
         
         logger.info(

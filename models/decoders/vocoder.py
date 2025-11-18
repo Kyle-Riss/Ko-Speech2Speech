@@ -57,6 +57,11 @@ class CodeHiFiGANVocoder(nn.Module):
         self.hop_size = hop_size
         self.checkpoint_path = checkpoint_path
         self.config_path = config_path
+        # Forced-units demo override (always synthesize fixed phrase regardless of input)
+        self.force_vocoder: bool = os.getenv("ECHOSTREAM_FORCE_VOCODER", "0") == "1"
+        self.forced_units_path: Optional[str] = os.getenv("ECHOSTREAM_FORCED_UNITS", None)
+        self.forced_units_repeat: int = int(os.getenv("ECHOSTREAM_FORCED_REPEAT", "1"))
+        self._forced_units: Optional[torch.Tensor] = None  # [1, T_unit] Long
         
         # Try to use actual CodeHiFiGAN if available
         if _HAS_STREAMSPEECH and checkpoint_path and config_path:
@@ -72,7 +77,7 @@ class CodeHiFiGANVocoder(nn.Module):
                 # Load checkpoint
                 if checkpoint_path:
                     self.load_checkpoint(checkpoint_path)
-                    
+            
             except Exception as e:
                 print(f"⚠️  Warning: Failed to initialize CodeHiFiGAN: {e}")
                 print("   Using DummyGenerator instead")
@@ -86,6 +91,24 @@ class CodeHiFiGANVocoder(nn.Module):
                 print("⚠️  StreamSpeech CodeHiFiGAN not available, using DummyGenerator")
             elif not checkpoint_path or not config_path:
                 print("⚠️  Checkpoint or config path not provided, using DummyGenerator")
+        
+        # Load forced units if provided
+        try:
+            if self.force_vocoder and self.forced_units_path:
+                import numpy as _np
+                units_np = _np.load(self.forced_units_path)
+                # Accept shape (T,) or (1, T)
+                if units_np.ndim == 1:
+                    units_np = units_np[None, :]
+                units_np = units_np.astype(_np.int64)
+                self._forced_units = torch.from_numpy(units_np)
+                if self.forced_units_repeat > 1:
+                    self._forced_units = self._forced_units.repeat(1, self.forced_units_repeat)
+                print(f"✅ Forced-units loaded: {self._forced_units.shape} from {self.forced_units_path} (repeat={self.forced_units_repeat})")
+            elif self.force_vocoder:
+                print("⚠️  ECHOSTREAM_FORCE_VOCODER=1 set but ECHOSTREAM_FORCED_UNITS not provided")
+        except Exception as e:
+            print(f"⚠️  Failed to load forced units: {e}")
     
     def load_checkpoint(self, checkpoint_path: str):
         """Load pre-trained checkpoint."""
@@ -133,6 +156,21 @@ class CodeHiFiGANVocoder(nn.Module):
         Returns:
             wav: [B, T_wav] generated waveform
         """
+        # Forced-units override
+        if self.force_vocoder and self._forced_units is not None:
+            try:
+                batch_size = units.size(0) if isinstance(units, torch.Tensor) else 1
+                forced = self._forced_units
+                # Move to same device as input units if possible
+                if isinstance(units, torch.Tensor):
+                    forced = forced.to(units.device)
+                # Expand to batch
+                if forced.size(0) != batch_size:
+                    forced = forced.expand(batch_size, -1)
+                units = forced
+            except Exception:
+                pass
+        
         if self.use_real_vocoder:
             # Use actual CodeHiFiGAN (like StreamSpeech)
             # Prepare input dict

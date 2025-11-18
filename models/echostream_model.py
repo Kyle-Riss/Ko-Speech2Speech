@@ -175,22 +175,31 @@ class EchoStreamModel(nn.Module):
         # ==================================
         encoder_out = self.encoder(src_tokens, src_lengths)
         
+        # Extract from List format (StreamSpeech/Fairseq requirement)
+        # encoder_out['encoder_out'] is a List - must use [0] to get tensor
         encoder_hidden = encoder_out['encoder_out'][0]  # [T', B, D]
         
         # ==================================
         # 2. ASR CTC Decoder
         # ==================================
+        # Extract padding mask from List format (StreamSpeech requirement)
+        encoder_padding_mask = (
+            encoder_out['encoder_padding_mask'][0] 
+            if encoder_out['encoder_padding_mask'] 
+            else None
+        )
+        
         asr_out = self.asr_ctc_decoder(
-            encoder_out=encoder_hidden,
-            encoder_padding_mask=encoder_out['encoder_padding_mask'][0] if encoder_out['encoder_padding_mask'] else None,
+            encoder_out=encoder_hidden,  # [T', B, D] tensor
+            encoder_padding_mask=encoder_padding_mask,  # [B, T'] tensor or None
         )
         
         # ==================================
         # 3. ST CTC Decoder
         # ==================================
         st_out = self.st_ctc_decoder(
-            encoder_out=encoder_hidden,
-            encoder_padding_mask=encoder_out['encoder_padding_mask'][0] if encoder_out['encoder_padding_mask'] else None,
+            encoder_out=encoder_hidden,  # [T', B, D] tensor
+            encoder_padding_mask=encoder_padding_mask,  # [B, T'] tensor or None
         )
         
         # ==================================

@@ -1,0 +1,170 @@
+# EchoStream Configuration for Mac M2 8GB RAM
+# Optimized for low-memory fine-tuning
+
+model_name: echostream_mac_m2
+model_type: speech_to_speech
+
+# ============================================
+# Encoder: Emformer (Ultra Mini for 8GB RAM)
+# ============================================
+encoder:
+  type: emformer
+  embed_dim: 128          # Reduced from 256
+  layers: 4               # Reduced from 16
+  attention_heads: 2       # Reduced from 4
+  ffn_embed_dim: 512       # Reduced from 1024
+
+  # Emformer-specific parameters
+  segment_length: 4        # 40ms @ 100fps (4 frames)
+  left_context_length: 20  # Reduced from 30 (200ms context)
+  right_context_length: 0 # Full streaming (no lookahead)
+  memory_size: 4          # Reduced from 8
+
+  # Input
+  input_feat_per_channel: 80
+  input_channels: 1
+
+# ============================================
+# Decoders (Ultra Mini)
+# ============================================
+
+# ASR CTC Decoder
+asr_decoder:
+  type: ctc
+  embed_dim: 128
+  vocab_size: 6000
+
+# ST CTC Decoder
+st_decoder:
+  type: ctc_with_transformer
+  embed_dim: 128
+  layers: 1               # Reduced from 2
+  attention_heads: 2
+  vocab_size: 6000
+  unidirectional: true
+
+# MT Decoder
+mt_decoder:
+  type: transformer
+  embed_dim: 128
+  layers: 2               # Reduced from 4
+  attention_heads: 2
+  ffn_embed_dim: 512
+  vocab_size: 6000
+
+# Unit Decoder
+unit_decoder:
+  type: ctc_transformer_unit
+  embed_dim: 128
+  layers: 2               # Reduced from 6
+  attention_heads: 2
+  ffn_embed_dim: 512
+  num_units: 1000
+  ctc_upsample_ratio: 5
+
+# ============================================
+# Vocoder
+# ============================================
+vocoder:
+  type: codehifigan
+  use_vocoder: true
+  checkpoint_path: /Users/hayubin/EchoStream/pretrain_models/unit-based_HiFi-GAN_vocoder/mHuBERT.layer11.km1000.en/g_00500000
+  config_path: /Users/hayubin/EchoStream/pretrain_models/unit-based_HiFi-GAN_vocoder/mHuBERT.layer11.km1000.en/config.json
+
+# ============================================
+# Training (Mac M2 8GB Optimized)
+# ============================================
+training:
+  max_epochs: 50
+  batch_size: 2           # Very small for 8GB RAM
+  max_tokens: 5000         # Reduced from 20000
+  update_freq: 8           # Gradient accumulation (effective batch = 2*8 = 16)
+  
+  # Optimizer
+  optimizer: adam
+  lr: 0.0003
+  adam_betas: [0.9, 0.98]
+  adam_eps: 1.0e-08
+  weight_decay: 0.0001
+
+  # LR schedule
+  lr_scheduler: inverse_sqrt
+  warmup_updates: 400      # Reduced
+  warmup_init_lr: 1.0e-07
+
+  # Regularization
+  dropout: 0.2
+  attention_dropout: 0.2
+  activation_dropout: 0.2
+  label_smoothing: 0.1
+
+  # Gradient clipping
+  clip_norm: 1.0
+
+# ============================================
+# Multi-task Learning
+# ============================================
+multitask:
+  asr_weight: 0.05
+  st_weight: 0.05
+  mt_weight: 0.20
+  unit_weight: 0.70
+  ctc_weight: 0.5
+
+# ============================================
+# Streaming / Inference
+# ============================================
+streaming:
+  chunk_size: 40
+  wait_k: 5
+  ctc_threshold: 0.6
+  enable_punctuation: true
+
+# ============================================
+# Data
+# ============================================
+data:
+  data_root: data
+  train_manifest: ../data/train_sampled.units.tsv
+  valid_manifest: ../data/dev_sampled.units.tsv
+  test_manifest: ../data/test_sampled.tsv
+  units_root: /Users/hayubin/EchoStream/data/units
+
+  # Preprocessing
+  use_audio_input: true
+  num_mel_bins: 80
+  sample_rate: 16000
+  load_tgt_units: true
+
+  # Global CMVN
+  global_cmvn_stats_npz: /Users/hayubin/EchoStream/data/gcmvn.npz
+
+  # Dictionaries
+  src_dict: /Users/hayubin/EchoStream/data/src_unigram6000/spm_unigram_ko.txt
+  tgt_dict: /Users/hayubin/EchoStream/data/tgt_unigram6000/spm_unigram_en.txt
+
+  # HuBERT units
+  hubert_model: /Users/hayubin/EchoStream/pretrain_models/mHuBERT/mhubert_base_vp_en_es_fr_it3_L11_km1000.bin
+  hubert_layer: 11
+  num_clusters: 1000
+
+# ============================================
+# Evaluation
+# ============================================
+evaluation:
+  compute_bleu: true
+  compute_asr_bleu: true
+  compute_latency: true
+  latency_metrics: [AL, AP, DAL]
+  target_latency_al: 1000
+
+# ============================================
+# Hardware (Mac M2 8GB)
+# ============================================
+hardware:
+  num_gpus: 0              # CPU only (MPS not stable)
+  fp16: false              # Disable for stability on Mac
+  distributed_world_size: 1
+  num_workers: 0           # Avoid multiprocessing issues on Mac
+  pin_memory: false        # Not needed for CPU
+

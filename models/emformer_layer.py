@@ -399,13 +399,18 @@ class EmformerEncoder(nn.Module):
         encoder_out = torch.cat(outputs, dim=0)  # [T, B, D]
         
         # Generate padding mask if lengths provided
+        # StreamSpeech/Fairseq format: True = padding, False = valid
         encoder_padding_mask = None
         if lengths is not None:
             max_len = encoder_out.size(0)
+            # Create mask: True for positions >= length (padding), False for valid positions
             encoder_padding_mask = torch.arange(max_len, device=x.device).unsqueeze(0) >= lengths.unsqueeze(1)
         
+        # Return in StreamSpeech/Fairseq format:
+        # - encoder_out: List of [T, B, D] tensor
+        # - encoder_padding_mask: List of [B, T] tensor (True = padding) or empty list
         return {
-            'encoder_out': [encoder_out],
+            'encoder_out': [encoder_out],  # List format required by StreamSpeech decoders
             'encoder_padding_mask': [encoder_padding_mask] if encoder_padding_mask is not None else [],
         }
 

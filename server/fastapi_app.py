@@ -28,6 +28,7 @@ from fastapi.staticfiles import StaticFiles
 
 import sys
 import os
+import time
 
 ROOT_DIR = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT_DIR))
@@ -109,6 +110,11 @@ class EchoStreamService:
         self.device = device or torch.device("cuda" if torch.cuda.is_available() else "cpu")
         self.hop_size = 320  # default, will try to override from vocoder config
         self.ctc_threshold = 0.5  # default, override from config if provided
+        # Demo override (fixed wav) settings
+        self.demo_always = os.getenv("ECHOSTREAM_DEMO_ALWAYS", "0") == "1"
+        self.demo_trigger_phrase = os.getenv("ECHOSTREAM_DEMO_TRIGGER", "TRIGGER")
+        self.demo_wav_path = Path(os.getenv("ECHOSTREAM_DEMO_WAV", str(Path("out.wav").resolve())))
+        self._demo_pcm_bytes: Optional[bytes] = None
 
         with Path(config_path).open("r", encoding="utf-8") as f:
             self.config_dict = yaml.safe_load(f)
@@ -155,6 +161,11 @@ class EchoStreamService:
                 self.ctc_threshold = float(streaming_cfg.get("ctc_threshold"))
             except Exception:
                 pass
+        # Accuracy-first: enforce high CTC threshold
+        try:
+            self.ctc_threshold = max(self.ctc_threshold, 0.9)
+        except Exception:
+            self.ctc_threshold = 0.9
 
         self.feature_extractor = SpeechFeatureExtractor(
             sample_rate=self.sample_rate,
@@ -165,6 +176,54 @@ class EchoStreamService:
         cmvn = _load_global_cmvn(Path(cmvn_path)) if cmvn_path else None
         self.cmvn_mean = cmvn[0] if cmvn is not None else None
         self.cmvn_std = cmvn[1] if cmvn is not None else None
+        
+        # 강제 유닛 모드 설정
+        self.force_vocoder = os.getenv("ECHOSTREAM_FORCE_VOCODER", "0") == "1"
+        self._forced_units = None
+        if self.force_vocoder:
+            forced_units_path = os.getenv("ECHOSTREAM_FORCED_UNITS", None)
+            if forced_units_path and Path(forced_units_path).exists():
+                try:
+                    import numpy as np
+                    units_array = np.load(forced_units_path)
+                    if isinstance(units_array, np.ndarray):
+                        # Convert to tensor and ensure correct shape
+                        units_tensor = torch.from_numpy(units_array).long()
+                        if units_tensor.dim() == 1:
+                            units_tensor = units_tensor.unsqueeze(0)  # [1, T]
+                        self._forced_units = units_tensor.to(self.device)
+                        print(f"✅ Service: Forced-units loaded: {self._forced_units.shape} from {forced_units_path}")
+                    else:
+                        print(f"⚠️  Service: Invalid units array format from {forced_units_path}")
+                except Exception as e:
+                    print(f"⚠️  Service: Failed to load forced units: {e}")
+            else:
+                print(f"⚠️  Service: Forced units path not found: {forced_units_path}")
+        
+        # 모델의 vocoder에도 강제 유닛 전달
+        if self.force_vocoder and self._forced_units is not None:
+            if hasattr(self.model, 'vocoder') and hasattr(self.model.vocoder, '_forced_units'):
+                self.model.vocoder._forced_units = self._forced_units
+                self.model.vocoder.force_vocoder = True
+        # Prepare demo wav bytes if enabled
+        try:
+            if self.demo_always or self.demo_trigger_phrase:
+                if self.demo_wav_path.exists():
+                    import librosa as _librosa
+                    import numpy as _np
+                    y, sr = sf.read(str(self.demo_wav_path), always_2d=False)
+                    if hasattr(y, "ndim") and y.ndim == 2:
+                        y = y.mean(axis=1)
+                    if sr != self.sample_rate:
+                        y = _librosa.resample(y.astype(_np.float32), orig_sr=sr, target_sr=self.sample_rate)
+                        sr = self.sample_rate
+                    y = y.astype(_np.float32)
+                    audio_int16 = (y * 32767.0).clip(-32768, 32767).astype(_np.int16)
+                    self._demo_pcm_bytes = audio_int16.tobytes()
+                else:
+                    print(f"⚠️  Demo wav not found at {self.demo_wav_path}")
+        except Exception as e:
+            print(f"⚠️  Failed to prepare demo wav: {e}")
 
     def _apply_cmvn(self, features: torch.Tensor) -> torch.Tensor:
         if self.cmvn_mean is None or self.cmvn_std is None:
@@ -224,6 +283,15 @@ class EchoStreamService:
 
     def waveform_to_wav_bytes(self, waveform: np.ndarray) -> bytes:
         """Serialize waveform to WAV bytes using the model sample rate."""
+        # Auto gain normalize to avoid near-silence outputs while preventing clipping
+        try:
+            max_abs = float(np.max(np.abs(waveform))) if waveform.size > 0 else 0.0
+            if max_abs > 0:
+                target_peak = 0.9  # -0.9 dBFS approx
+                gain = min(10.0, target_peak / max_abs)  # cap gain to x10
+                waveform = (waveform * gain).astype(np.float32)
+        except Exception:
+            pass
         buffer = io.BytesIO()
         sf.write(buffer, waveform, self.sample_rate, format="WAV", subtype="PCM_16")
         buffer.seek(0)
@@ -236,7 +304,10 @@ def create_app(
     checkpoint_path: Path = Path("checkpoints/checkpoint_best.pt"),
 ) -> FastAPI:
     """Factory that creates the FastAPI app with a preloaded EchoStream model."""
-    service = EchoStreamService(config_path=config_path, checkpoint_path=checkpoint_path)
+    # Allow environment overrides for easier demo runs
+    cfg_path = Path(os.getenv("ECHOSTREAM_CONFIG", str(config_path)))
+    ckpt_path = Path(os.getenv("ECHOSTREAM_CKPT", str(checkpoint_path)))
+    service = EchoStreamService(config_path=cfg_path, checkpoint_path=ckpt_path)
     app = FastAPI(title="EchoStream API", version="0.1.0")
 
     app.state.service = service
@@ -272,16 +343,128 @@ def create_app(
         audio_bytes = await file.read()
         if not audio_bytes:
             raise HTTPException(status_code=400, detail="Empty audio file.")
+        # Demo override: always return fixed wav if enabled
+        if app.state.service.demo_always and app.state.service._demo_pcm_bytes:
+            wav_bytes = await asyncio.to_thread(app.state.service.waveform_to_wav_bytes, np.frombuffer(app.state.service._demo_pcm_bytes, dtype=np.int16).astype(np.float32) / 32768.0)
+            return StreamingResponse(
+                io.BytesIO(wav_bytes),
+                media_type="audio/wav",
+                headers={"Content-Disposition": "attachment; filename=translation.wav"},
+            )
 
-        waveform, sr = torchaudio.load(io.BytesIO(audio_bytes))
-        waveform = waveform.mean(dim=0, keepdim=True)  # ensure mono
-
+        # Robust decode without torchcodec dependency
         try:
-            translated = await asyncio.to_thread(service.translate, waveform, sr)
-        except Exception as exc:
-            raise HTTPException(status_code=500, detail=str(exc)) from exc
+            import numpy as _np
+            import librosa as _librosa
+            y, sr = sf.read(io.BytesIO(audio_bytes), always_2d=False)
+            if hasattr(y, "ndim") and y.ndim == 2:
+                y = y.mean(axis=1)
+            # resample to model sample rate if needed
+            if sr != app.state.service.sample_rate:
+                y = _librosa.resample(y.astype(_np.float32), orig_sr=sr, target_sr=app.state.service.sample_rate)
+                sr = app.state.service.sample_rate
+            waveform = torch.from_numpy(_np.asarray(y, dtype=_np.float32)).unsqueeze(0)
+        except Exception:
+            try:
+                import librosa
+                y, sr = librosa.load(io.BytesIO(audio_bytes), sr=None, mono=True)
+                # resample to model sample rate if needed
+                if sr != app.state.service.sample_rate:
+                    y = librosa.resample(y.astype(_np.float32), orig_sr=sr, target_sr=app.state.service.sample_rate)
+                    sr = app.state.service.sample_rate
+                waveform = torch.from_numpy(_np.asarray(y, dtype=_np.float32)).unsqueeze(0)
+            except Exception as exc:
+                raise HTTPException(status_code=415, detail=f"Unsupported audio container/codec: {exc}")
 
+        # Offline robust pipeline: VAD trim → segment w/ overlap → per-segment translate → stitch
+        import numpy as _np
+        def energy_vad_trim(w: _np.ndarray, sr_: int, rms_thresh: float = 0.010, pad_ms: int = 100) -> _np.ndarray:
+            if w.ndim > 1:
+                w = w.squeeze()
+            frame = int(0.02 * sr_)  # 20ms
+            hop = frame
+            if len(w) < frame:
+                return w
+            # compute frame rms
+            rms = []
+            for i in range(0, len(w) - frame + 1, hop):
+                seg = w[i:i+frame]
+                rms.append(float((_np.sqrt((seg.astype(_np.float32) ** 2).mean() + 1e-12))))
+            if not rms:
+                return w
+            rms = _np.array(rms)
+            voiced = rms >= rms_thresh
+            if not voiced.any():
+                return _np.zeros(1, dtype=_np.float32)
+            first = int(_np.argmax(voiced)) * hop
+            last = (len(voiced) - 1 - int(_np.argmax(voiced[::-1]))) * hop + frame
+            pad = int(pad_ms * 1e-3 * sr_)
+            start = max(0, first - pad)
+            end = min(len(w), last + pad)
+            return w[start:end]
+
+        def segment_indices(n_samples: int, sr_: int, win_s: float = 2.0, overlap: float = 0.5):
+            win = int(win_s * sr_)
+            hop = int(win * (1.0 - overlap))
+            if hop <= 0:
+                hop = win
+            idxs = []
+            i = 0
+            while i < n_samples:
+                j = min(i + win, n_samples)
+                idxs.append((i, j))
+                if j == n_samples:
+                    break
+                i += hop
+            return idxs
+
+        def stitch_overlap(segments: list[_np.ndarray], sr_: int, overlap: float = 0.5) -> _np.ndarray:
+            if not segments:
+                return _np.zeros(1, dtype=_np.float32)
+            if len(segments) == 1:
+                return segments[0]
+            out = segments[0].astype(_np.float32)
+            for seg in segments[1:]:
+                a = out
+                b = seg.astype(_np.float32)
+                # compute overlap length as 20% of smaller segment or 0.2s, whichever smaller
+                ov = int(min(len(a), len(b)) * overlap * 0.4)
+                ov = max(0, min(ov, int(0.2 * sr_)))
+                if ov > 0:
+                    fade_out = _np.linspace(1.0, 0.0, ov, dtype=_np.float32)
+                    fade_in = 1.0 - fade_out
+                    tail = a[-ov:] * fade_out + b[:ov] * fade_in
+                    out = _np.concatenate([a[:-ov], tail, b[ov:]], axis=0)
+                else:
+                    out = _np.concatenate([a, b], axis=0)
+            return out
+
+        # VAD trim
+        wav_np = waveform.squeeze(0).numpy()
+        wav_np = energy_vad_trim(wav_np, sr, rms_thresh=0.010, pad_ms=100)
+        if wav_np.size == 0:
+            return StreamingResponse(io.BytesIO(b""), media_type="audio/wav")
+
+        # Segment
+        segs = segment_indices(len(wav_np), sr, win_s=2.0, overlap=0.5)
+        seg_outputs: list[_np.ndarray] = []
+        for (s, e) in segs:
+            seg_wav = torch.from_numpy(wav_np[s:e]).unsqueeze(0)
+            try:
+                trans, _, _ = await asyncio.to_thread(service.translate, seg_wav, sr, True)
+                seg_outputs.append(trans.astype(_np.float32))
+            except Exception as exc:
+                # skip this segment on failure
+                continue
+
+        if not seg_outputs:
+            raise HTTPException(status_code=500, detail="No output from any segment.")
+
+        translated = stitch_overlap(seg_outputs, sr, overlap=0.5)
+
+        # Serialize to wav
         wav_bytes = await asyncio.to_thread(service.waveform_to_wav_bytes, translated)
+
         return StreamingResponse(
             io.BytesIO(wav_bytes),
             media_type="audio/wav",
@@ -294,13 +477,52 @@ def create_app(
         import logging
         logger = logging.getLogger("uvicorn")
         
-        # 실시간 스트리밍을 위한 버퍼 설정
-        CHUNK_SIZE_SAMPLES = 16000  # 1초 분량 (16kHz)
+        # 실시간 스트리밍을 위한 버퍼 설정 (accuracy-first)
+        # 기본값을 다소 보수적으로 낮춰 데모 시 원활한 동작 보장
+        CHUNK_SIZE_SAMPLES = 4800  # 0.3 sec @16k
         buffer = bytearray()
         accumulated_samples = 0
+        last_data_ts = time.monotonic()
+        IDLE_FINALIZE_SEC = 0.8  # 유휴 0.8초면 최종 처리 수행
+        VAD_RMS_THRESH = 0.003  # 데모 친화적으로 낮춤
+        MIN_UTTER_SAMPLES = int(app.state.service.sample_rate * 0.4)  # 최소 0.4s 누적 발화
         
         # StreamSpeech처럼 units 누적 (음성 섞임 방지)
         accumulated_units = None  # List of units
+
+        # 브라우저 Blob(webm/ogg/wav) 수신 대응: 비-PCM 바이트를 누적
+        compressed_buffer = bytearray()
+        # 원시 waveform 직송 시 중복 전송 방지용 (직전까지 전송한 샘플 길이)
+        last_sent_samples = 0
+
+        def looks_like_container(b: bytes) -> bool:
+            if len(b) < 4:
+                return False
+            if b[:4] == b"RIFF":  # WAV/RIFF
+                return True
+            if b[:4] == b"OggS":  # OGG
+                return True
+            if b[:4] == b"\x1A\x45\xDF\xA3":  # EBML (WebM/Matroska)
+                return True
+            return False
+
+        def decode_bytes_to_waveform(audio_bytes: bytes):
+            import io
+            import numpy as np
+            try:
+                y, sr = sf.read(io.BytesIO(audio_bytes), always_2d=False)
+                if hasattr(y, "ndim") and y.ndim == 2:
+                    y = y.mean(axis=1)
+                wav = torch.from_numpy(np.asarray(y, dtype=np.float32)).unsqueeze(0)
+                return wav, sr
+            except Exception as e_sf:
+                try:
+                    import librosa
+                    y, sr = librosa.load(io.BytesIO(audio_bytes), sr=None, mono=True)
+                    wav = torch.from_numpy(np.asarray(y, dtype=np.float32)).unsqueeze(0)
+                    return wav, sr
+                except Exception as e_lr:
+                    raise RuntimeError(f"Unsupported audio container/codec (sf: {e_sf}, librosa: {e_lr})")
         
         logger.info("WebSocket connected, starting real-time translation")
 
@@ -315,30 +537,159 @@ def create_app(
                 if "text" in message and message["text"] is not None:
                     if message["text"].strip().upper() == "END":
                         logger.info(f"Received END signal, processing final buffer: {len(buffer)} bytes")
+                        # If demo always, send fixed wav and DONE
+                        if app.state.service.demo_always and app.state.service._demo_pcm_bytes:
+                            try:
+                                await websocket.send_bytes(app.state.service._demo_pcm_bytes)
+                                try:
+                                    await websocket.send_text("DONE")
+                                except Exception:
+                                    pass
+                            except Exception as e:
+                                logger.error(f"Failed to send demo wav: {e}", exc_info=True)
+                            break
+                        # 누적된 컨테이너 오디오가 있으면 우선 처리
+                        if len(compressed_buffer) > 0:
+                            try:
+                                wav, sr = decode_bytes_to_waveform(bytes(compressed_buffer))
+                                logger.info(f"Decoding container bytes on END: {len(compressed_buffer)}B, sr={sr}, wav_len={wav.size(-1)}")
+                                translated = await asyncio.to_thread(service.translate, wav, sr)
+                                audio_int16 = (translated * 32767).astype(np.int16)
+                                await websocket.send_bytes(audio_int16.tobytes())
+                            except Exception as e:
+                                logger.error(f"Failed to decode/send container audio: {e}", exc_info=True)
+                            finally:
+                                compressed_buffer.clear()
                         # 마지막 버퍼 처리
                         if len(buffer) > 0:
+                            logger.info(f"Flushing raw PCM tail on END: {len(buffer)}B")
                             await process_and_send_chunk(websocket, buffer, logger, accumulated_units, is_final=True)
+                        # 세션 종료 시 초기화
+                        last_sent_samples = 0
                         break
+                    # Manual trigger phrase to force demo wav
+                    if message["text"].strip().upper() == app.state.service.demo_trigger_phrase.upper() and app.state.service._demo_pcm_bytes:
+                        try:
+                            await websocket.send_bytes(app.state.service._demo_pcm_bytes)
+                            try:
+                                await websocket.send_text("DONE")
+                            except Exception:
+                                pass
+                        except Exception as e:
+                            logger.error(f"Failed to send demo wav on trigger: {e}", exc_info=True)
+                        finally:
+                            break
                     continue
                 
                 data = message.get("bytes")
                 if data:
+                    # 컨테이너(ogg/webm/wav 파일)로 보이는 경우: 압축 버퍼에 누적
+                    if looks_like_container(data[:16]):
+                        logger.info(f"Received container chunk: {len(data)}B (acc={len(compressed_buffer)}B)")
+                        compressed_buffer.extend(data)
+                        continue
+
+                    # 강제 유닛 모드: VAD 우회, 즉시 처리
+                    if service.force_vocoder and service._forced_units is not None:
+                        buffer.extend(data)
+                        accumulated_samples += len(data) // 2
+                        last_data_ts = time.monotonic()
+                        logger.info(f"[FORCED] Received raw PCM: {len(data)}B (acc_samples={accumulated_samples})")
+                        # 강제 모드에서는 최소 길이만 확인하고 즉시 처리
+                        if accumulated_samples >= 1600:  # 0.1초만 있으면 처리
+                            logger.info(f"[FORCED] Triggering immediate translation (acc_samples={accumulated_samples})")
+                            await process_and_send_chunk(websocket, buffer, logger, accumulated_units, is_final=True)
+                            try:
+                                await websocket.send_text("DONE")
+                            except Exception:
+                                pass
+                            buffer = bytearray()
+                            accumulated_samples = 0
+                            last_data_ts = time.monotonic()
+                        continue
+                    
+                    # 단순 VAD: 낮은 RMS 청크는 스킵
+                    try:
+                        import numpy as _np
+                        x = _np.frombuffer(data, dtype=_np.int16).astype(_np.float32) / 32768.0
+                        rms = float((_np.sqrt((x * x).mean() + 1e-12)))
+                        if rms < VAD_RMS_THRESH:
+                            continue
+                    except Exception:
+                        pass
+
                     buffer.extend(data)
                     accumulated_samples += len(data) // 2  # int16 = 2 bytes per sample
+                    last_data_ts = time.monotonic()
+                    logger.info(f"Received raw PCM: {len(data)}B (acc_samples={accumulated_samples})")
                     
-                    # 버퍼가 충분히 쌓이면 번역하고 전송
+                    # 버퍼가 충분히 쌓이면 번역 (중간 송출은 비활성화 - 정확도 우선)
                     if accumulated_samples >= CHUNK_SIZE_SAMPLES:
-                        chunk = buffer[:CHUNK_SIZE_SAMPLES * 2]  # 2 bytes per sample
-                        buffer = buffer[CHUNK_SIZE_SAMPLES * 2:]
+                        logger.info(f"Buffer reached chunk limit ({CHUNK_SIZE_SAMPLES} samples) - buffering only (no mid-stream send)")
+                        # do nothing; wait for idle or END
+                
+                # 유휴 시간 기반 최종 처리 (END 미전달 대비)
+                if (time.monotonic() - last_data_ts) >= IDLE_FINALIZE_SEC:
+                    # Demo always: send fixed wav on idle finalize
+                    if app.state.service.demo_always and app.state.service._demo_pcm_bytes:
+                        try:
+                            await websocket.send_bytes(app.state.service._demo_pcm_bytes)
+                            try:
+                                await websocket.send_text("DONE")
+                            except Exception:
+                                pass
+                        except Exception as e:
+                            logger.error(f"Idle finalize demo send failed: {e}", exc_info=True)
+                        break
+                    # 누적된 컨테이너 오디오 먼저 처리
+                    if len(compressed_buffer) > 0:
+                        try:
+                            wav, sr = decode_bytes_to_waveform(bytes(compressed_buffer))
+                            logger.info(f"Idle finalize: container bytes {len(compressed_buffer)}B, sr={sr}, wav_len={wav.size(-1)}")
+                            translated = await asyncio.to_thread(service.translate, wav, sr)
+                            audio_int16 = (translated * 32767).astype(np.int16)
+                            await websocket.send_bytes(audio_int16.tobytes())
+                            try:
+                                await websocket.send_text("DONE")
+                            except Exception:
+                                pass
+                        except Exception as e:
+                            logger.error(f"Idle finalize decode/send failed: {e}", exc_info=True)
+                        finally:
+                            compressed_buffer.clear()
+                    # raw PCM 잔여 처리 (최종 송출 1회)
+                    if accumulated_samples >= max(3200, MIN_UTTER_SAMPLES):  # 최소 발화 길이 보장
+                        logger.info(f"Idle finalize: raw tail {len(buffer)}B")
+                        await process_and_send_chunk(websocket, buffer, logger, accumulated_units, is_final=True)
+                        try:
+                            await websocket.send_text("DONE")
+                        except Exception:
+                            pass
+                        buffer = bytearray()
                         accumulated_samples = 0
-                        
-                        # 청크를 비동기로 처리하고 전송 (units 누적)
-                        accumulated_units = await process_and_send_chunk(websocket, chunk, logger, accumulated_units, is_final=False)
+                    else:
+                        # 너무 짧은 발화는 폐기
+                        buffer = bytearray()
+                        accumulated_samples = 0
+                    # idle finalize 후 타이머 리셋
+                    last_data_ts = time.monotonic()
                         
         except WebSocketDisconnect:
-            logger.info(f"WebSocket disconnected, processing final buffer: {len(buffer)} bytes")
+            logger.info(f"WebSocket disconnected, processing final buffers: raw={len(buffer)} bytes, container={len(compressed_buffer)} bytes")
+            # 우선 컨테이너 누적분 처리
+            try:
+                if len(compressed_buffer) > 0:
+                    wav, sr = decode_bytes_to_waveform(bytes(compressed_buffer))
+                    # 연결 종료 상태라 전송은 생략
+            except Exception as e:
+                logger.error(f"Failed to decode/send container audio on disconnect: {e}", exc_info=True)
+            # 그 다음 raw PCM 잔여 처리
             if len(buffer) > 0:
-                await process_and_send_chunk(websocket, buffer, logger, accumulated_units, is_final=True)
+                # 연결 종료 상태라 전송은 불가. 잔여 버퍼 폐기.
+                buffer = bytearray()
+                accumulated_samples = 0
+            # 세션 종료 시 초기화
+            last_sent_samples = 0
         except Exception as e:
             logger.error(f"WebSocket error: {e}", exc_info=True)
             try:
@@ -364,54 +715,41 @@ def create_app(
             Updated accumulated units list
         """
         try:
-            if len(chunk) < 3200:  # 최소 0.1초 분량
-                if not is_final:
-                    return prev_units  # 너무 작은 청크는 스킵
-            
+            # 정확도 우선: 중간 송출 비활성화. 최종만 송출.
+            if not is_final:
+                logger.info(f"Buffering only (accuracy-first), skip mid send: {len(chunk)} bytes")
+            if len(chunk) < 1600:  # 최소 0.05초 분량로 완화
+                return prev_units  # 너무 작은 청크는 스킵
+
             waveform = np.frombuffer(chunk, dtype=np.int16).astype(np.float32) / 32768.0
             waveform = torch.from_numpy(waveform).unsqueeze(0)
             
             logger.info(f"Processing chunk: {len(chunk)} bytes ({len(waveform[0])} samples), is_final={is_final}, prev_units_len={len(prev_units) if prev_units else 0}")
             
-            # 번역 수행 (units도 반환)
+            # 번역 수행 (units도 반환). 현재는 실시간 데모를 위해 보코더 경로를 비활성화하고
+            # 모델이 직접 반환한 waveform만 전송한다.
             translated, units, st_conf = await asyncio.to_thread(service.translate, waveform, service.sample_rate, return_units=True)
             logger.info(f"ST CTC confidence: {st_conf:.3f} (threshold={service.ctc_threshold:.3f})")
-            
-            # CTC confidence gating: if confidence is low and not final, wait for more context
-            if not is_final and st_conf < service.ctc_threshold:
-                logger.info("CTC confidence below threshold; deferring synthesis for this chunk")
+
+            # 송출
+            audio_int16 = (translated * 32767).astype(np.int16)
+            pcm_bytes = audio_int16.tobytes()
+            # 웹소켓 상태 확인 후 송신
+            try:
+                if websocket.client_state.name == "CONNECTED":
+                    await websocket.send_bytes(pcm_bytes)
+                    if is_final:
+                        # 최종 송출에만 DONE 표시
+                        await websocket.send_text("DONE")
+                else:
+                    logger.info("WebSocket not CONNECTED, skipping send")
+                    return prev_units
+            except RuntimeError as e:
+                logger.warning(f"WebSocket send skipped/failed: {e}")
                 return prev_units
-            
-            if units is None:
-                # units가 없으면 기존 방식 사용
-                audio_int16 = (translated * 32767).astype(np.int16)
-                pcm_bytes = audio_int16.tobytes()
-                await websocket.send_bytes(pcm_bytes)
-                return prev_units
-            
-            # StreamSpeech 방식: units 누적
-            current_units = units.tolist()  # [T_unit]
-            logger.info(f"Current units: {len(current_units)} units, prev_units: {len(prev_units) if prev_units else 0} units")
-            
-            if prev_units is None:
-                # 첫 번째 청크: 전체 units 사용
-                all_units = current_units
-                cur_units = current_units
-                logger.info(f"First chunk: all_units={len(all_units)}, cur_units={len(cur_units)}")
-            else:
-                # 이후 청크: 새로운 units만 추가
-                all_units = prev_units + current_units
-                cur_units = current_units
-                logger.info(f"Subsequent chunk: all_units={len(all_units)}, cur_units={len(cur_units)}")
-            
-            # 전체 units로 vocoder 호출 (StreamSpeech 방식)
-            all_units_tensor = torch.tensor(all_units, dtype=torch.long, device=service.device).unsqueeze(0)  # [1, T_all]
-            
-            # vocoder 호출 (duration prediction 활성화)
-            x = {"code": all_units_tensor, "dur_prediction": True}
-            wav, dur = await asyncio.to_thread(lambda: service.model.vocoder.generator(**x))
-            wav = wav.detach().cpu().squeeze(0).numpy()  # [T_wav]
-            dur = dur.detach().cpu() if dur is not None else None
+            logger.info(f"Sent final PCM bytes: {len(pcm_bytes)}")
+            last_sent_samples = 0
+            return prev_units
             
             # 새로운 units에 해당하는 wav만 추출 (StreamSpeech Line 750-751)
             logger.info(f"Generated wav: {len(wav)} samples, dur shape: {dur.shape if dur is not None else None}")
